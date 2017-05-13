@@ -18,6 +18,7 @@ class CreateProductTable extends Migration
             $table->text('code')->nullable();
             $table->text('name');
             $table->double('width');
+            $table->double('amount');
             $table->timestamps();
         });
     }

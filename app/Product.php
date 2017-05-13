@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
   protected $table = "product";
-  protected $fillable = ['name' ,'width' ,'code'];
+  protected $fillable = ['name' ,'width' ,'code','amount'];
 
-  public function stocks(){
-  return $this->belongsTo('App\Stock');
-}
+
 }

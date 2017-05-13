@@ -28,6 +28,10 @@
               {!! Form::label('body', 'ความกว้าง(เมตร)') !!}
               {!! Form::text('width', null, ['class' => 'form-control']) !!}
               </div>
+              <div class="form-group">
+              {!! Form::label('body', 'จำนวณสินค้าในคลัง') !!}
+              {!! Form::text('amount', null, ['class' => 'form-control']) !!}
+              </div>
                 <hr class="bottom-line">
               <div class="form-group">
 

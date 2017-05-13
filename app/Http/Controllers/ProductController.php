@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
+use Session;
+use Cookie;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Product;
-use App\Stock;
 
 use Request;
 use App\Http\Requests\ProductRequest;
@@ -64,8 +63,7 @@ class ProductController extends Controller
       $products = Product::find($id);
       if(empty($products))
       abort(404);
-      $stocks = Stock::whereproduct($id)->get();
-      return view('product.showProduct', compact('products','stocks'));
+      return view('product.showProduct', compact('products'));
     }
 
     /**
@@ -89,9 +87,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, ProductRequest $request)
     {
-        //
+      $products = Product::findOrFail($id);
+        $products->update($request->all());
+        session()->flash('flash_message', 'Edit completed');
+      return redirect('product');
     }
 
     /**
@@ -102,6 +103,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $products = Product::findOrFail($id);
+      $products->delete();
+      return redirect('product');
     }
 }

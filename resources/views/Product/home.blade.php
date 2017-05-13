@@ -45,7 +45,7 @@
                       </a>
                 </td>
                 <td>  {{ $product->width }} </td>
-                <td>  </td>
+                <td> {{ $product->amount }} </td>
             </tr>
             <?php $i++; ?>
               @endforeach

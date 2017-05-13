@@ -20,9 +20,3 @@ Route::resource('product', 'ProductController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('stock', 'StockController');
-Route::get('/stock/edit/{id}', [
-  'uses' => 'StockController@Stockupdate',
-  'as' => 'stock.edit',
-  ]);

@@ -26,10 +26,14 @@
 
               </div>
               <div class="form-group">
-              {!! Form::label('body', 'ขนาดสินค้า:') !!}
+              {!! Form::label('body', 'ขนาดสินค้า') !!}
               {!! Form::text('width', null, ['class' => 'form-control']) !!}
               </div>
-                <hr class="bottom-line">
+              <div class="form-group">
+              {!! Form::label('body', 'จำนวณสินค้าในคลัง') !!}
+              {!! Form::text('width', null, ['class' => 'form-control']) !!}
+              </div>
+
 
               <div class="row">
                   <div class="col-xs-9 col-md-8 col-sm-9"></div>
