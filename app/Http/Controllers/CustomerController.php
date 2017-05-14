@@ -1,0 +1,108 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Customer;
+use App\Invoice;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Request;
+use App\Http\Requests\CustomerRequest;
+
+class CustomerController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create($id)
+    {
+        $idinvoice = $id;
+        return view('Customer.createCustomer', compact('idinvoice'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(CustomerRequest $request)
+    {
+
+      $customers = new Customer($request->all());
+      $customers->save();
+      $idcustomer   = Customer::orderBy('id', 'desc')->first();
+      $id = $idcustomer->id;
+      $idcustomer->code ="A".$id;
+      $idcustomer->save();
+
+      $invoices = Invoice::find($request->idinvoice);
+      $invoices->idcustomer =$id;
+      $invoices->save();
+
+        return redirect('invoiceConcrete/'.$request->idinvoice);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Customer  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Customer $customer)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Customer  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+      $customer = Customer::find($id);
+        if(empty($customer))
+          abort(404);
+      return view('Customer.editCustomer', compact('customer'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Customer  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id, CustomerRequest $request)
+    {
+        $customer = Customer::findOrFail($id);
+        $customer->update($request->all());
+
+      return redirect('invoiceConcrete/'.$request->idinvoice);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Customer  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Customer $customer)
+    {
+        //
+    }
+}

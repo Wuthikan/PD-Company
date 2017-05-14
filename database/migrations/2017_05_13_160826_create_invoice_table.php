@@ -16,18 +16,17 @@ class CreateInvoiceTable extends Migration
         Schema::create('invoice', function (Blueprint $table) {
             $table->increments('id');
             $table->text('code')->nullable();
-            $table->integer('idcustomer')->unsigned()->default(1);
+            $table->integer('idcustomer')->unsigned()->nullable();
             $table->foreign('idcustomer')
                             ->references('id')
-                            ->on('customer')
-                            ->onDelete('cascade');
-            $table->integer('idemployee')->unsigned()->default(1);
+                            ->on('customer');
+            $table->integer('idemployee')->unsigned()->default(1)->nullable();
             $table->foreign('idemployee')
                             ->references('id')
                             ->on('users')
                             ->onDelete('cascade');
-            $table->double('price');
-            $table->double('discount');
+            $table->double('price')->nullable();
+            $table->double('discount')->nullable();
             $table->integer('type');
             $table->timestamps();
         });

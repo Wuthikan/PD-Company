@@ -18,13 +18,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Com<span>pany</span></a>
+      <a class="navbar-brand" href="index.html">PD<span> Concrette</span></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ url('/home') }} ">หน้าแรก</a></li>
         <li><a href="{{ url('/product') }}">สินค้า</a></li>
-        <li><a href="{{ url('/basket') }}">สั่งซื้อ</a></li>
+        <li><a href="{{ url('/manu-Invoice') }}">สั่งซื้อ</a></li>
         <li><a href="{{ url('/basket') }}">ขนส่ง</a></li>
         <li><a href="{{ url('/basket') }}">การผลิต</a></li>
         <!-- Authentication Links -->
