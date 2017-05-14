@@ -13,6 +13,26 @@
 
 Route::get('/', 'ShippingController@showIndex');
 
+Route::post('/create/shipping', [
+  'uses'       => 'ShippingController@addShipping',
+  'as'         => 'shipping.store',
+  ]);
+
+Route::get('/shipping/1', [
+  'uses'       => 'ShippingController@shippingList1',
+  'as'         => 'shipping.type1',
+  ]);
+
+Route::get('/shipping/2', [
+  'uses'       => 'ShippingController@shippingList2',
+  'as'         => 'shipping.type2',
+  ]);
+
+  Route::post('/shipping/checkavailable', [
+    'uses'       => 'ShippingController@chkAvailable',
+    'as'         => 'shipping.chkAvailable',
+    ]);
+
 // Route::get('/', function () {
 //     return view('auth/login');
 // });

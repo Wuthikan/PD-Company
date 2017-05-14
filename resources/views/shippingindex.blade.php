@@ -7,8 +7,24 @@
   <body>
     <h1>Shipping</h1>
     <hr />
-    <input type="text" name="type" value="" placeholder="type">
-    <input type="date" name="date" value="">
-    <input type="submit" name="submit" value="" placeholder="type">
+    <form action="{{ route('shipping.store') }}" method="post">
+       {{ csrf_field() }}
+
+    <input type="text" name="type" placeholder="type">
+    <input type="date" name="date">
+    <button type="submit" name="button">Create</button>
+<hr>
+</form>
+    <a href="{{ route('shipping.type1') }}">List Type: 1</a>
+  </br>
+    <a href="{{ route('shipping.type2') }}">List Type: 2</a>
+
+    <hr>
+    <form action="{{ route('shipping.chkAvailable') }}" method="post">
+      {{ csrf_field() }}
+    <input type="date" name="date">
+      <button type="submit" name="button">Check</button>
+  </form>
+
   </body>
 </html>

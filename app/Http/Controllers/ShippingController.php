@@ -5,16 +5,42 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
+use App\Shipping;
 
 class ShippingController extends Controller
 {
-  public function test()
+  public function chkAvailable(Request $request)
   {
-    $result = DB::table('shipping')->whereDate('date', '2017-05-15')->count();;
-      dd($result);
+    $free;
+    $date = $request->date;
+    $result = DB::table('shipping')->whereDate('date', $date)->count();
+    echo "Task:.....................".$result;
+    if ($result < 3 ) $free = "FREE :)";
+    else $free = "NOT FREE :(";
+    echo "<hr>Availability:...............".$free;
   }
   public function showIndex(){
     return view('shippingindex');
+  }
+
+  public function addShipping(Request $request)
+  {
+    $shipping       = new Shipping;
+    $shipping->type = $request->type;
+    $shipping->date = $request->date;
+    // dd($shipping);
+    $shipping->save();
+    echo "The data has been saved!";
+  }
+
+  public function shippingList1(){
+    $result = DB::table('shipping')->where('type', 1)->get();
+    echo $result;
+  }
+
+  public function shippingList2(){
+    $result = DB::table('shipping')->where('type', 2)->get();
+    echo $result;
   }
 
 }
