@@ -18,10 +18,7 @@ class CreateOrderTable extends Migration
             $table->text('code')->nullable();
             $table->text('name');
             $table->integer('idextra')->unsigned()->default(1);
-            $table->foreign('idextra')
-                            ->references('id')
-                            ->on('extra_concrette')
-                            ->onDelete('cascade');
+
             $table->double('width');
             $table->double('height');
             $table->double('amount');

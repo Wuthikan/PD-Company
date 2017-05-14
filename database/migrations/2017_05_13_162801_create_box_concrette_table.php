@@ -16,15 +16,9 @@ class CreateBoxConcretteTable extends Migration
         Schema::create('box_concrette', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idinvoice')->unsigned()->default(1);
-            $table->foreign('idinvoice')
-                            ->references('id')
-                            ->on('invoice')
-                            ->onDelete('cascade');
+
             $table->integer('idproduct')->unsigned()->default(1);
-            $table->foreign('idproduct')
-                            ->references('id')
-                            ->on('product')
-                            ->onDelete('cascade');
+
             $table->double('amount');
             $table->double('height');
             $table->double('price');

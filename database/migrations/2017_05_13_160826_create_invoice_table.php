@@ -17,15 +17,9 @@ class CreateInvoiceTable extends Migration
             $table->increments('id');
             $table->text('code')->nullable();
             $table->integer('idcustomer')->unsigned()->default(1);
-            $table->foreign('idcustomer')
-                            ->references('id')
-                            ->on('customer')
-                            ->onDelete('cascade');
+
             $table->integer('idemployee')->unsigned()->default(1);
-            $table->foreign('idemployee')
-                            ->references('id')
-                            ->on('users')
-                            ->onDelete('cascade');
+
             $table->double('price');
             $table->double('discount');
             $table->integer('type');

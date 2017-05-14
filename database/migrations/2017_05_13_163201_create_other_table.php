@@ -16,12 +16,9 @@ class CreateOtherTable extends Migration
         Schema::create('other', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idinvoice')->unsigned()->default(1);
-            $table->foreign('idinvoice')
-                            ->references('id')
-                            ->on('invoice')
-                            ->onDelete('cascade');
+
             $table->text('detail');
-            $table->double('price'); 
+            $table->double('price');
             $table->timestamps();
         });
     }

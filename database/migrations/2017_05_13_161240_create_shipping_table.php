@@ -17,10 +17,7 @@ class CreateShippingTable extends Migration
             $table->increments('id');
             $table->text('code')->nullable();
             $table->integer('idinvoice')->unsigned()->default(1);
-            $table->foreign('idinvoice')
-                            ->references('id')
-                            ->on('invoice')
-                            ->onDelete('cascade');
+
             $table->timestamp('date');
             $table->integer('type');
             $table->timestamps();

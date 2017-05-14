@@ -11,18 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth/login');
-});
+Route::get('/', 'ShippingController@showIndex');
 
-Route::resource('product', 'ProductController');
+// Route::get('/', function () {
+//     return view('auth/login');
+// });
 
-Auth::routes();
+// Route::resource('product', 'ProductController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Auth::routes();
 
-Route::resource('stock', 'StockController');
-Route::get('/stock/edit/{id}', [
-  'uses' => 'StockController@Stockupdate',
-  'as' => 'stock.edit',
-  ]);
+// Route::get('/home', 'HomeController@index')->name('home');
+//
+// Route::resource('stock', 'StockController');
+// Route::get('/stock/edit/{id}', [
+//   'uses' => 'StockController@Stockupdate',
+//   'as' => 'stock.edit',
+//   ]);

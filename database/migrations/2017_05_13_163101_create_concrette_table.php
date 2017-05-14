@@ -16,10 +16,7 @@ class CreateConcretteTable extends Migration
         Schema::create('concrette', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idinvoice')->unsigned()->default(1);
-            $table->foreign('idinvoice')
-                            ->references('id')
-                            ->on('invoice')
-                            ->onDelete('cascade');
+
             $table->double('amount');
             $table->double('price');
             $table->timestamps();

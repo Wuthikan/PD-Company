@@ -16,10 +16,7 @@ class CreateExtraConcretteTable extends Migration
         Schema::create('extra_concrette', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idinvoice')->unsigned()->default(1);
-            $table->foreign('idinvoice')
-                            ->references('id')
-                            ->on('invoice')
-                            ->onDelete('cascade');
+
             $table->text('name');
             $table->double('width');
             $table->double('height');

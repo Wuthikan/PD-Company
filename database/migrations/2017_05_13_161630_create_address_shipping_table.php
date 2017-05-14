@@ -16,10 +16,7 @@ class CreateAddressShippingTable extends Migration
         Schema::create('address_shipping', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idshipping')->unsigned()->default(1);
-            $table->foreign('idshipping')
-                            ->references('id')
-                            ->on('shipping')
-                            ->onDelete('cascade');
+
             $table->text('address')->nullable();
             $table->text('city')->nullable();
             $table->text('province')->nullable();
