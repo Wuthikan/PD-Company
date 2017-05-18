@@ -9,5 +9,7 @@ class Product extends Model
   protected $table = "product";
   protected $fillable = ['name' ,'width' ,'code','amount'];
 
-
+  public function box_concrette(){
+    return $this->hasMany('App\box_concrette');
+  }
 }

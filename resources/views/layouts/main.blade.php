@@ -25,6 +25,7 @@
         <li><a href="{{ url('/home') }} ">หน้าแรก</a></li>
         <li><a href="{{ url('/product') }}">สินค้า</a></li>
         <li><a href="{{ url('/manu-Invoice') }}">สั่งซื้อ</a></li>
+        <li><a href="{{ url('/invoiceall') }}">รายการสั่งซื้อ</a></li>
         <li><a href="{{ url('/basket') }}">ขนส่ง</a></li>
         <li><a href="{{ url('/basket') }}">การผลิต</a></li>
         <!-- Authentication Links -->

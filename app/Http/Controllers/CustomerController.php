@@ -52,7 +52,13 @@ class CustomerController extends Controller
       $invoices->idcustomer =$id;
       $invoices->save();
 
-        return redirect('invoiceConcrete/'.$request->idinvoice);
+
+      if($invoices->type == 1){
+          return redirect('invoiceConcrete/'.$request->idinvoice);
+        }
+        else {
+        return redirect('invoiceBoxConcrete/'.$request->idinvoice);
+        }
     }
 
     /**
@@ -92,7 +98,15 @@ class CustomerController extends Controller
         $customer = Customer::findOrFail($id);
         $customer->update($request->all());
 
-      return redirect('invoiceConcrete/'.$request->idinvoice);
+        $invoices = Invoice::find($request->idinvoice);
+          if(empty($invoices))
+            abort(404);
+      if($invoices->type == 1){
+          return redirect('invoiceConcrete/'.$request->idinvoice);
+        }
+        else {
+        return redirect('invoiceBoxConcrete/'.$request->idinvoice);
+        }
     }
 
     /**

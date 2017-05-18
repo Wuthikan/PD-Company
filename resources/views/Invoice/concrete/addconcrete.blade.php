@@ -27,7 +27,7 @@
               <label for="inputEmail3" class="col-sm-3 control-label">ยาว (เมตร)</label>
               <div class="col-sm-9">
               <input type="text" name="long" class="form-control form" id="long" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-            </div>
+              </div>
                 <div class="validation"></div>
             </div>
             <div class="form-group">
@@ -66,7 +66,7 @@
           <br>
 
 
-            {!! Form::open(['url' => 'concrete', 'name' => 'form1']) !!}
+            {!! Form::open(['url' => 'concrete', 'name' => 'form1', 'class' => 'contactForm form-horizontal']) !!}
             <input type="hidden" value="{{ $idinvoice }}" name="idinvoice" id="idinvoice" >
 
             <div class="form-group">
@@ -74,19 +74,28 @@
                 <div class="col-sm-7">
                 <input type="text" class="form-control" name="amount" id="amount"    />
                 </div>
+                <div class="validation"></div>
+              </div>
+
+                <div class="form-group">
                 <label for="inputEmail3" class="col-sm-5 control-label">ราคาต่อคิว</label>
                   <div class="col-sm-7">
                     <input type="text" class="form-control"   name="price" id="price" onkeyup='plus()' >
                   </div>
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
                   <label for="inputEmail3" class="col-sm-5 control-label">รวม</label>
                   <div class="col-sm-7">
                   <input type="text" class="form-control" name="lastprice" id="lastprice"  onkeyup='plus()' />
                   </div>
                 <div class="validation"></div>
             </div>
+            <div class="form-group">
             <div class="header-section text-right">
               <button type="submit" id="submit" name="submit" class="form contact-form-button light-form-button oswald light">สั่งซื้อ</button>
           </div>
+            </div>
           {!! Form::close() !!}
 
 

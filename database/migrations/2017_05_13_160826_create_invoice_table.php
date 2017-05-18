@@ -28,6 +28,9 @@ class CreateInvoiceTable extends Migration
             $table->double('price')->nullable();
             $table->double('discount')->nullable();
             $table->integer('type');
+            $table->integer('payment');
+            $table->integer('shipping');
+
             $table->timestamps();
         });
     }

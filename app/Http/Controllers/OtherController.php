@@ -42,7 +42,16 @@ class OtherController extends Controller
     {
       $others = new Other($request->all());
       $others->save();
+
+      $invoices = Invoice::find($request->idinvoice);
+        if(empty($invoices))
+          abort(404);
+    if($invoices->type == 1){
         return redirect('invoiceConcrete/'.$request->idinvoice);
+      }
+      else {
+      return redirect('invoiceBoxConcrete/'.$request->idinvoice);
+      }
     }
 
     /**
@@ -64,7 +73,10 @@ class OtherController extends Controller
      */
     public function edit($id)
     {
-        //
+      $other = Other::find($id);
+        if(empty($other))
+          abort(404);
+      return view('Others.edit', compact('other'));
     }
 
     /**
@@ -74,9 +86,20 @@ class OtherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(OtherRequest $request, $id)
     {
-        //
+      $other = Other::findOrFail($id);
+      $other->update($request->all());
+
+      $invoices = Invoice::find($request->idinvoice);
+        if(empty($invoices))
+          abort(404);
+    if($invoices->type == 1){
+        return redirect('invoiceConcrete/'.$request->idinvoice);
+      }
+      else {
+      return redirect('invoiceBoxConcrete/'.$request->idinvoice);
+      }
     }
 
     /**
@@ -85,8 +108,19 @@ class OtherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,$idinvoice)
     {
-        //
+      $other = Other::findOrFail($id);
+      $other->delete();
+
+      $invoices = Invoice::find($request->idinvoice);
+        if(empty($invoices))
+          abort(404);
+    if($invoices->type == 1){
+        return redirect('invoiceConcrete/'.$request->idinvoice);
+      }
+      else {
+      return redirect('invoiceBoxConcrete/'.$request->idinvoice);
+      }
     }
 }

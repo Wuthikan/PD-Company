@@ -23,7 +23,7 @@
 								@else
 									{{ $customer->name }}  <a href="{{ url("customer/{$customer->id}/edit?idinvoice={$invoices->id}") }}">แก้ไข</a>
 								@endif
-							 </div>
+							</div>
               <div class="col-xs-5 col-md-2 col-sm-3">
 							</div>
 					</div>
@@ -37,7 +37,7 @@
 
                       <ul class="dropdown-menu" role="menu">
                           <li>
-                              <a href="{{ route('concrete.add', ['id' => $invoices->id])}}">
+                              <a href="{{ route('boxconcrete.open', ['id' => $invoices->id])}}">
                                 เพิ่มสินค้า
                               </a>
                           </li>
@@ -57,7 +57,7 @@
 							<tr>
 								 	<th>เลขที่</th>
 										<th> รายการ </th>
-												<th> จำนวณ(คิว) </th>
+												<th> จำนวณ </th>
 												<th> หน่วยละ </th>
                         <th> ราคารวมภาษี </th>
 												<th> แก้ไข </th>
@@ -68,17 +68,23 @@
               <tr>
 								 	<td>  {{ $i }} </td>
 									<td>
-										 				คอนกรีตผสม
+										 		{{ $concrete->products->name }}
+												{{ $concrete->products->width }}x{{ $concrete->height }}
+												จำนวณ{{ $concrete->amount }}แผ่น
 									</td>
-									<td>  {{ $concrete->amount }} </td>
-									<td>  {{ $concrete->price }} </td>
-									<?php $total=$concrete->amount*$concrete->price  ?>
+									<?php $sum = $concrete->products->width*$concrete->height*$concrete->amount;
+										$a = number_format($sum, 3, '.', '');  	?>
+									<td >  {{ number_format($sum, 3, '.', '') }} ตร.ม</td>
+									<td>  {{ number_format($concrete->price, 3, '.', '') }} </td>
+									<?php $total=$sum*$concrete->price;
+													$total = number_format($total, 2, '.', '');
+									 ?>
                   <td>  {{ $total }} </td>
-									<td ><a href="{{ url("concrete/{$concrete->id}/edit?idinvoice={$invoices->id}") }}">แก้ไข</a> </td>
+									<td ><a href="{{ url("boxconcrete/{$concrete->id}/edit?idinvoice={$invoices->id}") }}">แก้ไข</a> </td>
 									<td>
 
 
-										<a href="{{ route('concrete.delete', ['id' => $concrete->id,'idinvoice' => $invoices->id]) }}"  >
+										<a href="{{ route('boxconcrete.delete', ['id' => $concrete->id,'idinvoice' => $invoices->id]) }}"  >
 									  ลบ
 										</a>
 
@@ -87,6 +93,38 @@
 							<?php  $sumtotal=$sumtotal+$total; ?>
 							<?php $i++; ?>
 								@endforeach
+
+
+								@foreach($Extraconcrete as $Extraconcrete)
+								<tr>
+										<td>  {{ $i }} </td>
+										<td>
+													{{ $Extraconcrete->name }}
+													{{ $Extraconcrete->width }}x{{ $Extraconcrete->height }}
+													จำนวณ{{ $Extraconcrete->amount }}แผ่น
+										</td>
+										<?php $sum = $Extraconcrete->width*$Extraconcrete->height*$Extraconcrete->amount;
+											$a = number_format($sum, 3, '.', '');  	?>
+										<td >  {{ number_format($sum, 3, '.', '') }} ตร.ม</td>
+										<td>  {{ number_format($Extraconcrete->price, 3, '.', '') }} </td>
+										<?php $total=$sum*$Extraconcrete->price;
+														$total = number_format($total, 2, '.', '');
+										 ?>
+										<td>  {{ $total }} </td>
+										<td ><a href="{{ url("extraconcrete/{$Extraconcrete->id}/edit?idinvoice={$invoices->id}") }}">แก้ไข</a> </td>
+										<td>
+
+
+											<a href="{{ route('extraconcrete.delete', ['id' => $Extraconcrete->id,'idinvoice' => $invoices->id]) }}"  >
+											ลบ
+											</a>
+
+									 </td>
+								</tr>
+								<?php  $sumtotal=$sumtotal+$total; ?>
+								<?php $i++; ?>
+									@endforeach
+
 
 								@foreach($other as $other)
 	              <tr>
@@ -107,10 +145,13 @@
 											</a>
 
 									 </td>
+
 								</tr>
 								<?php  $sumtotal=$sumtotal+$other->price; ?>
 								<?php $i++; ?>
 									@endforeach
+
+
 									<tr>
 										<td></td>
 										<td></td>
@@ -118,7 +159,7 @@
 											<b>รวมเป็นเงิน </b>
 										</td>
 										<td>
-											<b><?=$sumtotal?></b>
+											<b><?=number_format($sumtotal, 2, '.', '');?></b>
 										<td>
 										</td>
 										<td>
@@ -132,7 +173,8 @@
 											</b>
 										</td>
 										<td>
-											<b>{{ $invoices->discount }}</b>
+											<b>
+												{{ number_format($invoices->discount, 2, '.', '') }}</b>
 										</td>
 										<td>
 										</td>
@@ -146,13 +188,15 @@
 											<b>จำนวณนเงินรวมทั้งสิ้น</b>
 										</td>
 										<td>
-												<b><?=$sumtotal-$invoices->discount?></b>
+												<b><?=number_format($sumtotal-$invoices->discount, 2, '.', '');?></b>
 										</td>
 										<td>
 										</td>
 										<td>
 										</td>
 									</tr>
+
+
 					</table>
 
 					<!--Modal box -->
@@ -195,10 +239,10 @@
 			<div class="col-xs-2 col-md-6 col-sm-4">
 			</div>
 			<div class="col-xs-6 col-md-3 col-sm-4">
-			<a href="{{ route('invoiceconcrete.confirm', ['id' => $invoices->id])}}">
-				<button name="button" type="button" class="btn btn-green btn-block btn-flat">
-				ยืนยันใบเสนอราคา <i class="fa fa-arrow-right"></i></button>
-			</a>
+				<a href="{{ route('invoiceBoxConcrete.confirm', ['id' => $invoices->id])}}">
+					<button name="button" type="button" class="btn btn-green btn-block btn-flat">
+					ยืนยันใบเสนอราคา <i class="fa fa-arrow-right"></i></button>
+				</a>
 			</div>
 		</div>
 
@@ -216,7 +260,7 @@
 						<div class="login-box-body">
 							<p class="text-center"></p>
 							<div class="form-group">
-								  {!! Form::open(['method' => 'DELETE', 'url' => 'invoiceConcrete/'. $invoices->id ]) !!}
+								  {!! Form::open(['method' => 'DELETE', 'url' => 'invoiceBoxConcrete/'. $invoices->id ]) !!}
 										<button type="submit" class="btn btn-bg green btn-block"  >
 										 Delete
 									 </button>

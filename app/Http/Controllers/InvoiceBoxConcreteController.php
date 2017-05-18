@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Invoice;
-use App\Concrete;
+use App\box_concrette;
+use App\Extra_concrette;
 use App\Customer;
 use App\Other;
 use Illuminate\Http\Request;
 use Auth;
 
-class InvoiceConcreteController extends Controller
+class InvoiceBoxConcreteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +19,7 @@ class InvoiceConcreteController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -40,7 +41,7 @@ class InvoiceConcreteController extends Controller
     public function store()
     {
         $iduser =  Auth::user()->id;
-        $type = '1';
+        $type = '2';
         $array = ['idemployee' =>  $iduser,
             'discount' =>  '0',
            'type' => $type,
@@ -55,58 +56,65 @@ class InvoiceConcreteController extends Controller
         $idinvoice->code ="QT".$iduser.$id;
         $idinvoice->save();
 
-          return redirect('invoiceConcrete/'.$id);
+          return redirect('invoiceBoxConcrete/'.$id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Invoice  $invoice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $invoices = Invoice::find($id);
-        if(empty($invoices))
-        abort(404);
+      $invoices = Invoice::find($id);
+      if(empty($invoices))
+      abort(404);
 
-        $cusomerid = $invoices->idcustomer;
-        if(empty($cusomerid)){
-        $customer = "";
-        }
-        else {
-        $customer = Customer::find($cusomerid);
-        if(empty($customer))
-        abort(404);
-        }
+      $cusomerid = $invoices->idcustomer;
+      if(empty($cusomerid)){
+      $customer = "";
+      }
+      else {
+      $customer = Customer::find($cusomerid);
+      if(empty($customer))
+      abort(404);
+      }
 
-        $concrete = Concrete::whereconcrete($invoices->id)->get();
-        $other = Other::whereother($invoices->id)->get();
-        $total = 0 ;
-        foreach($concrete as $concrete){
+      $concrete = box_concrette::whereboxconcrete($invoices->id)->get();
+      $Extraconcrete = Extra_concrette::whereextraconcrete($invoices->id)->get();
+      $other = Other::whereother($invoices->id)->get();
+      $total = 0 ;
+      foreach($concrete as $concrete){
 
-        $total = ($concrete->amount*$concrete->price)+$total;
-        }
-        foreach($other as $other){
+      $total = ($concrete->amount*$concrete->height*$concrete->price*$concrete->products->width)+$total;
+      }
+      foreach($Extraconcrete as $Extraconcrete){
 
-        $total = $other->price+$total;
-        }
-        $invoices->price = $total;
-        $invoices->save();
+      $total = ($Extraconcrete->amount*$Extraconcrete->height*$Extraconcrete->price*$Extraconcrete->width)+$total;
+      }
 
-        $concrete = Concrete::whereconcrete($invoices->id)->get();
-        $other = Other::whereother($invoices->id)->get();
+      foreach($other as $other){
 
-        return view('Invoice.concrete.createinvoice', compact('invoices','customer','concrete','other'));
+      $total = $other->price+$total;
+      }
+      $invoices->price = $total;
+      $invoices->save();
+
+      $concrete = box_concrette::whereboxconcrete($invoices->id)->get();
+      $Extraconcrete = Extra_concrette::whereextraconcrete($invoices->id)->get();
+      $other = Other::whereother($invoices->id)->get();
+
+      return view('Invoice.concretebox.createinvoice', compact('invoices','customer','concrete','other','Extraconcrete'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Invoice  $invoice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Invoice $invoice)
+    public function edit($id)
     {
         //
     }
@@ -115,10 +123,10 @@ class InvoiceConcreteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Invoice  $invoice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Invoice $invoice)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -126,7 +134,7 @@ class InvoiceConcreteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Invoice  $invoice
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -135,24 +143,8 @@ class InvoiceConcreteController extends Controller
       $invoice->delete();
       return redirect('home');
     }
-    public function editDiscount(Request $request,$id)
-    {
-      $invoice = Invoice::findOrFail($id);
-      $invoice->update($request->all());
-
-
-    if($invoice->type == 1){
-        return redirect('invoiceConcrete/'.$invoice->id);
-      }
-      else {
-      return redirect('invoiceBoxConcrete/'.$invoice->id);
-      }
-    }
-
     public function confirm($id)
     {
-
-
       $invoices = Invoice::findOrFail($id);
       $invoices->payment = 1;
       $invoices->save();
@@ -160,5 +152,4 @@ class InvoiceConcreteController extends Controller
         return redirect('invoiceall/'.$id);
 
     }
-
 }
