@@ -30,18 +30,9 @@
       <button type="submit" name="button">Check</button>
   </form>
       <a href="{{ route('shipping.recipt') }}" class="btn btn-warning pull-left"><i class="glyphicon glyphicon-circle-arrow-down"></i> ดาวโหลดใบเสร็จ</a>
-<div id="calendar"></div>
+
+      <a href="{{ route('calendar')}}">Calendar</a>
+
 
   </body>
-  <script type="text/javascript">
-  $(document).ready(function() {
-
-  // page is now ready, initialize the calendar...
-
-  $('#calendar').fullCalendar({
-      // put your options and callbacks here
-  })
-
-});
-  </script>
 </html>

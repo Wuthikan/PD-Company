@@ -33,6 +33,9 @@ class ShippingController extends Controller
   public function showIndex(){
     return view('shippingindex');
   }
+  public function showCalendar(){
+    return view('calendar');
+  }
 
   public function addShipping(Request $request)
   {

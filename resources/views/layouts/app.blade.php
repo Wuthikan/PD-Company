@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel='stylesheet' href='{{asset('fullcalendar/fullcalendar.css')}}' />
+    <link rel='stylesheet' href="{{ asset('fullcalendar/fullcalendar.css') }}"" />
 
 </head>
 <body>
@@ -80,8 +80,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('lib/jquery.min.js')}}"></script>
-    <script src="{{ asset('lib/moment.min.js')}}"></script>
+    <script src="{{ asset('fullcalendar/lib/jquery.min.js')}}"></script>
+    <script src="{{ asset('fullcalendar/lib/moment.min.js')}}"></script>
     <script src="{{ asset('fullcalendar/fullcalendar.js')}}"></script>
     <script type="text/javascript">
     $(document).ready(function() {

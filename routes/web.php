@@ -37,6 +37,10 @@ Route::get('/shipping/2', [
     'uses'       => 'ShippingController@pdf',
     'as'         => 'shipping.recipt',
     ]);
+  Route::get('/calendar', [
+    'uses'       => 'ShippingController@showCalendar',
+    'as'         => 'calendar',
+    ]);
 
 
 // Route::get('/', function () {
