@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <address>
-                        <strong>Elf Cafe</strong>
+                        <strong>Elf สวัสดีครับ</strong>
                         <br>
                         2135 Sunset Blvd
                         <br>
