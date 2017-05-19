@@ -4,11 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use PDF;
 use Carbon\Carbon;
 use App\Shipping;
 
 class ShippingController extends Controller
 {
+  public function  pdf()
+  {
+//      $data = [
+// 	'foo' => 'bar'
+//  ];
+//  $pdf = PDF::loadView('pdf', $data);
+    $pdf = PDF::loadView('pdf');
+    return $pdf->stream('document.pdf');
+  }
+
   public function chkAvailable(Request $request)
   {
     $free;

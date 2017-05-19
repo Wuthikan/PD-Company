@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Stock;
+use PDF;
 
 use Request;
 use App\Http\Requests\ProductRequest;
@@ -24,6 +25,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $products = Product::get();

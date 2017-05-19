@@ -33,6 +33,12 @@ Route::get('/shipping/2', [
     'as'         => 'shipping.chkAvailable',
     ]);
 
+  Route::get('/shipping/pdf', [
+    'uses'       => 'ShippingController@pdf',
+    'as'         => 'shipping.recipt',
+    ]);
+
+
 // Route::get('/', function () {
 //     return view('auth/login');
 // });

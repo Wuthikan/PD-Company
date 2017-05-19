@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+  <script src='lib/jquery.min.js'></script>
+  <script src='lib/moment.min.js'></script>
+  <script src='fullcalendar/fullcalendar.js'></script>
     <meta charset="utf-8">
     <title>Shipping</title>
   </head>
@@ -25,6 +29,19 @@
     <input type="date" name="date">
       <button type="submit" name="button">Check</button>
   </form>
+      <a href="{{ route('shipping.recipt') }}" class="btn btn-warning pull-left"><i class="glyphicon glyphicon-circle-arrow-down"></i> ดาวโหลดใบเสร็จ</a>
+<div id="calendar"></div>
 
   </body>
+  <script type="text/javascript">
+  $(document).ready(function() {
+
+  // page is now ready, initialize the calendar...
+
+  $('#calendar').fullCalendar({
+      // put your options and callbacks here
+  })
+
+});
+  </script>
 </html>
