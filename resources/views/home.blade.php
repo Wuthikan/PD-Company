@@ -1,79 +1,114 @@
 @extends('layouts.main')
 
 @section('content')
-
+<!--Banner-->
+<div class="banner">
+  <div class="bg-color">
+    <div class="container">
+      <div class="row">
+        <div class="banner-text text-center">
+          <div class="text-border">
+            <h2 class="text-dec">PD Concrete Part</h2>
+          </div>
+          <div class="intro-para text-center quote">
+            <p class="big-text">Service Mind</p>
+            <p class="small-text"> <br></p>
+            <a href="{{ url('/manu-Invoice') }}" class="btn">Add Order</a>
+          </div>
+          <a href="#feature" class="mouse-hover"><div class="mouse"></div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ Banner-->
 <!--Courses-->
 <section id ="courses" class="section-padding">
   <div class="container">
     <div class="row">
       <div class="header-section text-center">
-        <h2>Courses</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,<br> maiores, magni dolorum aliquam.</p>
+        <h2>MENU</h2>
+        <p><br></p>
         <hr class="bottom-line">
       </div>
     </div>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-4 col-sm-4 padleft-right">
-        <figure class="imghvr-fold-up">
-          <img src="mentor/img/course01.jpg" class="img-responsive">
-          <figcaption>
-              <h3>Course Name</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-          </figcaption>
-          <a href="#"></a>
-        </figure>
+      <div class="col-md-4 col-sm-4">
+        <div class="service-box text-center">
+            <a href="{{ url('/product') }}">
+          <div class="icon-box">
+            <i class="fa fa-truck color-green"></i>
+          </div>
+          <div class="icon-text">
+            <h4 class="ser-text">รายการสินค้า</h4>
+          </div>
+          </a>
+        </div>
       </div>
-      <div class="col-md-4 col-sm-4 padleft-right">
-        <figure class="imghvr-fold-up">
-          <img src="Mentor/img/course02.jpg" class="img-responsive">
-          <figcaption>
-              <h3>Course Name</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-          </figcaption>
-          <a href="#"></a>
-        </figure>
+      <div class="col-md-4 col-sm-4">
+        <div class="service-box text-center">
+            <a href="{{ url('/manu-Invoice') }}">
+          <div class="icon-box">
+          <i class="fa fa-calculator" aria-hidden="true"></i>
+          </div>
+          <div class="icon-text">
+            <h4 class="ser-text">สร้างใบสั่งซื้อ</h4>
+          </div>
+          </a>
+        </div>
       </div>
-      <div class="col-md-4 col-sm-4 padleft-right">
-        <figure class="imghvr-fold-up">
-          <img src="Mentor/img/course03.jpg" class="img-responsive">
-          <figcaption>
-              <h3>Course Name</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-          </figcaption>
-          <a href="#"></a>
-        </figure>
+      <div class="col-md-4 col-sm-4">
+        <div class="service-box text-center">
+            <a href="{{ url('/invoiceall') }}">
+          <div class="icon-box">
+            <i class="fa fa-file-text" aria-hidden="true"></i>
+          </div>
+          <div class="icon-text">
+            <h4 class="ser-text">รายการสั่งซื้อ</h4>
+          </div>
+          </a>
+        </div>
       </div>
-      <div class="col-md-4 col-sm-4 padleft-right">
-        <figure class="imghvr-fold-up">
-          <img src="Mentor/img/course04.jpg" class="img-responsive">
-          <figcaption>
-              <h3>Course Name</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-          </figcaption>
-          <a href="#"></a>
-        </figure>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-4 col-sm-4">
+        <div class="service-box text-center">
+            <a href="{{ url('/calendarShipping') }}">
+          <div class="icon-box">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          </div>
+          <div class="icon-text">
+            <h4 class="ser-text">ตารางคิวรถ</h4>
+          </div>
+          </a>
+        </div>
       </div>
-      <div class="col-md-4 col-sm-4 padleft-right">
-        <figure class="imghvr-fold-up">
-          <img src="Mentor/img/course05.jpg" class="img-responsive">
-          <figcaption>
-              <h3>Course Name</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-          </figcaption>
-          <a href="#"></a>
-        </figure>
+      <div class="col-md-4 col-sm-4">
+        <div class="service-box text-center">
+            <a href="">
+          <div class="icon-box">
+        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+          </div>
+          <div class="icon-text">
+            <h4 class="ser-text">สินค้าที่สั่งผลิต</h4>
+          </div>
+          </a>
+        </div>
       </div>
-      <div class="col-md-4 col-sm-4 padleft-right">
-        <figure class="imghvr-fold-up">
-          <img src="Mentor/img/course06.jpg" class="img-responsive">
-          <figcaption>
-              <h3>Course Name</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-          </figcaption>
-          <a href="#"></a>
-        </figure>
+      <div class="col-md-4 col-sm-4">
+        <div class="service-box text-center">
+            <a href="">
+          <div class="icon-box">
+            <i class="fa fa-line-chart" aria-hidden="true"></i>
+          </div>
+          <div class="icon-text">
+            <h4 class="ser-text">รายการสรุป</h4>
+          </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>

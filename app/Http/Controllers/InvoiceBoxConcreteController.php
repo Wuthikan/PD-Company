@@ -9,6 +9,8 @@ use App\Customer;
 use App\Other;
 use Illuminate\Http\Request;
 use Auth;
+use Alert;
+use Session;
 
 class InvoiceBoxConcreteController extends Controller
 {
@@ -53,7 +55,7 @@ class InvoiceBoxConcreteController extends Controller
 
         $idinvoice   = Invoice::orderBy('id', 'desc')->first();
         $id = $idinvoice->id;
-        $idinvoice->code ="QT".$iduser.$id;
+        $idinvoice->code =$iduser.$id;
         $idinvoice->save();
 
           return redirect('invoiceBoxConcrete/'.$id);
@@ -141,15 +143,21 @@ class InvoiceBoxConcreteController extends Controller
     {
       $invoice = Invoice::findOrFail($id);
       $invoice->delete();
+      session()->flash('flash_success','ลบใบเสนอราคาสำเร็จ!');
       return redirect('home');
     }
     public function confirm($id)
     {
       $invoices = Invoice::findOrFail($id);
+      if ($invoices->idcustomer==null) {
+            Alert::error('กรุณาเพิ่มข้อมูลลูกค้า!')->persistent("Close");
+            return redirect('invoiceBoxConcrete/'.$id);
+      }
+      else {
       $invoices->payment = 1;
       $invoices->save();
 
         return redirect('invoiceall/'.$id);
-
+      }
     }
 }

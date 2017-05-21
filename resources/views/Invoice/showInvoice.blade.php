@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row">
       <div class="header-section text-center">
-        <h2>ใบเสนอราคา {{ $invoices->code }}</h2>
+        <h2>ใบเสนอราคา QT{{ $invoices->code }}</h2>
         <hr class="bottom-line">
       </div>
     </div>
@@ -15,6 +15,12 @@
     <div class="row">
       <div class="header-section text-left">
         <p><b>วันทีสร้างรายการ:</b>  {{ $invoices->created_at->formatLocalized('%d %B %Y') }}</p>
+        <p><b>ประเภทรายการ:</b>
+           @if($invoices->type=='1')
+         คอนกรีตผสม
+        @else
+         แผ่นพื้น
+        @endif</p>
         <p><b>ชื่อลูกค้า:</b>
           @if(isset($invoices->idcustomer))
           {{ $invoices->customers->name }}
@@ -36,44 +42,54 @@
 
   <br>
 
-    <div class="row">
-      <div class="col-md-4 col-sm-4 padleft-right">
-        <figure class="imghvr-fold-up">
-          <img src="{{ url('mentor/img/course01.jpg') }}" class="img-responsive">
-          <figcaption>
-                <h3>ดูรายการส่งสินค้า</h3>
-          </figcaption>
-          <a href="#"></a>
-        </figure>
-      </div>
-      <div class="col-md-4 col-sm-4 padleft-right">
-        <figure class="imghvr-fold-up">
-          <img src="{{ url('mentor/img/course01.jpg') }}" class="img-responsive">
-          <figcaption>
-              <h3>พิมพ์ใบเสร็จ</h3>
 
-          </figcaption>
-          <a href="#"></a>
-        </figure>
-      </div>
-      <div class="col-md-4 col-sm-4 padleft-right">
-        <figure class="imghvr-fold-up">
-          <img src="{{ url('mentor/img/course01.jpg') }}" class="img-responsive">
-          <figcaption>
-                <h3>พิมพ์ใบเสนอราคา</h3>
+<div class="row">
 
-          </figcaption>
-          <a href="#"></a>
-        </figure>
+  <div class="col-md-4 col-sm-4">
+    <div class="service-box text-center">
+        <a href="{{ route('shipping.myShipping', ['id' => $invoices->id])}}">
+      <div class="icon-box">
+        <i class="fa fa-truck color-green"></i>
       </div>
+      <div class="icon-text">
+        <h4 class="ser-text">ดูรายการส่งสินค้า</h4>
+      </div>
+      </a>
     </div>
+  </div>
+  <div class="col-md-4 col-sm-4">
+    <div class="service-box text-center">
+        <a href="{{ route('invoice.pdf', ['id' => $invoices->id ]) }}"  >
+      <div class="icon-box">
+        <i class="fa fa-file-text-o color-green"></i>
+      </div>
+      <div class="icon-text">
+        <h4 class="ser-text">พิมพ์ใบเสนอราคา</h4>
+      </div>
+        </a>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-4">
+    <div class="service-box text-center">
+      <a href="{{ route('taxinvoice.pdf', ['id' => $invoices->id ]) }}"  >
+      <div class="icon-box">
+        <i class="fa fa-money color-green"></i>
+      </div>
+      <div class="icon-text">
+        <h4 class="ser-text">พิมพ์ใบเสร็จ</h4>
+      </div>
+    </a>
+    </div>
+  </div>
+</div>
+<br>
 
     <div class="row">
-        	<div class="col-xs-6 col-md-3 col-sm-4">
+        	<div class="col-xs-12 col-md-3 col-sm-4">
         <p>
           <a href="{{ route('invoice.edit', ['id' => $invoices->id])}}">
   					<button name="button" type="button" class="btn btn-green btn-block btn-flat">
-  					แก้ไขใบเสนอราคา </button>
+  					แก้ไขใบเสนอราคา <i class="fa fa-pencil" aria-hidden="true"></i></button>
   				</a>
         </p>
 

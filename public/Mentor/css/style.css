@@ -92,7 +92,7 @@ Navigation bar
     text-transform: uppercase;
     padding: 0px;
     height: inherit;
-    font-size: 36px;
+    font-size: 30px;
     margin: 20px 0px;
 }
 .navbar-default .navbar-brand span{
@@ -111,7 +111,7 @@ Navigation bar
 Banner
 ************************************/
 .banner{
-	background: url('../img/bg-banner.jpg') no-repeat center top;
+	background: url('../img/IMG_7179.jpg') no-repeat center top;
     background-size: cover;
 	min-height: 580px;
     position: relative;
@@ -336,7 +336,7 @@ Cta
     margin: 0 auto;
     line-height: 34px !important;
 }
-.cta-2-form input[type="name"] {
+.cta-2-form input[type="date"] {
     border: 0px solid #CCC;
     padding: 13px 40px;
     font-size: 18px;
@@ -551,7 +551,7 @@ Contact Us
 Footer
 ************************************/
 .footer {
-    padding: 60px 0 20px;
+    padding: 50px 0 20px;
     background: #111;
     color: #ccc;
 }

@@ -26,6 +26,11 @@
 
               </div>
               <div class="form-group">
+              {!! Form::label('title', 'บริษัท')
+              !!}
+              {!! Form::text('company', null, ['class' => 'form-control']) !!}
+              </div>
+              <div class="form-group">
               {!! Form::label('body', 'ที่อยู่') !!}
               {!! Form::text('address', null, ['class' => 'form-control']) !!}
               </div>
@@ -48,6 +53,10 @@
               <div class="form-group">
               {!! Form::label('body', 'เบอร์ Fax') !!}
               {!! Form::text('fax', null, ['class' => 'form-control']) !!}
+              </div>
+              <div class="form-group">
+              {!! Form::label('body', 'อ้างอิง') !!}
+              {!! Form::text('reference', null, ['class' => 'form-control']) !!}
               </div>
                 <hr class="bottom-line">
               <div class="form-group">

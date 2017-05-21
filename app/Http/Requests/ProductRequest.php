@@ -24,8 +24,18 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-          'name' => 'required|min:3|max:255',
-          'width' => 'required',
+          'name' => 'required',
+          'code' => 'required',
+          'width' => 'required|numeric',
+          'amount' => 'required|numeric',
         ];
     }
+    public function messages()
+  {
+    return [
+      'required' => 'กรุณาข้อมูลให้ครบถ้วน' ,
+        'width.numeric' => 'กรุณากรอกความกว้างเฉพาะตัวเลขเท่านั้น',
+        'amount.numeric' => 'กรุณากรอกจำนวณสินค้าในคลังเฉพาะตัวเลขเท่านั้น'
+    ];
+  }
 }

@@ -23,6 +23,8 @@ class CreateCustomerTable extends Migration
             $table->text('zipcode')->nullable();
             $table->text('tel');
             $table->text('fax')->nullable();
+            $table->text('reference')->nullable();
+            $table->text('company')->nullable();
             $table->timestamps();
         });
     }

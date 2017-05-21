@@ -32,6 +32,16 @@ Route::get('invoice/edit/{id}', [
   'as'         => 'invoice.edit',
   'middleware' => ['auth'],
   ]);
+Route::get('Invoice/pdf/{id}', [
+    'uses'       => 'InvoiceController@PDF',
+    'as'         => 'invoice.pdf'
+    ]);
+Route::get('Invoice/taxinvoice/PDF/{id}', [
+    'uses'       => 'InvoiceController@taxPDF',
+    'as'         => 'taxinvoice.pdf'
+    ]);
+
+
 
 Route::resource('concrete', 'ConcreteController');
 Route::get('concrete/create/{id}', [
@@ -82,6 +92,9 @@ Route::get('invoiceBoxConcrete/confirm/{id}', [
     'as'         => 'invoiceBoxConcrete.confirm',
     'middleware' => ['auth'],
     ]);
+Route::get('/invoiceBoxConcrete/delete/{id}', [
+    'uses'       => 'InvoiceBoxConcreteController@destroy'
+    ]);
 
 Route::get('/invoice/concrete', 'InvoiceConcreteController@store');
 Route::resource('invoiceConcrete', 'InvoiceConcreteController');
@@ -90,8 +103,16 @@ Route::get('invoiceconcrete/confirm/{id}', [
     'as'         => 'invoiceconcrete.confirm',
     'middleware' => ['auth'],
     ]);
+Route::get('/invoiceConcrete/delete/{id}', [
+    'uses'       => 'InvoiceConcreteController@destroy'
+    ]);
 
 Route::resource('product', 'ProductController');
+Route::get('Product/delete/{id}', [
+  'uses'       => 'ProductController@destroy',
+  'as'         => 'product.destroy',
+  'middleware' => ['auth'],
+  ]);
 
 Route::resource('customer', 'CustomerController');
 Route::get('customer/create/{id}', [
@@ -115,3 +136,62 @@ Route::get('customer/create/{id}', [
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('shipping', 'ShippingController');
+
+Route::get('/shipping', 'ShippingController@showIndex');
+Route::get('/shipping/1', [
+  'uses'       => 'ShippingController@shippingList1',
+  'as'         => 'shipping.type1',
+  ]);
+Route::get('/shipping/2', [
+  'uses'       => 'ShippingController@shippingList2',
+  'as'         => 'shipping.type2',
+  ]);
+  Route::post('/shipping/checkavailable', [
+    'uses'       => 'ShippingController@chkAvailable',
+    'as'         => 'shipping.chkAvailable',
+    ]);
+Route::get('shipping/myshipping/{id}', [
+          'uses'       => 'ShippingController@myshipping',
+          'as'         => 'shipping.myShipping',
+          'middleware' => ['auth'],
+          ]);
+
+Route::get('shipping/check/{id}', [
+                    'uses'       => 'ShippingController@check',
+                    'as'         => 'shipping.check',
+                    'middleware' => ['auth'],
+                    ]);
+
+Route::post('shipping/check2', [
+                    'uses'       => 'ShippingController@check2',
+                    'as'         => 'shipping.check2'
+                    ]);
+  Route::post('shipping/add', [
+                      'uses'       => 'ShippingController@addShipping',
+                      'as'         => 'shipping.addShipping'
+                      ]);
+  Route::get('shipping/edit/{id}', [
+                      'uses'       => 'ShippingController@edit',
+                      'as'         => 'shipping.edit'
+                      ]);
+  Route::post('shipping/editdate', [
+                      'uses'       => 'ShippingController@editdate',
+                      'as'         => 'shipping.editdate'
+                      ]);
+  Route::get('shipping/delete/{id}/{idinvoice}', [
+      'uses'       => 'ShippingController@delete',
+      'as'         => 'shipping.destroy'
+      ]);
+Route::get('shipping/pdf/{id}/{idinvoice}', [
+    'uses'       => 'ShippingController@PDF',
+    'as'         => 'shipping.pdf'
+    ]);
+
+    Route::get('/calendarShipping', [
+        'uses'       => 'ShippingController@calendar',
+        ]);
+Route::get('/calendarShipping/{id}', [
+    'uses'       => 'ShippingController@showcalendar',
+    ]);

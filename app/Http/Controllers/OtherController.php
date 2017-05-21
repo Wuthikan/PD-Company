@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Request;
 use App\Http\Requests\OtherRequest;
+use Alert;
+use Session;
 
 class OtherController extends Controller
 {
@@ -46,6 +48,8 @@ class OtherController extends Controller
       $invoices = Invoice::find($request->idinvoice);
         if(empty($invoices))
           abort(404);
+              session()->flash('flash_success','สร้างรายการสำเร็จ!');
+       Alert::success('สร้างรายการสำเร็จ!');
     if($invoices->type == 1){
         return redirect('invoiceConcrete/'.$request->idinvoice);
       }
@@ -94,6 +98,7 @@ class OtherController extends Controller
       $invoices = Invoice::find($request->idinvoice);
         if(empty($invoices))
           abort(404);
+          session()->flash('flash_success','แก้ไขข้อมูลแล้ว!');
     if($invoices->type == 1){
         return redirect('invoiceConcrete/'.$request->idinvoice);
       }
@@ -112,15 +117,15 @@ class OtherController extends Controller
     {
       $other = Other::findOrFail($id);
       $other->delete();
-
-      $invoices = Invoice::find($request->idinvoice);
+      $invoices = Invoice::find($idinvoice);
         if(empty($invoices))
           abort(404);
+            session()->flash('flash_success','ลบรายการแล้ว!');
     if($invoices->type == 1){
-        return redirect('invoiceConcrete/'.$request->idinvoice);
+        return redirect('invoiceConcrete/'.$idinvoice);
       }
       else {
-      return redirect('invoiceBoxConcrete/'.$request->idinvoice);
+      return redirect('invoiceBoxConcrete/'.$idinvoice);
       }
     }
 }

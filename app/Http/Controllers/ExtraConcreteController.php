@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Request;
 use App\Http\Requests\ExtraconcreteRequest;
+use Session;
+use Alert;
 
 class ExtraConcreteController extends Controller
 {
@@ -42,6 +44,7 @@ class ExtraConcreteController extends Controller
     {
       $boxconcretes = new Extra_concrette($request->all());
       $boxconcretes->save();
+      session()->flash('flash_success','เพิ่มสินค้าสำเร็จ!');
         return redirect('invoiceBoxConcrete/'.$request->idinvoice);
     }
 
@@ -81,7 +84,7 @@ class ExtraConcreteController extends Controller
     {
       $concrete = Extra_concrette::findOrFail($id);
       $concrete->update($request->all());
-
+      session()->flash('flash_success','แก้ไขข้อมูลสำเร็จ!');
     return redirect('invoiceBoxConcrete/'.$request->idinvoice);
     }
 
@@ -95,6 +98,7 @@ class ExtraConcreteController extends Controller
     {
       $concrete = Extra_concrette::findOrFail($id);
       $concrete->delete();
+      session()->flash('flash_success','ลบรายการแล้ว!');
       return redirect('invoiceBoxConcrete/'.$idinvoice);
     }
 }

@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 left">
 
-          <img src="{{ url('mentor/img/course01.jpg') }}" class="img-responsive">
+          <img src="{{ url('img/2.jpg') }}" class="img-responsive">
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12 right">
           @if($errors->any())

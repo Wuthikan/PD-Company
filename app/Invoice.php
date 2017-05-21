@@ -12,7 +12,7 @@ class Invoice extends Model
   protected $dates = ['created_at'];
 
   public function users(){
-  return $this->belongsTo('App\User');
+  return $this->belongsTo('App\User', 'idemployee');
 }
 
     public function customers(){

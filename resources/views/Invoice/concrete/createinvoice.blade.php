@@ -1,85 +1,73 @@
 @extends('layouts.main')
 
 @section('content')
-
 <section id ="feature" class="section-padding">
 			<div class="container">
 				<div class="row">
 					<div class="header-section text-center">
-						<h2>ใบเสนอราคา</h2>
+						<h2>รายการสั่งซื้อคอนกรีตผสมเสร็จ</h2>
+							<p>เลขที่ใบเสนอราคา   {{ $invoices->code }}</p>
+							@if(isset($invoices->idcustomer))
+								 ชื่อลูกค้า  คุณ {{ $customer->name }}
+									   <a href="{{ url("customer/{$customer->id}/edit?idinvoice={$invoices->id}") }}">แก้ไข <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+								 </a>
+							@endif
 						<hr class="bottom-line">
-
+				<hr>
           </div>
+
+
 					<div class="row">
-              <div class="col-xs-7 col-md-10 col-sm-9">  เลขที่ใบเสนอราคา   {{ $invoices->code }}</div>
-              <div class="col-xs-5 col-md-2 col-sm-3">
-							</div>
-					</div>
-					<div class="row">
-              <div class="col-xs-7 col-md-10 col-sm-9">  ชื่อลูกค้า  @if(empty($invoices->idcustomer))
+              <div class="col-xs-12 col-md-2 col-sm-3">  @if(empty($invoices->idcustomer))
 								   <a href="{{ route('customer.add', ['id' => $invoices->id]) }} ">
-										เพิ่มข้อมูลลูกค้า
+										 <button name="button" type="button" class="btn btn-green btn-block btn-flat">
+						 				เพิ่มข้อมูลลูกค้า  <i class="fa fa-address-card-o"></i>
+									 </button>
+
 									</a>
-								@else
-									{{ $customer->name }}  <a href="{{ url("customer/{$customer->id}/edit?idinvoice={$invoices->id}") }}">แก้ไข</a>
 								@endif
 							 </div>
-              <div class="col-xs-5 col-md-2 col-sm-3">
+							 <div class="col-xs-12 col-md-7 col-sm-5">
+								 <br>
+							 </div>
+              <div class="col-xs-12 col-md-3 col-sm-4">
+								<a href="#" data-target="#add" data-toggle="modal" >
+									<button name="button" type="button" class="btn btn-green btn-block btn-flat">
+										เพิ่มรายการสินค้า <i class="fa fa-plus-square-o"></i>
+								</button>
+								</a>
 							</div>
 					</div>
-          <div class="row">
-              <div class="col-xs-7 col-md-10 col-sm-9"> </div>
-              <div class="col-xs-5 col-md-2 col-sm-3">
-
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                          เพิ่มรายการ<span class="caret"></span>
-                      </a>
-
-                      <ul class="dropdown-menu" role="menu">
-                          <li>
-                              <a href="{{ route('concrete.add', ['id' => $invoices->id])}}">
-                                เพิ่มสินค้า
-                              </a>
-                          </li>
-
-
-
-                          <li>
-                              <a href="{{ route('other.add', ['id' => $invoices->id])}}">
-                                เพิ่มรายการค่าใช้จ่ายเพิ่มเติม
-                              </a>
-                          </li>
-  												</ul>
-
-              </div>
-          </div>
+					<br>
 					<table class="table  table-hover table-striped ">
 							<tr>
-								 	<th>เลขที่</th>
-										<th> รายการ </th>
-												<th> จำนวณ(คิว) </th>
-												<th> หน่วยละ </th>
-                        <th> ราคารวมภาษี </th>
-												<th> แก้ไข </th>
-												<th> ลบ </th>
+								 	<th class="col-md-1 text-center">เลขที่</th>
+										<th class="col-md-3 text-center"> รายการ </th>
+												<th class="col-md-2 text-right"> จำนวณ </th>
+												<th class="col-md-2 text-right"> หน่วยละ </th>
+                        <th class="col-md-2 text-right"> ราคารวมภาษี </th>
+												<th class="col-md-1 text-right"> แก้ไข </th>
+												<th class="col-md-1 text-right"> ลบ </th>
 							</tr>
 							<?php $i = 1; $sumtotal=0; ?>
-							@foreach($concrete as $concrete)
+							@foreach($concrete as $concretes)
               <tr>
-								 	<td>  {{ $i }} </td>
-									<td>
+								 	<td class=" text-center">  {{ $i }} </td>
+									<td class=" text-center">
 										 				คอนกรีตผสม
 									</td>
-									<td>  {{ $concrete->amount }} </td>
-									<td>  {{ $concrete->price }} </td>
-									<?php $total=$concrete->amount*$concrete->price  ?>
-                  <td>  {{ $total }} </td>
-									<td ><a href="{{ url("concrete/{$concrete->id}/edit?idinvoice={$invoices->id}") }}">แก้ไข</a> </td>
-									<td>
+									<td class=" text-right">  {{ $concretes->amount }} </td>
+									<td class=" text-right"> {{ number_format($concretes->price, 3, '.', '') }} </td>
+									<?php $total=$concretes->amount*$concretes->price  ?>
+                  <td class=" text-right">  {{ number_format($total, 2, '.', '') }} </td>
+									<td class=" text-right"><a href="{{ url("concrete/{$concretes->id}/edit?idinvoice={$invoices->id}") }}">
+										<i class="fa fa-pencil" aria-hidden="true"></i>
+									</a> </td>
+									<td class=" text-right">
 
 
-										<a href="{{ route('concrete.delete', ['id' => $concrete->id,'idinvoice' => $invoices->id]) }}"  >
-									  ลบ
+										<a href="{{ route('concrete.delete', ['id' => $concretes->id,'idinvoice' => $invoices->id]) }}"  >
+									    <i class="fa fa-trash-o" aria-hidden="true"></i>
 										</a>
 
 								 </td>
@@ -88,29 +76,33 @@
 							<?php $i++; ?>
 								@endforeach
 
-								@foreach($other as $other)
+								@foreach($other as $others)
 	              <tr>
-									 	<td>  {{ $i }} </td>
-										<td>
-											 			{{ $other->detail }}
+									 	<td  class=" text-center">  {{ $i }} </td>
+										<td class=" text-center">
+											 			{{ $others->detail }}
 										</td>
-										<td>   </td>
-										<td>  </td>
-	                  <td> {{ $other->price }}   </td>
-										<td >
-											<a href="{{ url("other/{$other->id}/edit?idinvoice={$invoices->id}") }}">แก้ไข</a> </td>
-										<td>
-
-
-											<a href="{{ route('other.delete', ['id' => $other->id,'idinvoice' => $invoices->id]) }}"  >
-										  ลบ
+										<td class=" text-right">   </td>
+										<td class=" text-right">  </td>
+	                  <td class=" text-right">   {{ number_format($others->price , 3, '.', '') }} </td>
+										<td  class=" text-right">
+											<a href="{{ url("other/{$others->id}/edit?idinvoice={$invoices->id}") }}"><i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
+										<td class=" text-right">
+											<a href="{{ route('other.delete', ['id' => $others->id,'idinvoice' => $invoices->id]) }}"  >
+											    <i class="fa fa-trash-o" aria-hidden="true"></i>
 											</a>
-
 									 </td>
 								</tr>
-								<?php  $sumtotal=$sumtotal+$other->price; ?>
+
+								<?php  $sumtotal=$sumtotal+$others->price; ?>
 								<?php $i++; ?>
 									@endforeach
+									@if (!$concrete->isEmpty())
+									<tr>
+										<td colspan="7">
+											<br>
+										</td>
+									</tr>
 									<tr>
 										<td></td>
 										<td></td>
@@ -118,7 +110,7 @@
 											<b>รวมเป็นเงิน </b>
 										</td>
 										<td>
-											<b><?=$sumtotal?></b>
+											<b> {{ number_format($sumtotal , 2, '.', '') }} </b>
 										<td>
 										</td>
 										<td>
@@ -128,11 +120,11 @@
 										<td></td>
 										<td colspan="2" >
 											<b>หักส่วนลด
-												<a href="#" data-target="#editdiscount" data-toggle="modal">เพิ่มส่วนลด</a>
+												<a href="#" data-target="#editdiscount" data-toggle="modal">เพิ่มส่วนลด <i class="fa fa-plus" aria-hidden="true"></i></a>
 											</b>
 										</td>
 										<td>
-											<b>{{ $invoices->discount }}</b>
+											<b>{{ number_format($invoices->discount , 2, '.', '') }} </b>
 										</td>
 										<td>
 										</td>
@@ -146,15 +138,20 @@
 											<b>จำนวณนเงินรวมทั้งสิ้น</b>
 										</td>
 										<td>
-												<b><?=$sumtotal-$invoices->discount?></b>
+												<b>{{ number_format($sumtotal-$invoices->discount , 2, '.', '') }}</b>
 										</td>
 										<td>
 										</td>
 										<td>
 										</td>
 									</tr>
-					</table>
 
+					@else
+						<tr><td colspan="7" class="text-center">- ไม่มีรายการสินค้าที่เลือก -</td></tr>
+						<tr><td colspan="7"></td></tr>
+							<tr><td colspan="7"></td></tr>
+					@endif
+						</table>
 					<!--Modal box -->
 					<div class="modal fade" id="editdiscount" role="dialog">
 						<div class="modal-dialog modal-sm">
@@ -185,48 +182,88 @@
 					</div>
 
 			</div>
+
 			<div class="row" >
-			<div class="col-xs-6 col-md-3 col-sm-4">
-			<a href="#" data-target="#delete" data-toggle="modal" >
-				<button name="button" type="button" class="btn btn-green btn-block btn-flat">
-				ยกเลิกใบเสนอราคา </button>
-			</a>
-			</div>
-			<div class="col-xs-2 col-md-6 col-sm-4">
-			</div>
-			<div class="col-xs-6 col-md-3 col-sm-4">
+				@if (!$concrete->isEmpty())
+			<div class="col-xs-12 col-md-3 col-sm-4">
 			<a href="{{ route('invoiceconcrete.confirm', ['id' => $invoices->id])}}">
 				<button name="button" type="button" class="btn btn-green btn-block btn-flat">
-				ยืนยันใบเสนอราคา <i class="fa fa-arrow-right"></i></button>
+				ยืนยันใบเสนอราคา <i class="fa fa-check-square-o"></i></button>
+			</a>
+			</div>
+			@else
+			<div class="col-xs-12 col-md-3 col-sm-4">
+			</div>
+			@endif
+				<div class="col-xs-12 col-md-6 col-sm-4">
+					<br>
+				</div>
+			<div class="col-xs-12 col-md-3 col-sm-4">
+			  <a href="#"  onclick="return delete_record();"  >
+				<button name="button" type="button" class="btn btn-green btn-block btn-flat">
+				ยกเลิกใบเสนอราคา <i class="fa fa-trash-o"></i></button>
 			</a>
 			</div>
 		</div>
 
-				<!--Modal box delete-->
-		<div class="modal fade" id="delete" role="dialog">
-			<div class="modal-dialog modal-sm">
-				<!-- Modal content no 1-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title text-center form-title">คุณต้องลบใบเสนอราคานี้หรือไม่</h4>
-					</div>
-					<div class="modal-body padtrbl">
+		<script>
+		function delete_record(){
+			swal({
+	  title: "คุณต้องการลบหรือไม่?",
+	  text: 'ใบเสนอราคา <?=$invoices->code?>',
+	  type: "warning",
+	  showCancelButton: true,
+	  confirmButtonColor: "#DD6B55",
+	  confirmButtonText: "Yes, delete it!",
+	  closeOnConfirm: false
+	},
+	function(){
+	  window.location.assign('/invoiceConcrete/delete/<?=$invoices->id?>');
+	});
+		}
+		</script>
 
-						<div class="login-box-body">
-							<p class="text-center"></p>
-							<div class="form-group">
-								  {!! Form::open(['method' => 'DELETE', 'url' => 'invoiceConcrete/'. $invoices->id ]) !!}
-										<button type="submit" class="btn btn-bg green btn-block"  >
-										 Delete
-									 </button>
-									{!! Form::close() !!}
-							</div>
-						</div>
+			</div>
+		</div>
+
+		<!--Modal box add-->
+<div class="modal fade" id="add" role="dialog">
+	<div class="modal-dialog modal-sm">
+		<!-- Modal content no 1-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+				<p class="modal-title text-center form-title">
+   					เลือกรายการที่คุณต้องการ
+				</p>
+					</div>
+			<div class="modal-body padtrbl">
+
+				<div class="login-box-body">
+					<p class="text-center"></p>
+					<div class="form-group">
+							<a href="{{ route('concrete.add', ['id' => $invoices->id])}}">
+								<button type="submit" class="btn btn-bg green btn-block"  >
+								 เพิ่มสินค้า
+							 </button>
+						</a>
+					</div>
+					<hr>
+					<div class="form-group">
+							<a href="{{ route('other.add', ['id' => $invoices->id])}}">
+								<button type="submit" class="btn btn-bg green btn-block"  >
+								 เพิ่มรายการค่าใช้จ่ายเพิ่มเติม
+							 </button>
+						 </a>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+
+
 
 	</section>
 

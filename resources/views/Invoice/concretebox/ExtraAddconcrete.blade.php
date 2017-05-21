@@ -14,10 +14,7 @@
       <div id="errormessage"></div>
 
       <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 left">
 
-          <img src="{{ url('mentor/img/course05.jpg') }}" class="img-responsive">
-        </div>
           <div class="col-md-6 col-sm-6 col-xs-12 right">
             @if($errors->any())
                 <ul class="alert alert-danger">
@@ -34,28 +31,28 @@
                       {!! Form::open(['url' => 'extraconcrete', 'name' => 'form1' ,'class' => 'contactForm form-horizontal']) !!}
                       <input type="hidden" value="{{ $idinvoice }}" name="idinvoice" id="idinvoice" >
                       <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ชื่อสินค้า</label>
+                        <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ชื่อสินค้า*</label>
                         <div class="col-sm-7 col-md-7">
                           <input type="text" class="form-control"   name="name" id="name" onkeyup='plus()' >
                           </div>
                           <div class="validation"></div>
                         </div>
                       <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ความกว้าง(เมตร)</label>
+                        <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ความกว้าง(เมตร)*</label>
                         <div class="col-sm-7 col-md-7">
                           <input type="text" class="form-control"   name="width" id="width" onkeyup='plus()' >
                           </div>
                           <div class="validation"></div>
                         </div>
                         <div class="form-group">
-                          <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ความยาว(เมตร)</label>
+                          <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ความยาว(เมตร)*</label>
                             <div class="col-sm-7 col-md-7 ">
                               <input type="text" class="form-control"   name="height" id="height" onkeyup='plus()' >
                             </div>
                             <div class="validation"></div>
                         </div>
                           <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">จำนวณแผ่น</label>
+                            <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">จำนวณแผ่น*</label>
                               <div class="col-sm-7 col-md-7 ">
                                 <input type="text" class="form-control"   name="amount" id="amount" onkeyup='plus()' >
                               </div>
@@ -71,7 +68,7 @@
                                 <div class="validation"></div>
                               </div>
                                 <div class="form-group">
-                              <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ราคาต่อหน่วย</label>
+                              <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ราคาต่อหน่วย*</label>
                                 <div class="col-sm-7 col-md-7">
                                   <input type="text" class="form-control"   name="price" id="price" onkeyup='plus()' >
                                 </div>
@@ -92,6 +89,10 @@
                     </div>
                     {!! Form::close() !!}
 
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 left">
+
+            <img src="{{ url('img/5.jpg') }}" class="img-responsive">
           </div>
         </div>
 

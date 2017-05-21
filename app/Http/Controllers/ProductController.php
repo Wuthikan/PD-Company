@@ -10,6 +10,7 @@ use App\Product;
 use Request;
 use App\Http\Requests\ProductRequest;
 use Auth;
+use Alert;
 class ProductController extends Controller
 {
 
@@ -48,7 +49,9 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
           $products = new Product($request->all());
+          Alert::success('เพิ่มสินค้าสำเร็จ!');
           $products->save();
+
           return redirect('product');
     }
 
@@ -91,7 +94,7 @@ class ProductController extends Controller
     {
       $products = Product::findOrFail($id);
         $products->update($request->all());
-        session()->flash('flash_message', 'Edit completed');
+    Alert::success('แก้ไขข้อมูลแล้ว!');
       return redirect('product');
     }
 
@@ -103,8 +106,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+
       $products = Product::findOrFail($id);
       $products->delete();
+      Alert::success('เราได้ลบสินค้าของคุณแล้ว!');
       return redirect('product');
     }
 }

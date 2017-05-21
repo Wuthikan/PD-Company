@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-
+use Session;
 use App\Invoice;
 use App\Concrete;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Request;
 use App\Http\Requests\ConcreteRequest;
-
+use Alert;
 class ConcreteController extends Controller
 {
     /**
@@ -43,6 +43,7 @@ class ConcreteController extends Controller
     {
       $concretes = new Concrete($request->all());
       $concretes->save();
+      session()->flash('flash_success','เพิ่มสินค้าสำเร็จ!');
         return redirect('invoiceConcrete/'.$request->idinvoice);
     }
 
@@ -82,7 +83,7 @@ class ConcreteController extends Controller
     {
       $concrete = Concrete::findOrFail($id);
       $concrete->update($request->all());
-
+      session()->flash('flash_success','แก้ไขข้อมูลสำเร็จ!');
     return redirect('invoiceConcrete/'.$request->idinvoice);
     }
 
@@ -96,6 +97,7 @@ class ConcreteController extends Controller
     {
       $concrete = Concrete::findOrFail($id);
       $concrete->delete();
+      session()->flash('flash_success','ลบรายการแล้ว!');
       return redirect('invoiceConcrete/'.$idinvoice);
     }
 }

@@ -14,10 +14,7 @@
       <div id="errormessage"></div>
 
       <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 left">
 
-          <img src="{{ url('mentor/img/course05.jpg') }}" class="img-responsive">
-        </div>
           <div class="col-md-6 col-sm-6 col-xs-12 right">
             @if($errors->any())
                 <ul class="alert alert-danger">
@@ -76,6 +73,10 @@
                     </div>
                     {!! Form::close() !!}
 
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 left">
+
+            <img src="{{ url('img/5.jpg') }}" class="img-responsive">
           </div>
         </div>
     </div>

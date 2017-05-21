@@ -8,6 +8,8 @@ use App\Customer;
 use App\Other;
 use Illuminate\Http\Request;
 use Auth;
+use Alert;
+use Session;
 
 class InvoiceConcreteController extends Controller
 {
@@ -52,7 +54,7 @@ class InvoiceConcreteController extends Controller
 
         $idinvoice   = Invoice::orderBy('id', 'desc')->first();
         $id = $idinvoice->id;
-        $idinvoice->code ="QT".$iduser.$id;
+        $idinvoice->code =$iduser.$id;
         $idinvoice->save();
 
           return redirect('invoiceConcrete/'.$id);
@@ -133,6 +135,7 @@ class InvoiceConcreteController extends Controller
     {
       $invoice = Invoice::findOrFail($id);
       $invoice->delete();
+      session()->flash('flash_success','ลบใบเสนอราคาสำเร็จ!');
       return redirect('home');
     }
     public function editDiscount(Request $request,$id)
@@ -140,7 +143,7 @@ class InvoiceConcreteController extends Controller
       $invoice = Invoice::findOrFail($id);
       $invoice->update($request->all());
 
-
+   session()->flash('flash_success','เพิ่มส่วนลดสำเร็จ!');
     if($invoice->type == 1){
         return redirect('invoiceConcrete/'.$invoice->id);
       }
@@ -154,11 +157,16 @@ class InvoiceConcreteController extends Controller
 
 
       $invoices = Invoice::findOrFail($id);
+    if ($invoices->idcustomer==null) {
+          Alert::error('กรุณาเพิ่มข้อมูลลูกค้า!')->persistent("Close");
+          return redirect('invoiceConcrete/'.$id);
+    }
+    else {
       $invoices->payment = 1;
       $invoices->save();
 
         return redirect('invoiceall/'.$id);
-
+      }
     }
 
 }

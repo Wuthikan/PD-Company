@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
   protected $table = "customer";
-  protected $fillable = ['code' ,'name','address','city','province','zipcode','tel','fax'];
+  protected $fillable = ['code' ,'name','address','city','province','zipcode','tel','fax','reference','company'];
 
   public function invoice(){
     return $this->hasMany('App\Invoice');
