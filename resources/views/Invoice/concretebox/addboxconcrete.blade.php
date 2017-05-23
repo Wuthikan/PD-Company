@@ -37,8 +37,7 @@
                       <div class="form-group">
                         <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ความกว้าง(เมตร)*</label>
                         <div class="col-sm-7 col-md-7">
-                          <label class="form-control"  >{{ $products->width }} </label>
-                          <input type="hidden" value="{{ $products->width }}" name="width" id="width" >
+                          <label class="form-control"  > 0.35 </label>
                           </div>
                           <div class="validation"></div>
                         </div>
@@ -56,15 +55,6 @@
                               </div>
                               <div class="validation"></div>
                             </div>
-                              <div class="form-group">
-                              <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">จำนวนตารางเมตร</label>
-                                <div class="col-sm-7 col-md-7 ">
-                                  <b>
-                                <input type="text" class="form-control"   name="total" id="total" disabled >
-                              </b>
-                                </div>
-                                <div class="validation"></div>
-                              </div>
                                 <div class="form-group">
                               <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ราคาต่อหน่วย*</label>
                                 <div class="col-sm-7 col-md-7">
@@ -72,16 +62,7 @@
                                 </div>
                                 <div class="validation"></div>
                               </div>
-                                <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ราคารวม</label>
-                            <div class="col-sm-7 col-md-7 ">
-                              <b>
-                            <input type="text" class="form-control" name="lastprice" id="lastprice"  onkeyup='plus()' disabled />
-                          </b>
-                            </div>
 
-                          <div class="validation"></div>
-                      </div>
                       <div class="header-section text-right">
                         <button type="submit" id="submit" name="submit" class="form contact-form-button light-form-button oswald light">สั่งซื้อ</button>
                     </div>
@@ -90,20 +71,7 @@
           </div>
         </div>
 </div>
-<script language='javascript' type='text/javascript'>
-function plus(){
-         var Width = document.form1.width.value;
-         var Height = document.form1.height.value;
-         var Amount = document.form1.amount.value;
-         if(Width == "" || Height == ""|| Amount == ""){return false;}
-         var Total = 0;
-         Total = (Number(Width)  * Number(Height)* Number(Amount)).toFixed(3);
-          form1.total.value = Total;
-        var Price = document.form1.price.value;
-          Lastprice = (Number(Total)  * Number(Price)).toFixed(2);
-          form1.lastprice.value = Lastprice;
-         }
-</script>
+
     </div>
   </div>
 </section>

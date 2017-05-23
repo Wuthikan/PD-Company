@@ -21,7 +21,6 @@ class CreateExtraConcretteTable extends Migration
                             ->on('invoice')
                             ->onDelete('cascade');
             $table->text('name');
-            $table->double('width');
             $table->double('height');
             $table->double('price');
             $table->double('amount');

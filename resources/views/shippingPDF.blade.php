@@ -72,7 +72,7 @@
                             @if($invoice->type==1)
                             -
                             @else
-                              {{ $concrete->products->width }}
+                              0.35
                             @endif
                           </font>
         									</td>
@@ -108,7 +108,7 @@
                                    </td>
                                    <td align="right">
                                      <font size=3>
-                                        {{ $Extraconcrete->width }}
+                                        0.35
                                       </font>
                                    </td>
                                     <td align="right">

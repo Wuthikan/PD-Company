@@ -24,7 +24,6 @@ class BoxconcreteRequest extends FormRequest
     public function rules()
     {
         return [
-          'width' => 'required',
           'height' => 'required',
           'amount' => 'required',
           'price' => 'required',

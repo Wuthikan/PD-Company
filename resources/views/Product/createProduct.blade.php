@@ -31,12 +31,6 @@
                 {!! Form::text('code', null, ['class' => 'form-control']) !!}
             </div>
             </div>
-            <div class="form-group">
-                    {!! Form::label('title', 'ความกว้าง(เมตร):', ['class' => 'col-sm-5 col-md-4 col-xs-12 control-label'])  !!}
-                 <div class="col-sm-7 col-md-8 col-xs-12">
-                     {!! Form::text('width', null, ['class' => 'form-control']) !!}
-                 </div>
-             </div>
              <div class="form-group">
                      {!! Form::label('title', 'จำนวณสินค้าในคลัง:', ['class' => 'col-sm-5 col-md-4 col-xs-12 control-label'])  !!}
                   <div class="col-sm-7 col-md-8 col-xs-12">

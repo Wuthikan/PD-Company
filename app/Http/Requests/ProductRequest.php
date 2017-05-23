@@ -26,7 +26,6 @@ class ProductRequest extends FormRequest
         return [
           'name' => 'required',
           'code' => 'required',
-          'width' => 'required|numeric',
           'amount' => 'required|numeric',
         ];
     }
@@ -34,7 +33,6 @@ class ProductRequest extends FormRequest
   {
     return [
       'required' => 'กรุณาข้อมูลให้ครบถ้วน' ,
-        'width.numeric' => 'กรุณากรอกความกว้างเฉพาะตัวเลขเท่านั้น',
         'amount.numeric' => 'กรุณากรอกจำนวณสินค้าในคลังเฉพาะตัวเลขเท่านั้น'
     ];
   }

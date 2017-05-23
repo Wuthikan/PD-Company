@@ -39,8 +39,7 @@
                       <div class="form-group">
                         <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ความกว้าง(เมตร)</label>
                         <div class="col-sm-7 col-md-7">
-                          <label class="form-control"  >{{ $products->width }} </label>
-                          <input type="hidden" value="{{ $products->width }}" name="width" id="width" >
+                          <label class="form-control"  >0.35 </label>
                           </div>
                           <div class="validation"></div>
                         </div>

@@ -63,10 +63,6 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-      $products = Product::find($id);
-      if(empty($products))
-      abort(404);
-      return view('product.showProduct', compact('products'));
     }
 
     /**

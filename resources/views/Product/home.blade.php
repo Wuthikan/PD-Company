@@ -23,7 +23,7 @@
             <tr>
                 <th class="col-md-1 text-center">เลขที่</th>
                   <th class="col-md-5 text-center"> รายการ </th>
-                      <th class="col-md-2 text-right"> ความกว้าง </th>
+                  <th class="col-md-2 text-right">ถูกจอง </th>
                       <th class="col-md-2 text-right"> คงเหลือ </th>
                       <th class="col-md-1 text-right"> แก้ไข </th>
                       <th class="col-md-1 text-right"> ลบ </th>
@@ -33,7 +33,7 @@
                 <td class="text-center">  {{ $i }} </td>
                 <td> คอนกรีตผสม  </td>
                 <td class="text-right"> - </td>
-                <td class="text-right"> -  </td>
+                  <td class="text-right"> - </td>
                 <td class="text-right"> - </td>
                 <td class="text-right"> -  </td>
             </tr>
@@ -46,7 +46,7 @@
                       </a>
 
                 </td>
-                <td class="text-right">  {{ $product->width }} </td>
+                      <td class="text-right"> - </td>
                 <td class="text-right"> {{ $product->amount }} แผ่น</td>
                 <td class="text-right">    <a  href="{{ url("product/{$product->id}/edit") }}">
                     <i class="fa fa-pencil" aria-hidden="true"></i>

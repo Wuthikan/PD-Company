@@ -40,7 +40,7 @@
                       <div class="form-group">
                         <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ความกว้าง(เมตร)*</label>
                         <div class="col-sm-7 col-md-7">
-                          <input type="text" class="form-control"   name="width" id="width" onkeyup='plus()' >
+                            <label class="form-control"  > 0.35 </label>
                           </div>
                           <div class="validation"></div>
                         </div>
@@ -96,20 +96,6 @@
           </div>
         </div>
 
-<script language='javascript' type='text/javascript'>
-function plus(){
-         var Width = document.form1.width.value;
-         var Height = document.form1.height.value;
-         var Amount = document.form1.amount.value;
-         if(Width == "" || Height == ""|| Amount == ""){return false;}
-         var Total = 0;
-         Total = (Number(Width)  * Number(Height)* Number(Amount)).toFixed(3);
-          form1.total.value = Total;
-        var Price = document.form1.price.value;
-          Lastprice = (Number(Total)  * Number(Price)).toFixed(2);
-          form1.lastprice.value = Lastprice;
-         }
-</script>
     </div>
   </div>
 </section>

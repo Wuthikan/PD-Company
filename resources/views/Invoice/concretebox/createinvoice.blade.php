@@ -44,9 +44,9 @@
 					<table class="table  table-hover table-striped ">
 						<tr>
 								<th class="col-md-1 text-center">เลขที่</th>
-									<th class="col-md-3 text-center"> รายการ </th>
+									<th class="col-md-4 text-center"> รายการ </th>
 											<th class="col-md-2 text-right"> จำนวณ </th>
-											<th class="col-md-2 text-right"> หน่วยละ </th>
+											<th class="col-md-1 text-right"> หน่วยละ </th>
 											<th class="col-md-2 text-right"> ราคารวมภาษี </th>
 											<th class="col-md-1 text-right"> แก้ไข </th>
 											<th class="col-md-1 text-right"> ลบ </th>
@@ -57,10 +57,10 @@
 								 	<td class=" text-center" >  {{ $i }} </td>
 									<td class=" text-center">
 										 		{{ $concretes->products->name }}
-												{{ $concretes->products->width }}x{{ $concretes->height }}
+												0.35x{{ $concretes->height }}
 												จำนวณ{{ $concretes->amount }}แผ่น
 									</td>
-									<?php $sum = $concretes->products->width*$concretes->height*$concretes->amount;
+									<?php $sum = 0.35*$concretes->height*$concretes->amount;
 										$a = number_format($sum, 3, '.', '');  	?>
 									<td class=" text-right" >  {{ number_format($sum, 3, '.', '') }} ตร.ม</td>
 									<td class=" text-right">  {{ number_format($concretes->price, 3, '.', '') }} </td>
@@ -90,10 +90,10 @@
 										<td class=" text-center">  {{ $i }} </td>
 										<td class=" text-center">
 													{{ $Extraconcretes->name }}
-													{{ $Extraconcretes->width }}x{{ $Extraconcretes->height }}
+													0.35x{{ $Extraconcretes->height }}
 													จำนวณ{{ $Extraconcretes->amount }}แผ่น
 										</td>
-										<?php $sum = $Extraconcretes->width*$Extraconcretes->height*$Extraconcretes->amount;
+										<?php $sum = 0.35*$Extraconcretes->height*$Extraconcretes->amount;
 											$a = number_format($sum, 3, '.', '');  	?>
 										<td  class=" text-right">  {{ number_format($sum, 3, '.', '') }} ตร.ม</td>
 										<td class=" text-right">  {{ number_format($Extraconcretes->price, 3, '.', '') }} </td>

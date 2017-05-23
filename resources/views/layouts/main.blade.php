@@ -9,7 +9,7 @@
       {!! HTML::style('Mentor/css/style.css') !!}
       {!! HTML::style('sweetalert-master/dist/sweetalert.css') !!}
       {!! HTML::style('fullcalendar/fullcalendar.css') !!}
-    
+    <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
 
   </head>
 <body>
