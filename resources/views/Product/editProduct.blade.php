@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.menuinventory')
 <section id ="contact" class="section-padding">
   <div class="container">
     <div class="row">
@@ -6,19 +6,13 @@
         <h2>แก้ไขรายการสินค้า</h2>
 
         <hr class="bottom-line">
-        @if($errors->any())
 
-              @foreach($errors->all() as $error)
-              <?php
-              Alert::info($error)->persistent("Close");
-              ?>
-              @endforeach
-        @endif
       </div>
       {!! Form::model($products, ['method' => 'PATCH',
           'action' => ['ProductController@update', $products->id],
           'class' => 'form-horizontal'
           ]) !!}
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 ">
                     <div class="form-group">
                         {!! Form::label('title', 'ชื่อสินค้า:', ['class' => 'col-sm-5 col-md-4 col-xs-12 control-label'])  !!}
@@ -31,6 +25,11 @@
                       <div class="col-sm-7 col-md-8 col-xs-12">
                           {!! Form::text('code', null, ['class' => 'form-control']) !!}
                       </div>
+                      <div class="form-group">
+                          {!! Form::label('title', 'ความยาว', ['class' => 'col-sm-5 col-md-4 col-xs-12 control-label'])  !!}
+                       <div class="col-sm-7  col-md-8 col-xs-12">
+                           {!! Form::text('height', null, ['class' => 'form-control']) !!}
+                       </div>
                       </div>
                        <div class="form-group">
                                {!! Form::label('title', 'จำนวณสินค้าในคลัง:', ['class' => 'col-sm-5 col-md-4 col-xs-12 control-label'])  !!}

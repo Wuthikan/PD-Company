@@ -6,11 +6,10 @@
 				<div class="row">
 					<div class="header-section text-center">
 						<h2>รายการสั่งซื้อคอนกรีตผสมเสร็จ</h2>
-							<p>เลขที่ใบเสนอราคา   {{ $invoices->code }}</p>
+							<p>เลขที่ใบเสนอราคา   QT{{ $invoices->code }}</p>
 							@if(isset($invoices->idcustomer))
 								 ชื่อลูกค้า  คุณ {{ $customer->name }}
-									   <a href="{{ url("customer/{$customer->id}/edit?idinvoice={$invoices->id}") }}">แก้ไข <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-								 </a>
+									   
 							@endif
 						<hr class="bottom-line">
 				<hr>
@@ -18,14 +17,7 @@
 
 
 					<div class="row">
-              <div class="col-xs-12 col-md-2 col-sm-3">  @if(empty($invoices->idcustomer))
-								   <a href="{{ route('customer.add', ['id' => $invoices->id]) }} ">
-										 <button name="button" type="button" class="btn btn-green btn-block btn-flat">
-						 				เพิ่มข้อมูลลูกค้า  <i class="fa fa-address-card-o"></i>
-									 </button>
-
-									</a>
-								@endif
+              <div class="col-xs-12 col-md-2 col-sm-3">
 							 </div>
 							 <div class="col-xs-12 col-md-7 col-sm-5">
 								 <br>
@@ -184,25 +176,24 @@
 			</div>
 
 			<div class="row" >
-				@if (!$concrete->isEmpty())
+							<div class="col-xs-12 col-md-2 col-sm-4">
+								<a href="#"  onclick="return delete_record();"  >
+					 		 <button name="button" type="button" class="btn btn-danger col-xs-12">
+					 		 ยกเลิกใบเสนอราคา <i class="fa fa-trash-o"></i></button>
+					 	 </a>
+			</div>
+				<div class="col-xs-12 col-md-7 col-sm-4">
+					<br>
+				</div>
 			<div class="col-xs-12 col-md-3 col-sm-4">
+				@if (!$concrete->isEmpty())
+
 			<a href="{{ route('invoiceconcrete.confirm', ['id' => $invoices->id])}}">
 				<button name="button" type="button" class="btn btn-green btn-block btn-flat">
 				ยืนยันใบเสนอราคา <i class="fa fa-check-square-o"></i></button>
 			</a>
-			</div>
-			@else
-			<div class="col-xs-12 col-md-3 col-sm-4">
-			</div>
-			@endif
-				<div class="col-xs-12 col-md-6 col-sm-4">
-					<br>
-				</div>
-			<div class="col-xs-12 col-md-3 col-sm-4">
-			  <a href="#"  onclick="return delete_record();"  >
-				<button name="button" type="button" class="btn btn-green btn-block btn-flat">
-				ยกเลิกใบเสนอราคา <i class="fa fa-trash-o"></i></button>
-			</a>
+				@endif
+
 			</div>
 		</div>
 
@@ -210,7 +201,7 @@
 		function delete_record(){
 			swal({
 	  title: "คุณต้องการลบหรือไม่?",
-	  text: 'ใบเสนอราคา <?=$invoices->code?>',
+	  text: 'ใบเสนอราคา QT<?=$invoices->code?>',
 	  type: "warning",
 	  showCancelButton: true,
 	  confirmButtonColor: "#DD6B55",

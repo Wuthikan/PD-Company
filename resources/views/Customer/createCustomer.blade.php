@@ -1,5 +1,6 @@
 
 @extends('layouts.main')
+@section('content')
 <section id ="contact" class="section-padding">
   <div class="container">
     <div class="row">
@@ -7,67 +8,48 @@
         <h2>เพิ่มข้อมูลลูกค้า</h2>
 
         <hr class="bottom-line">
-        @if($errors->any())
-      			<ul class="alert alert-danger">
-      				@foreach($errors->all() as $error)
-      					<li>{{ $error }}</li>
-      				@endforeach
-      			</ul>
-      	@endif
+
       </div>
+      <!-- <input type="text" name="term" id="q" data-action="{{ route('search-autocomplete') }}"> -->
+<div class="col-md-5 col-md-offset-3 col-sm-7 col-sm-offset-1 col-xs-12 ">
+          {!! Form::open(['url' => 'customer', 'class' => 'form-horizontal']) !!}
 
-
-          {!! Form::open(['url' => 'customer']) !!}
               <input type="hidden" value="{{ $idinvoice }}" name="idinvoice" id="idinvoice" >
               <div class="form-group">
-              {!! Form::label('title', 'ชื่อลูกค้า')
+              {!! Form::label('title', 'ชื่อลูกค้า', ['class' => 'col-sm-5 col-md-3 col-xs-12 control-label'])
               !!}
+              <div class="col-sm-7   col-md-9 col-xs-12">
               {!! Form::text('name', null, ['class' => 'form-control']) !!}
+            </div>
+              </div>
 
-              </div>
               <div class="form-group">
-              {!! Form::label('title', 'บริษัท')
-              !!}
-              {!! Form::text('company', null, ['class' => 'form-control']) !!}
-              </div>
-              <div class="form-group">
-              {!! Form::label('body', 'ที่อยู่') !!}
-              {!! Form::text('address', null, ['class' => 'form-control']) !!}
-              </div>
-              <div class="form-group">
-              {!! Form::label('body', 'อำเภอ') !!}
-              {!! Form::text('city', null, ['class' => 'form-control']) !!}
-              </div>
-              <div class="form-group">
-              {!! Form::label('body', 'จังหวัด') !!}
-              {!! Form::text('province', null, ['class' => 'form-control']) !!}
-              </div>
-              <div class="form-group">
-              {!! Form::label('body', 'รหัสไปรษณีย์') !!}
-              {!! Form::text('zipcode', null, ['class' => 'form-control']) !!}
-              </div>
-              <div class="form-group">
-              {!! Form::label('body', 'เบอร์โทรศัพย์') !!}
-              {!! Form::text('tel', null, ['class' => 'form-control']) !!}
-              </div>
-              <div class="form-group">
-              {!! Form::label('body', 'เบอร์ Fax') !!}
-              {!! Form::text('fax', null, ['class' => 'form-control']) !!}
-              </div>
-              <div class="form-group">
-              {!! Form::label('body', 'อ้างอิง') !!}
-              {!! Form::text('reference', null, ['class' => 'form-control']) !!}
-              </div>
-                <hr class="bottom-line">
-              <div class="form-group">
-
-              {!! Form::submit('ตกลง',
-              ['class'=>'btn btn-block btn-submit']) !!}
+                  <div class="col-md-5 col-md-offset-7 col-sm-5 col-sm-offset-7 col-xs-12 ">
+                    <button type="submit" class="btn btn-bg green btn-block" >ตกลง <i class="fa fa-plus" aria-hidden="true"></i></button>
+                </div>
               </div>
       {!! Form::close() !!}
+    </div>
     </div>
   </div>
 </section>
 
+  @endsection
+@section('scripts')
+<script>
+$('#q').each(function() {
+        var $this = $(this);
+        var src = $this.data('action');
 
-@section('content')
+        $this.autocomplete({
+            source: src,
+            minLength: 2,
+            select: function(event, ui) {
+                $this.val(ui.item.value);
+                $('#id').val(ui.item.id);
+            }
+        });
+    });
+</script>
+
+  @endsection

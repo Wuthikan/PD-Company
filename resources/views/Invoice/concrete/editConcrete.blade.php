@@ -16,22 +16,16 @@
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 left">
 
-          <img src="{{ url('img/IMG_7179.jpg') }}" class="img-responsive">
+          <img src="{{ url('img/IMG_7179.jpg') }}" class="img-responsive img-rounded">
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12 right">
-          @if($errors->any())
-              <ul class="alert alert-danger">
-                @foreach($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                @endforeach
-              </ul>
-          @endif
 
         <br>
 
         {!! Form::model($concrete, ['method' => 'PATCH',
             'action' => ['ConcreteController@update', $concrete->id]
             ]) !!}
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <input type="hidden" value="<?=$_GET["idinvoice"]?>" name="idinvoice" id="idinvoice" >
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-5 control-label">คอนกรีต ปริมาณ (คิว)</label>

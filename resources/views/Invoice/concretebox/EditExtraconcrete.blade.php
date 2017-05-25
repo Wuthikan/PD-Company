@@ -16,14 +16,6 @@
       <div class="row">
 
           <div class="col-md-6 col-sm-6 col-xs-12 right">
-            @if($errors->any())
-                <ul class="alert alert-danger">
-                  @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                  @endforeach
-                </ul>
-            @endif
-
           <br>
 
 
@@ -31,18 +23,12 @@
               'action' => ['ExtraConcreteController@update', $concrete->id,'class' => 'contactForm form-horizontal']
 
               ]) !!}
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <input type="hidden" value="<?=$_GET["idinvoice"]?>" name="idinvoice" id="idinvoice" >
                       <div class="form-group">
                         <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ชื่อสินค้า</label>
                         <div class="col-sm-7 col-md-7">
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                          </div>
-                          <div class="validation"></div>
-                        </div>
-                      <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ความกว้าง(เมตร)</label>
-                        <div class="col-sm-7 col-md-7">
-                          <label class="form-control"  > 0.35 </label>
                           </div>
                           <div class="validation"></div>
                         </div>

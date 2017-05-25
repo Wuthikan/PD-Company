@@ -3,23 +3,17 @@
 namespace App\Http\Controllers;
 use Session;
 use Cookie;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Product;
-use App\Product_reserve;
-
-use Request;
-use App\Http\Requests\ProductRequest;
+use Illuminate\Http\Request;
 use Auth;
 use Alert;
-class ProductController extends Controller
+use App\Invoice;
+
+class ConcreteInventoryController extends Controller
 {
-
-      public function __construct()
-    {
-      $this->middleware('auth');
-    }
-
+  public function __construct()
+{
+  $this->middleware('auth');
+}
     /**
      * Display a listing of the resource.
      *
@@ -27,9 +21,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
-        $products = Product::get();
-         return view('Product.home', compact('products'));
+      $invoice = Invoice::get();
+       return view('Inventory.concrete.home', compact('invoice'));
     }
 
     /**
@@ -39,7 +32,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-            return view('product.createProduct');
+        //
     }
 
     /**
@@ -48,13 +41,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
-          $products = new Product($request->all());
-          Alert::success('เพิ่มสินค้าสำเร็จ!');
-          $products->save();
-
-          return redirect('product');
+        //
     }
 
     /**
@@ -65,6 +54,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        //
     }
 
     /**
@@ -75,10 +65,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-      $products = Product::find($id);
-        if(empty($products))
-          abort(404);
-      return view('product.editProduct', compact('products'));
+        //
     }
 
     /**
@@ -88,12 +75,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, ProductRequest $request)
+    public function update(Request $request, $id)
     {
-      $products = Product::findOrFail($id);
-        $products->update($request->all());
-    Alert::success('แก้ไขข้อมูลแล้ว!');
-      return redirect('product');
+        //
     }
 
     /**
@@ -104,10 +88,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-
-      $products = Product::findOrFail($id);
-      $products->delete();
-      Alert::success('เราได้ลบสินค้าของคุณแล้ว!');
-      return redirect('product');
+        //
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Invoice;
+use App\Product;
 use App\box_concrette;
 use App\Extra_concrette;
 use App\Customer;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Alert;
 use Session;
+use App\Product_reserve;
 
 class InvoiceBoxConcreteController extends Controller
 {
@@ -142,6 +144,16 @@ class InvoiceBoxConcreteController extends Controller
     public function destroy($id)
     {
       $invoice = Invoice::findOrFail($id);
+      $concrete = box_concrette::whereboxconcretestate($invoice->id,'1')->get();
+      foreach($concrete as $concretes){
+        $lookReserve = Product_reserve::whereproductreserve($concretes->idproduct,$concretes->id)
+        ->first();
+        $product = Product::find($lookReserve->idproduct);
+        $pushProduct= $product->amount +$lookReserve->box_concrettes->amount;
+        $product->amount = $pushProduct;
+        $product->save();
+        $lookReserve->delete();
+      }
       $invoice->delete();
       session()->flash('flash_success','ลบใบเสนอราคาสำเร็จ!');
       return redirect('home');
@@ -150,13 +162,13 @@ class InvoiceBoxConcreteController extends Controller
     {
       $invoices = Invoice::findOrFail($id);
       if ($invoices->idcustomer==null) {
-            Alert::error('กรุณาเพิ่มข้อมูลลูกค้า!')->persistent("Close");
-            return redirect('invoiceBoxConcrete/'.$id);
+            return redirect('customer/create/'.$id);
+
       }
       else {
       $invoices->payment = 1;
       $invoices->save();
-
+      session()->flash('flash_success','ยืนยันรายการใบเสนอราคาแล้ว!');
         return redirect('invoiceall/'.$id);
       }
     }

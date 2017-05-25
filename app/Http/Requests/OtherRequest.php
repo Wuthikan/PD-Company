@@ -25,7 +25,14 @@ class OtherRequest extends FormRequest
     {
         return [
           'detail' => 'required',
-          'price' => 'required',
+          'price' => 'required|numeric',
         ];
     }
+    public function messages()
+  {
+    return [
+      'required' => 'กรุณาข้อมูลให้ครบถ้วน' ,
+        'price.numeric' => 'กรุณากรอกราคาเฉพาะตัวเลขเท่านั้น'
+    ];
+  }
 }

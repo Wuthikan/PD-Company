@@ -23,6 +23,7 @@
             <tr>
                 <th>เลขที่</th>
                   <th> รายการ </th>
+                  <th> ความยาว </th>
                       <th> คงเหลือ </th>
                       <th></th>
             </tr>
@@ -32,6 +33,9 @@
                 <td>  {{ $i }} </td>
                 <td>
                           {{ $product->name }}
+                </td>
+                <td>
+                          {{ $product->height }}
                 </td>
                 <td> {{ $product->amount }} </td>
                 <td><a href="{{ route('boxconcrete.select', ['id' => $idinvoice ,'idproduct' => $product->id])}}"> Buy </a></td>

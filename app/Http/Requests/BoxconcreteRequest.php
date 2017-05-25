@@ -24,9 +24,15 @@ class BoxconcreteRequest extends FormRequest
     public function rules()
     {
         return [
-          'height' => 'required',
-          'amount' => 'required',
-          'price' => 'required',
+          'amount' => 'required|numeric',
+          'price' => 'required|numeric',
         ];
     }
+    public function messages()
+  {
+    return [
+      'required' => 'กรุณาข้อมูลให้ครบถ้วน' ,
+        'numeric' => 'กรุณากรอกเฉพาะตัวเลขเท่านั้น'
+    ];
+  }
 }

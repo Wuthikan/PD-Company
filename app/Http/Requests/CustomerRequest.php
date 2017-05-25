@@ -24,8 +24,13 @@ class CustomerRequest extends FormRequest
     public function rules()
     {
       return [
-        'name' => 'required|min:3|max:255',
-        'tel' => 'required|min:9',
+        'name' => 'required'
       ];
     }
+    public function messages()
+  {
+    return [
+      'required' => 'กรุณาชื่อลูกค้า'
+    ];
+  }
 }

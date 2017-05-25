@@ -26,10 +26,19 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function autosearch()
+     {
+       $term = request('term');
+        $result = Coustomer::Where('name', 'LIKE', '%' . $term . '%')->get(['id', 'name as value']);
+        return response()->json($term);
+
+     }
     public function create($id)
     {
         $idinvoice = $id;
         return view('Customer.createCustomer', compact('idinvoice'));
+
+
     }
 
     /**
@@ -50,14 +59,15 @@ class CustomerController extends Controller
 
       $invoices = Invoice::find($request->idinvoice);
       $invoices->idcustomer =$id;
+      $invoices->payment = 1;
       $invoices->save();
 
 
       if($invoices->type == 1){
-          return redirect('invoiceConcrete/'.$request->idinvoice);
+          return redirect('invoiceall/'.$request->idinvoice);
         }
         else {
-        return redirect('invoiceBoxConcrete/'.$request->idinvoice);
+        return redirect('invoiceall/'.$request->idinvoice);
         }
     }
 
@@ -102,10 +112,10 @@ class CustomerController extends Controller
           if(empty($invoices))
             abort(404);
       if($invoices->type == 1){
-          return redirect('invoiceConcrete/'.$request->idinvoice);
+          return redirect('invoiceall/'.$request->idinvoice);
         }
         else {
-        return redirect('invoiceBoxConcrete/'.$request->idinvoice);
+        return redirect('invoiceall/'.$request->idinvoice);
         }
     }
 

@@ -29,7 +29,7 @@
         <figure class="imghvr-fold-up">
           <img src="img/IMG_7191.jpg" class="img-responsive">
           <figcaption>
-              <h3>แผ่นพื้น Hollow core ซีแพค</h3>
+              <h3>แผ่นพื้นสำเร็จรูป</h3>
           </figcaption>
           <a href="{{ url('/invoice/concretebox') }}"></a>
         </figure>

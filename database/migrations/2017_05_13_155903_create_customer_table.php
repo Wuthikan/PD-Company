@@ -21,7 +21,7 @@ class CreateCustomerTable extends Migration
             $table->text('city')->nullable();
             $table->text('province')->nullable();
             $table->text('zipcode')->nullable();
-            $table->text('tel');
+            $table->text('tel')->nullable();
             $table->text('fax')->nullable();
             $table->text('reference')->nullable();
             $table->text('company')->nullable();

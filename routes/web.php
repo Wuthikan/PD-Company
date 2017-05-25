@@ -121,6 +121,10 @@ Route::get('customer/create/{id}', [
   'middleware' => ['auth'],
   ]);
 
+Route::get('customer/search', [
+  'as' => 'search-autocomplete',
+   'uses' => 'CustomerController@autosearch']);
+
   Route::resource('other', 'OtherController');
   Route::get('other/create/{id}', [
     'uses'       => 'OtherController@create',
@@ -195,3 +199,9 @@ Route::get('shipping/pdf/{id}/{idinvoice}', [
 Route::get('/calendarShipping/{id}', [
     'uses'       => 'ShippingController@showcalendar',
     ]);
+
+
+Route::get('/Inventory', function () {
+  return view('Product/manu');
+});
+Route::resource('ConcreteInventory', 'ConcreteInventoryController');

@@ -25,10 +25,18 @@ class ExtraconcreteRequest extends FormRequest
     {
         return [
           'name' => 'required',
-          'width' => 'required',
-          'height' => 'required',
-          'amount' => 'required',
-          'price' => 'required',
+          'height' => 'required|numeric',
+          'amount' => 'required|numeric',
+          'price' => 'required|numeric',
         ];
     }
+    public function messages()
+  {
+    return [
+      'required' => 'กรุณาข้อมูลให้ครบถ้วน' ,
+        'price.numeric' => 'กรุณากรอกราคาต่อคิวเฉพาะตัวเลขเท่านั้น',
+          'amount.numeric' => 'กรุณากรอกจำนวนที่ต้องการเฉพาะตัวเลขเท่านั้น',
+            'height.numeric' => 'กรุณากรอกความยาวเฉพาะตัวเลขเท่านั้น'
+          ];
+  }
 }

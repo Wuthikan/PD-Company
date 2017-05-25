@@ -27,13 +27,15 @@ class ProductRequest extends FormRequest
           'name' => 'required',
           'code' => 'required',
           'amount' => 'required|numeric',
+          'height'=> 'required|numeric'
         ];
     }
     public function messages()
   {
     return [
       'required' => 'กรุณาข้อมูลให้ครบถ้วน' ,
-        'amount.numeric' => 'กรุณากรอกจำนวณสินค้าในคลังเฉพาะตัวเลขเท่านั้น'
+        'amount.numeric' => 'กรุณากรอกจำนวณสินค้าในคลังเฉพาะตัวเลขเท่านั้น',
+        'height.numeric' => 'กรุณากรอกความยาวเฉพาะตัวเลขเท่านั้น'
     ];
   }
 }

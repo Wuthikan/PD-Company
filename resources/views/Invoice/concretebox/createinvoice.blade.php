@@ -7,11 +7,10 @@
 				<div class="row">
 					<div class="header-section text-center">
 						<h2>รายการสั่งซื้อคอนกรีตแผ่นพิ้น</h2>
-							<p>เลขที่ใบเสนอราคา   {{ $invoices->code }}</p>
+							<p>เลขที่ใบเสนอราคา   QT{{ $invoices->code }}</p>
 							@if(isset($invoices->idcustomer))
 								 ชื่อลูกค้า  คุณ {{ $customer->name }}
-									   <a href="{{ url("customer/{$customer->id}/edit?idinvoice={$invoices->id}") }}">แก้ไข <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-								 </a>
+
 							@endif
 						<hr class="bottom-line">
 				<hr>
@@ -19,14 +18,7 @@
           </div>
 
 					<div class="row">
-							<div class="col-xs-12 col-md-2 col-sm-3">  @if(empty($invoices->idcustomer))
-									 <a href="{{ route('customer.add', ['id' => $invoices->id]) }} ">
-										 <button name="button" type="button" class="btn btn-green btn-block btn-flat">
-										เพิ่มข้อมูลลูกค้า  <i class="fa fa-address-card-o"></i>
-									 </button>
-
-									</a>
-								@endif
+							<div class="col-xs-12 col-md-2 col-sm-3">
 							 </div>
 							 <div class="col-xs-12 col-md-7 col-sm-5">
 								 <br>
@@ -45,9 +37,10 @@
 						<tr>
 								<th class="col-md-1 text-center">เลขที่</th>
 									<th class="col-md-4 text-center"> รายการ </th>
-											<th class="col-md-2 text-right"> จำนวณ </th>
+											<th class="col-md-1 text-right"> ตารางเมตร </th>
 											<th class="col-md-1 text-right"> หน่วยละ </th>
 											<th class="col-md-2 text-right"> ราคารวมภาษี </th>
+											<th class="col-md-1 text-right"> สถานะ </th>
 											<th class="col-md-1 text-right"> แก้ไข </th>
 											<th class="col-md-1 text-right"> ลบ </th>
 						</tr>
@@ -57,27 +50,33 @@
 								 	<td class=" text-center" >  {{ $i }} </td>
 									<td class=" text-center">
 										 		{{ $concretes->products->name }}
-												0.35x{{ $concretes->height }}
+												0.35x{{ $concretes->products->height }}
 												จำนวณ{{ $concretes->amount }}แผ่น
 									</td>
-									<?php $sum = 0.35*$concretes->height*$concretes->amount;
+									<?php $sum = 0.35*$concretes->products->height*$concretes->amount;
 										$a = number_format($sum, 3, '.', '');  	?>
-									<td class=" text-right" >  {{ number_format($sum, 3, '.', '') }} ตร.ม</td>
+									<td class=" text-right" >  {{ number_format($sum, 3, '.', '') }}</td>
 									<td class=" text-right">  {{ number_format($concretes->price, 3, '.', '') }} </td>
 									<?php $total=$sum*$concretes->price;
 													$total = number_format($total, 2, '.', '');
 									 ?>
                   <td class=" text-right">  {{ $total }} </td>
+									  <td class=" text-right">
+									@if($concretes->state=='1')
+											พร้อมส่ง
+										@elseif($concretes->state=='2')
+											รอผลิต
+										@elseif($concretes->state=='3')
+											ส่งสินค้าแล้ว
+										@endif
+										 </td>
 									<td class=" text-right" ><a href="{{ url("boxconcrete/{$concretes->id}/edit?idinvoice={$invoices->id}") }}">
 										<i class="fa fa-pencil" aria-hidden="true"></i>
 									</a> </td>
 									<td class=" text-right">
-
-
 										<a href="{{ route('boxconcrete.delete', ['id' => $concretes->id,'idinvoice' => $invoices->id]) }}"  >
 									  <i class="fa fa-trash-o" aria-hidden="true"></i>
 										</a>
-
 								 </td>
 							</tr>
 							<?php  $sumtotal=$sumtotal+$total; ?>
@@ -95,12 +94,13 @@
 										</td>
 										<?php $sum = 0.35*$Extraconcretes->height*$Extraconcretes->amount;
 											$a = number_format($sum, 3, '.', '');  	?>
-										<td  class=" text-right">  {{ number_format($sum, 3, '.', '') }} ตร.ม</td>
+										<td  class=" text-right">  {{ number_format($sum, 3, '.', '') }}</td>
 										<td class=" text-right">  {{ number_format($Extraconcretes->price, 3, '.', '') }} </td>
 										<?php $total=$sum*$Extraconcretes->price;
 														$total = number_format($total, 2, '.', '');
 										 ?>
 										<td class=" text-right">  {{ $total }} </td>
+										<td class=" text-right">สั่งผลิต</td>
 										<td class=" text-right" ><a href="{{ url("extraconcrete/{$Extraconcretes->id}/edit?idinvoice={$invoices->id}") }}">
 											<i class="fa fa-pencil" aria-hidden="true"></i>
 										</a> </td>
@@ -128,14 +128,12 @@
 										<td class=" text-right">  </td>
 	                  <td class=" text-right"> {{ $others->price }}   </td>
 										<td class=" text-right" >
+												<td class=" text-right">  </td>
 											<a href="{{ url("other/{$others->id}/edit?idinvoice={$invoices->id}") }}"><i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
 										<td class=" text-right">
-
-
 											<a href="{{ route('other.delete', ['id' => $others->id,'idinvoice' => $invoices->id]) }}"  >
 										   <i class="fa fa-trash-o" aria-hidden="true"></i>
 											</a>
-
 									 </td>
 
 								</tr>
@@ -150,11 +148,16 @@
 										<td colspan="2">
 											<b>รวมเป็นเงิน </b>
 										</td>
-										<td>
+										<td colspan="2">
 											<b><?=number_format($sumtotal, 2, '.', '');?></b>
-										<td>
 										</td>
 										<td>
+										</td>
+
+										<td>
+										</td>
+
+
 									</tr>
 									<tr>
 										<td></td>
@@ -164,7 +167,7 @@
 												<a href="#" data-target="#editdiscount" data-toggle="modal">เพิ่มส่วนลด <i class="fa fa-plus" aria-hidden="true"></i></a>
 											</b>
 										</td>
-										<td>
+										<td colspan="2">
 											<b>
 												{{ number_format($invoices->discount, 2, '.', '') }}</b>
 										</td>
@@ -179,7 +182,7 @@
 										<td colspan="2" >
 											<b>จำนวณนเงินรวมทั้งสิ้น</b>
 										</td>
-										<td>
+										<td colspan="2">
 												<b><?=number_format($sumtotal-$invoices->discount, 2, '.', '');?></b>
 										</td>
 										<td>
@@ -227,25 +230,22 @@
 
 			</div>
 			<div class="row" >
-				@if (!$concrete->isEmpty()||!$Extraconcrete->isEmpty())
-			<div class="col-xs-12 col-md-3 col-sm-4">
-			<a href="{{ route('invoiceBoxConcrete.confirm', ['id' => $invoices->id])}}">
-				<button name="button" type="button" class="btn btn-green btn-block btn-flat">
-				ยืนยันใบเสนอราคา <i class="fa fa-check-square-o"></i></button>
-			</a>
+				<div class="col-xs-12 col-md-3 col-sm-4">
+					<a href="#"  onclick="return delete_record();"  >
+					<button name="button" type="button" class="btn btn-danger col-xs-12">
+					ยกเลิกใบเสนอราคา <i class="fa fa-trash-o"></i></button>
+				</a>
 			</div>
-			@else
-			<div class="col-xs-12 col-md-3 col-sm-4">
-			</div>
-			@endif
 				<div class="col-xs-12 col-md-6 col-sm-4">
 					<br>
 				</div>
 			<div class="col-xs-12 col-md-3 col-sm-4">
-				<a href="#"  onclick="return delete_record();"  >
+				@if (!$concrete->isEmpty()||!$Extraconcrete->isEmpty())
+			<a href="{{ route('invoiceBoxConcrete.confirm', ['id' => $invoices->id])}}">
 				<button name="button" type="button" class="btn btn-green btn-block btn-flat">
-				ยกเลิกใบเสนอราคา <i class="fa fa-trash-o"></i></button>
+				ยืนยันใบเสนอราคา <i class="fa fa-check-square-o"></i></button>
 			</a>
+				@endif
 			</div>
 		</div>
 

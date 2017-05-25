@@ -25,7 +25,14 @@ class ConcreteRequest extends FormRequest
     {
         return [
           'amount' => 'required',
-          'price' => 'required'
+          'price' => 'required|numeric'
         ];
     }
+    public function messages()
+  {
+    return [
+      'required' => 'กรุณาข้อมูลให้ครบถ้วน' ,
+        'price.numeric' => 'กรุณากรอกราคาต่อคิวเฉพาะตัวเลขเท่านั้น'
+    ];
+  }
 }

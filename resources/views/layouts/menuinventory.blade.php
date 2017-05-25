@@ -38,12 +38,10 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ url('/home') }} ">หน้าแรก</a></li>
-        <li><a href="{{ url('/product') }}">สินค้า</a></li>
-        <li><a href="{{ url('/manu-Invoice') }}">สั่งซื้อ</a></li>
-        <li><a href="{{ url('/invoiceall') }}">รายการสั่งซื้อ</a></li>
-        <li><a href="{{ url('/calendarShipping') }}">ขนส่ง</a></li>
-
+        <li><a href="{{ url('/Inventory') }} ">หน้าแรก</a></li>
+          <li><a href="{{ url('/product') }} ">สินค้า</a></li>
+        <li><a href="{{ url('/product') }}">คอนกรีตผสมเสร็จ</a></li>
+          <li><a href="{{ url('/product') }}">แผ่นพื้น</a></li>
         <!-- Authentication Links -->
         @if (Auth::guest())
             <li><a href="{{ route('login') }}">Login</a></li>

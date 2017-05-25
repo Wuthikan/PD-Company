@@ -24,8 +24,12 @@
         <p><b>ชื่อลูกค้า:</b>
           @if(isset($invoices->idcustomer))
           {{ $invoices->customers->name }}
+
+          <a href="{{ url("customer/{$invoices->customers->id}/edit?idinvoice={$invoices->id}") }}">แก้ไข <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      </a>
         @else
-          -
+          ไม่มีข้อมูล
+          <a href="{{ route('customer.add', ['id' => $invoices->id])}}">เพิ่ม</a>
         @endif </p>
         <p><b>สถานะการส่งสินค้า:</b>
           @if($invoices->shipping==0)

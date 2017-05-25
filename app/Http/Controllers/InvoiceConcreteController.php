@@ -140,6 +140,10 @@ class InvoiceConcreteController extends Controller
     }
     public function editDiscount(Request $request,$id)
     {
+      $this->validate($request,[
+			'discount' => 'required|numeric'
+			]);
+
       $invoice = Invoice::findOrFail($id);
       $invoice->update($request->all());
 
@@ -158,13 +162,13 @@ class InvoiceConcreteController extends Controller
 
       $invoices = Invoice::findOrFail($id);
     if ($invoices->idcustomer==null) {
-          Alert::error('กรุณาเพิ่มข้อมูลลูกค้า!')->persistent("Close");
-          return redirect('invoiceConcrete/'.$id);
+          return redirect('customer/create/'.$id);
+
     }
     else {
       $invoices->payment = 1;
       $invoices->save();
-
+      session()->flash('flash_success','ยืนยันรายการใบเสนอราคาแล้ว!');
         return redirect('invoiceall/'.$id);
       }
     }
