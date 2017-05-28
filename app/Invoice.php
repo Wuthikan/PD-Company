@@ -9,7 +9,7 @@ class Invoice extends Model
 {
   protected $table = "invoice";
   protected $fillable = ['code' ,'idcustomer' ,'idemployee','price','discount','type','payment','shipping'];
-  protected $dates = ['created_at'];
+  protected $dates = ['created_at','updated_at'];
 
   public function users(){
   return $this->belongsTo('App\User', 'idemployee');
@@ -26,5 +26,13 @@ class Invoice extends Model
     public function scopeWherestate($query,$ids)
     {
       $query->where('payment','=', $ids);
+    }
+    public function scopeWhereconcrete($query)
+    {
+      $query->where('type','=', '1')->where('payment','=', '1');
+    }
+    public function scopeWhereboxconcrete($query)
+    {
+      $query->where('type','=', '2')->where('payment','=', '1');
     }
 }

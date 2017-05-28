@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('home');
 });
 Route::get('/manu-Invoice', function () {
     return view('Invoice/manu');
@@ -113,6 +113,11 @@ Route::get('Product/delete/{id}', [
   'as'         => 'product.destroy',
   'middleware' => ['auth'],
   ]);
+Route::get('Product/Shows', [
+    'uses'       => 'ProductController@ShowForEmployee',
+    'as'         => 'product.Shows',
+    'middleware' => ['auth'],
+    ]);
 
 Route::resource('customer', 'CustomerController');
 Route::get('customer/create/{id}', [
@@ -205,3 +210,19 @@ Route::get('/Inventory', function () {
   return view('Product/manu');
 });
 Route::resource('ConcreteInventory', 'ConcreteInventoryController');
+Route::get('/ConcreteInventory/edit2/{id}', [
+    'uses'       => 'ConcreteInventoryController@edit2'
+    ]);
+    Route::get('/map', function () {
+       return view('Shipping/map');
+     });
+
+Route::get('BoxConcreteInventory/edit/{id}/{type}', [
+    'uses'       => 'BoxconcreteInventoryController@edit',
+    'as'         => 'boxconcrete.inventory'
+    ]);
+Route::get('BoxConcreteInventory/edit2/{id}/{type}', [
+    'uses'       => 'BoxconcreteInventoryController@edit2',
+    'as'         => 'boxconcrete2.inventory'
+    ]);
+Route::resource('BoxConcreteInventory', 'BoxconcreteInventoryController');

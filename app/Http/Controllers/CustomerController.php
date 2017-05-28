@@ -11,6 +11,10 @@ use App\Http\Requests\CustomerRequest;
 
 class CustomerController extends Controller
 {
+  public function __construct()
+{
+  $this->middleware('auth');
+}
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +41,7 @@ class CustomerController extends Controller
     {
         $idinvoice = $id;
         return view('Customer.createCustomer', compact('idinvoice'));
-
+        
 
     }
 

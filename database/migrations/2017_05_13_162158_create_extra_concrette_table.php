@@ -24,6 +24,7 @@ class CreateExtraConcretteTable extends Migration
             $table->double('height');
             $table->double('price');
             $table->double('amount');
+            $table->double('shipping')->nullable();
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row">
         <div class="header-section text-center">
-          <h2>รายการใบสั่งซื้อคอนกรีตผสมเสร็จ</h2>
+          <h2>รายการใบสั่งซื้อคอนกรีตแผ่นพื้น</h2>
           <hr class="bottom-line">
         </div>
         <table class="table  table-hover table-striped ">
@@ -29,7 +29,7 @@
                    {{ $invoice->updated_at->formatLocalized('%d/%m/%Y') }}
     </td>
                 <td>
-                        <a href="{{ url('ConcreteInventory/'. $invoice->id) }}">  QT{{ $invoice->code }} </a>
+                        <a href="{{ url('BoxConcreteInventory/'. $invoice->id) }}">  QT{{ $invoice->code }} </a>
                 </td>
                 <td>
 
@@ -44,13 +44,13 @@
                  @if($invoice->shipping=='2')
                    ส่งสินค้าแล้ว
                    @else
-                    <a href="{{ url('ConcreteInventory/'. $invoice->id) }}">
+                    <a href="{{ url('BoxConcreteInventory/'. $invoice->id) }}">
                          ยังไม่ได้ส่ง
                     </a>
                    @endif
 
                  </td>
-                 <td>  <a href="{{ url('ConcreteInventory/'. $invoice->id) }}">
+                 <td>  <a href="{{ url('BoxConcreteInventory/'. $invoice->id) }}">
                    <i class="fa fa-search-plus" aria-hidden="true"></a></i></td>
             </tr>
             <?php $i++; ?>

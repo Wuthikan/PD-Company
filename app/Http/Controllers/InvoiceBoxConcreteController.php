@@ -16,6 +16,10 @@ use App\Product_reserve;
 
 class InvoiceBoxConcreteController extends Controller
 {
+  public function __construct()
+{    $this->middleware('auth');
+  $this->middleware('sale');
+}
     /**
      * Display a listing of the resource.
      *

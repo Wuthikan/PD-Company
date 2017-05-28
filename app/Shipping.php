@@ -9,7 +9,7 @@ class Shipping extends Model implements Event
 
 {
   protected $table = "shipping";
-  protected $fillable = ['type' ,'date','idinvoice','created_at','distance','licenseplate'];
+  protected $fillable = ['type' ,'date','idinvoice','created_at','bigcar','smallcar','crane','amount'];
   protected $dates = ['date'];
 
   public function scopeWhereshipping($query,$id)
@@ -28,7 +28,7 @@ class Shipping extends Model implements Event
    */
    public function getTitle()
     {
-        return   $this->code.'-'.$this->licenseplate;
+        return   $this->code.'-'.$this->bigcar;
     }
 
     /**

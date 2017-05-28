@@ -31,10 +31,27 @@
         <table class="table  table-hover table-striped ">
             <tr>
                 <th>เลขที่</th>
-                  <th> รายการ </th>
-                      <th> วันที่ส่ง </th>
-                      <th> ทะเบียนรถส่งสินค้า </th>
-                      <th> ระยะขนส่ง </th>
+                  <th class="text-center"> รายการ </th>
+                      <th class="text-center"> วันที่ส่ง </th>
+                      <th class="text-center">
+                        @if($invoice->type==1)
+                         จำนวนรถเล็ก
+                        @else
+                        จำนวนรถ6ล้อ
+                        @endif
+                      </th>
+                      <th class="text-center">
+                        @if($invoice->type==1)
+                         จำนวนรถใหญ่
+                        @else
+                        จำนวนรถ10ล้อ
+                        @endif
+                       </th>
+                       @if($invoice->type==2)
+                        <th class="text-center">
+                        รถเครน
+                      </th>
+                       @endif
                       <th></th>
                       <th></th>
                         <th></th>
@@ -45,19 +62,26 @@
             @foreach($shippings as $shippings)
             <tr>
                 <td>  {{ $i }} </td>
-                <td> {{ $shippings->code }}  </td>
-                <td>
-                   {{ $shippings->date->formatLocalized('%d %B %Y') }}
+                <td class="text-center"> {{ $shippings->code }}  </td>
+                <td class="text-center">
+                   {{ $shippings->date->formatLocalized('%d/%m/%Y') }}
                  </td>
-                <td> {{ $shippings->licenseplate }}  </td>
-                <td> {{ $shippings->distance }}  </td>
+                <td class="text-center"> {{ $shippings->smallcar }} @if($shippings->smallcar!=null) คัน@endif  </td>
+                <td class="text-center"> {{ $shippings->bigcar }} @if($shippings->bigcar!=null) คัน@endif   </td>
+                @if($invoice->type==2)
+                 <td class="text-center">
+                   @if($shippings->crane!=null)
+                   <i class="fa fa-check" aria-hidden="true"></i>
+                  @endif
+               </td>
+                @endif
                 <td><a href="{{ route('shipping.edit', ['id' => $shippings->id ])}}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
 
                   <td>
                   <a href="{{ route('shipping.destroy', ['id' => $shippings->id,'idinvoice' => $shippings->idinvoice]) }}"  >
                     <i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                     <td>
-                  <a href="{{ route('shipping.pdf', ['id' => $shippings->id,'idinvoice' => $shippings->idinvoice]) }}"  > 
+             <a href="{{ route('shipping.pdf', ['id' => $shippings->id,'idinvoice' => $shippings->idinvoice]) }}"  >
                       <i class="fa fa-print" aria-hidden="true"></i></a></td>
             </tr>
             <?php $i++; ?>

@@ -35,7 +35,7 @@
     @if (!$invoice->customers->company==null)
     <tr>
         <td align="left" width="7%" ><font size=3>บริษัท </font></td>
-      <td align="left"><font size=3>คุณ {{ $invoice->customers->company }}</font></td>
+      <td align="left"><font size=3>{{ $invoice->customers->company }}</font></td>
     </tr>
     @endif
     <tr>
@@ -75,7 +75,7 @@
         <td align="left" width="7%" ><font size=3>อ้างอิง</font></td>
       <td align="left"><font size=3>
           @if (!$invoice->customers->reference==null)
-        คุณ{{ $invoice->customers->reference}}
+        {{ $invoice->customers->reference}}
         @endif
       </font></td>
       <td align="right"><font size=3>พนักงานขาย</font></td>

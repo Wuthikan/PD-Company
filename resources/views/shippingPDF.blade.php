@@ -138,8 +138,7 @@
                     </tbody>
                 </table>
                 <hr>
-                <font size=3><b>เลขทะเบียนรถขนส่งสินค้า: {{ $shipping->licenseplate }} ระยะทาวขนส่งสินค้า: {{ $shipping->distance }} กม. </b>
-                </font>
+                
                 <br>
                 <br>
                 <br>

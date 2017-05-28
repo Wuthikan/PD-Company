@@ -22,6 +22,7 @@ class CreateConcretteTable extends Migration
                             ->onDelete('cascade');
             $table->double('amount');
             $table->double('price');
+            $table->double('shipping')->nullable();
             $table->timestamps();
         });
     }

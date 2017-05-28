@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
   <head>
-      <title>company</title>
+      <title>PD company Inventory</title>
       <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
       {!! HTML::style('Mentor/css/font-awesome.min.css') !!}
       {!! HTML::style('Mentor/css/bootstrap.min.css') !!}
@@ -10,7 +10,7 @@
       {!! HTML::style('sweetalert-master/dist/sweetalert.css') !!}
       {!! HTML::style('fullcalendar/fullcalendar.css') !!}
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
   </head>
 <body>
   @if(session()->has('flash_success'))
@@ -40,8 +40,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ url('/Inventory') }} ">หน้าแรก</a></li>
           <li><a href="{{ url('/product') }} ">สินค้า</a></li>
-        <li><a href="{{ url('/product') }}">คอนกรีตผสมเสร็จ</a></li>
-          <li><a href="{{ url('/product') }}">แผ่นพื้น</a></li>
+        <li><a href="{{ url('/ConcreteInventory') }}">คอนกรีตผสมเสร็จ</a></li>
+          <li><a href="{{ url('/BoxConcreteInventory') }}">แผ่นพื้น</a></li>
         <!-- Authentication Links -->
         @if (Auth::guest())
             <li><a href="{{ route('login') }}">Login</a></li>

@@ -28,6 +28,7 @@ class CreateBoxConcretteTable extends Migration
             $table->double('amount');
             $table->double('price');
             $table->integer('state')->nullable();
+            $table->double('shipping')->nullable();
             $table->timestamps();
         });
     }

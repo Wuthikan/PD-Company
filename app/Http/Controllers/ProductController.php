@@ -17,7 +17,10 @@ class ProductController extends Controller
 
       public function __construct()
     {
-      $this->middleware('auth');
+        $this->middleware('auth');
+      $this->middleware('inven',[
+        'except' => ['ShowForEmployee']
+      ]);
     }
 
     /**
@@ -27,7 +30,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
+
         $products = Product::get();
          return view('Product.home', compact('products'));
     }
@@ -63,8 +66,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function ShowForEmployee()
     {
+      $products = Product::get();
+       return view('Product.ShowForEmployee', compact('products'));
     }
 
     /**

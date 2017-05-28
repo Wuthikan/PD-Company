@@ -15,7 +15,7 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-4 col-sm-4">
+      <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="service-box text-center">
             <a href="{{ url('/product') }}">
           <div class="icon-box">
@@ -28,9 +28,23 @@
           </a>
         </div>
       </div>
-      <div class="col-md-4 col-sm-4">
+      <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="service-box text-center">
-            <a href="{{ url('/manu-Invoice') }}">
+            <a href="{{ url('/product') }}">
+          <div class="icon-box">
+            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+
+          </div>
+          <div class="icon-text">
+            <h4 class="ser-text">สินค้าที่สั่งผลิต</h4>
+          </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="service-box text-center">
+            <a href="{{ url('/ConcreteInventory') }}">
           <div class="icon-box">
           <i class="fa fa-truck color-green"></i>
           </div>
@@ -40,9 +54,9 @@
           </a>
         </div>
       </div>
-      <div class="col-md-4 col-sm-4">
+      <div class="col-md-3 col-sm-6 col-xs-12 ">
         <div class="service-box text-center">
-            <a href="{{ url('/manu-Invoice') }}">
+            <a href="{{ url('/BoxConcreteInventory') }}">
           <div class="icon-box">
           <i class="fa fa-truck color-green"></i>
           </div>
@@ -56,4 +70,5 @@
     </div>
   </div>
 </section>
+
 @endsection

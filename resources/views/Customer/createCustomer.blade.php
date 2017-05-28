@@ -36,20 +36,11 @@
 
   @endsection
 @section('scripts')
-<script>
-$('#q').each(function() {
-        var $this = $(this);
-        var src = $this.data('action');
+<!-- <script>
 
-        $this.autocomplete({
-            source: src,
-            minLength: 2,
-            select: function(event, ui) {
-                $this.val(ui.item.value);
-                $('#id').val(ui.item.id);
-            }
-        });
-    });
-</script>
+$('#name').autocomplete({
+	 {"suggestions": ["United Arab Emirates", "United Kingdom", "United States"]}
+});
+</script> -->
 
   @endsection

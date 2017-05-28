@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
   <head>
-      <title>company</title>
+      <title>PD company</title>
       <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
       {!! HTML::style('Mentor/css/font-awesome.min.css') !!}
       {!! HTML::style('Mentor/css/bootstrap.min.css') !!}
@@ -10,7 +10,7 @@
       {!! HTML::style('sweetalert-master/dist/sweetalert.css') !!}
       {!! HTML::style('fullcalendar/fullcalendar.css') !!}
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
   </head>
 <body>
   @if(session()->has('flash_success'))
@@ -39,7 +39,7 @@
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ url('/home') }} ">หน้าแรก</a></li>
-        <li><a href="{{ url('/product') }}">สินค้า</a></li>
+        <li><a href="{{ url('/Product/Shows') }}">สินค้า</a></li>
         <li><a href="{{ url('/manu-Invoice') }}">สั่งซื้อ</a></li>
         <li><a href="{{ url('/invoiceall') }}">รายการสั่งซื้อ</a></li>
         <li><a href="{{ url('/calendarShipping') }}">ขนส่ง</a></li>
@@ -90,6 +90,7 @@
           </div>
         </footer>
         <!--/ Footer-->
+        <!-- {!! HTML::script('js/jquery-3.2.1.slim.js') !!} -->
         {!! HTML::script('Mentor/js/jquery.min.js') !!}
         {!! HTML::script('Mentor/js/jquery.easing.min.js') !!}
         {!! HTML::script('Mentor/js/bootstrap.min.js') !!}

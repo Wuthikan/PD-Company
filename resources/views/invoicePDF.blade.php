@@ -25,7 +25,7 @@
     <tr>
         <td align="left" width="7%" ><font size=3>ถึง </font></td>
       <td align="left"><font size=3>
-      @if (!$invoice->customers->name==null)คุณ {{ $invoice->customers->name }}
+      @if (!$invoice->customers->name==null) {{ $invoice->customers->name }}
       @endif
     </font></td>
       <td align="right"><font size=3>เลขที่ใบเสนอราคา</font></td>

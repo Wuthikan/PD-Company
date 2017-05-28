@@ -14,8 +14,10 @@ class AddSomeFieldShipping extends Migration
     public function up()
     {
         Schema::table('shipping', function (Blueprint $table) {
-            $table->text('distance')->nullable();
-            $table->text('licenseplate')->nullable();
+            $table->text('smallcar')->nullable();
+            $table->text('bigcar')->nullable();
+            $table->text('crane')->nullable();
+            $table->text('amount')->nullable();
         });
     }
 

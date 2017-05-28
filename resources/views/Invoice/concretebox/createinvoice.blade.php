@@ -9,7 +9,7 @@
 						<h2>รายการสั่งซื้อคอนกรีตแผ่นพิ้น</h2>
 							<p>เลขที่ใบเสนอราคา   QT{{ $invoices->code }}</p>
 							@if(isset($invoices->idcustomer))
-								 ชื่อลูกค้า  คุณ {{ $customer->name }}
+								 ชื่อลูกค้า {{ $customer->name }}
 
 							@endif
 						<hr class="bottom-line">
