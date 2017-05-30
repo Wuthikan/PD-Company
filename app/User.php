@@ -29,4 +29,8 @@ class User extends Authenticatable
     public function invoices(){
       return $this->hasMany('App\Invoice');
     }
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
 }

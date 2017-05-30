@@ -13,7 +13,9 @@
         <div class="cta-2-form text-center">
           <h3> กรุณาเลือกวันที่ต้องการ </h3>
           <input type="hidden" name="idinvoice" value="{{ $invoice->id }}">
-          <input type="hidden" name="type" value="{{ $invoice->type }}"> {!! Form::date('date', null) !!} {!! Form::submit('Check',['class'=>'cta-2-form-submit-btn']) !!}
+          <input type="hidden" name="type" value="{{ $invoice->type }}">
+           {!! Form::datetimelocal('date', null) !!}
+           {!! Form::submit('Check',['class'=>'cta-2-form-submit-btn']) !!}
         </div>
         <hr>
         {!! Form::close() !!} {!! $calendar->calendar() !!}

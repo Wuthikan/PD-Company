@@ -41,6 +41,9 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="{{ url('/user/edit/'.Auth::user()->id ) }} ">แก้ไขข้อมูลส่วนตัว</a>
+                  </li>
                     <li>
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();

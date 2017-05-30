@@ -31,5 +31,9 @@ class box_concrette extends Model
   public function invoices(){
     return $this->belongsTo('App\Invoice', 'idinvoice');
   }
+  public function scopeWhereshowboxconcreteextra($query)
+  {
+    $query->where('state','=', '2')->where('shipping','=', null);
+  }
 
 }

@@ -336,7 +336,7 @@ Cta
     margin: 0 auto;
     line-height: 34px !important;
 }
-.cta-2-form input[type="date"] {
+.cta-2-form input[type="datetime-local"] {
     border: 0px solid #CCC;
     padding: 13px 40px;
     font-size: 18px;

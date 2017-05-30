@@ -157,4 +157,15 @@ class BoxconcreteInventoryController extends Controller
     {
         //
     }
+    public function Showextra($type)
+    {
+      if($type=='1'){
+      $orderconcrete = box_concrette::whereshowboxconcreteextra()->orderBy('id', 'desc')->get();
+    }
+    else{
+      $orderconcrete = Extra_concrette::whereshowectraconcrete()->orderBy('id', 'desc')->get();
+    }
+        return view('Inventory.showExtra', compact('orderconcrete','type'));
+    }
+
 }

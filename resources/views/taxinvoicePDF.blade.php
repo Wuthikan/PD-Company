@@ -210,14 +210,14 @@
                                       </td>
                                   <td align="right">
                                     <font size=3>
-                                      <?php $total=$other->price;
-                                              $total = number_format($total, 2, '.', '');
+                                      <?php $totals=$other->price;
+                                              $totalsum = number_format($totals, 2, '.', '');
                                        ?>
-                                       {{ $total }}
+                                       {{ $totalsum }}
                                    </font>
                                   </td>
                               </tr>
-                              <?php $total=$total+$Extraconcrete->amount; $i++; ?>
+                              <?php $total=$total+$other->price; $i++; ?>
                                 @endforeach
 
                         @endif

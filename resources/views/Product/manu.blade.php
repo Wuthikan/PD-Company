@@ -30,10 +30,9 @@
       </div>
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="service-box text-center">
-            <a href="{{ url('/product') }}">
+            <a href="{{ url('/Invenry/manuExtra') }}">
           <div class="icon-box">
             <i class="fa fa-cart-plus" aria-hidden="true"></i>
-
           </div>
           <div class="icon-text">
             <h4 class="ser-text">สินค้าที่สั่งผลิต</h4>

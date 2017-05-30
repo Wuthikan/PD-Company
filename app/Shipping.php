@@ -28,7 +28,7 @@ class Shipping extends Model implements Event
    */
    public function getTitle()
     {
-        return   $this->code.'-'.$this->bigcar;
+        return   'ใหญ่('.$this->bigcar.')เล็ก('.$this->smallcar.')';
     }
 
     /**
@@ -38,7 +38,7 @@ class Shipping extends Model implements Event
      */
     public function isAllDay()
     {
-        return 1;
+        return 0;
     }
 
     /**

@@ -10,6 +10,7 @@
       {!! HTML::style('sweetalert-master/dist/sweetalert.css') !!}
       {!! HTML::style('fullcalendar/fullcalendar.css') !!}
     <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+    @yield('autocompax')
     <meta name="csrf-token" content="{{ csrf_token() }}">
   </head>
 <body>
@@ -43,6 +44,7 @@
         <li><a href="{{ url('/manu-Invoice') }}">สั่งซื้อ</a></li>
         <li><a href="{{ url('/invoiceall') }}">รายการสั่งซื้อ</a></li>
         <li><a href="{{ url('/calendarShipping') }}">ขนส่ง</a></li>
+          <li><a href="{{ url('/Inventory') }} ">ฝ่ายคลัง</a></li>
 
         <!-- Authentication Links -->
         @if (Auth::guest())
@@ -50,10 +52,13 @@
         @else
             <li class="ิdropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    Myprofile <i class="fa fa-sign-out" aria-hidden="true"></i>
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="{{ url('/user/edit/'.Auth::user()->id ) }} ">แก้ไขข้อมูลส่วนตัว</a>
+                  </li>
                     <li>
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();

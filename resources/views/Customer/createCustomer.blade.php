@@ -1,5 +1,22 @@
 
 @extends('layouts.main')
+@section('autocompax')
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+var availableTags = [
+@foreach($customers as $customers)
+"{{ $customers->name }}",
+@endforeach
+];
+$( "#name" ).autocomplete({
+source: availableTags
+});
+} );
+</script>
+  @endsection
+
 @section('content')
 <section id ="contact" class="section-padding">
   <div class="container">

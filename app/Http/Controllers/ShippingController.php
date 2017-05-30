@@ -41,9 +41,11 @@ class ShippingController extends Controller
     //   'bigcar' => 'numeric',
     //   'smallcar'=> 'numeric',
     //  ]);
+    $datetime = strtotime($request->date);
     $shipping       = new Shipping;
     $shipping->type = $request->type;
-    $shipping->date = $request->date;
+    $shipping->date = $datetime;
+
     $shipping->idinvoice = $request->idinvoice;
     $shipping->amount = $request->amount;
     $shipping->bigcar = $request->bigcar;
@@ -111,10 +113,11 @@ class ShippingController extends Controller
     return view('Shipping.editShipping', compact('shipping'));
   }
   public function editdate(Request $request){
+
     $this->validate($request,[
    'date' => 'required',
    ]);
-   $date = $request->date;
+   $date = strtotime($request->date);
    $result = DB::table('shipping')->whereDate('date', $date)->where('type',$request->type)->count();
 
 
@@ -153,7 +156,7 @@ if($invoice->type==1){
     $pdf = PDF::loadView('shippingPDF',compact ('shipping','invoice','concrete','Extraconcrete'));
 }
 
-  return $pdf->stream('document.pdf');
+  return $pdf->download('document.pdf');
 
   }
   public function calendar(){

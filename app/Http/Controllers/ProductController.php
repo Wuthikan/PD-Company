@@ -42,7 +42,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-            return view('product.createProduct');
+            return view('Product.createProduct');
     }
 
     /**
@@ -83,7 +83,7 @@ class ProductController extends Controller
       $products = Product::find($id);
         if(empty($products))
           abort(404);
-      return view('product.editProduct', compact('products'));
+      return view('Product.editProduct', compact('products'));
     }
 
     /**

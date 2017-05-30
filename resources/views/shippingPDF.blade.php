@@ -55,7 +55,11 @@
                       @foreach($concrete as $concrete)
                       <tr>
                         <td align="center"><font size=3>
+                          @if($invoice->type==1)
+                          
+                          @else
                           {{  $concrete->products->code }}
+                            @endif
                           </font>
                         </td>
         								 	<td><font size=3>
@@ -81,7 +85,7 @@
                             @if($invoice->type==1)
                             -
                             @else
-                            {{ $concrete->height }}
+                            {{ $concrete->products->height }}
                             @endif
                           </font>
                           </td>
@@ -138,7 +142,7 @@
                     </tbody>
                 </table>
                 <hr>
-                
+
                 <br>
                 <br>
                 <br>

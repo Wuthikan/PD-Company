@@ -24,5 +24,9 @@ class Extra_concrette extends Model
   public function invoices(){
     return $this->belongsTo('App\Invoice', 'idinvoice');
   }
+  public function scopeWhereshowectraconcrete($query)
+  {
+    $query->where('shipping','=', null);
+  }
 
 }

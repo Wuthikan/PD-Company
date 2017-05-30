@@ -12,9 +12,9 @@ class Customer extends Model
   public function invoice(){
     return $this->hasMany('App\Invoice');
   }
-  // public function scopeWherecustomer($query,$term)
-  // {
-  //   $query->where('name', 'LIKE', '%'.$term.'%');
-  // }
+  public function scopeWherecustomer($query,$term)
+  {
+    $query->where('name','=', $term);
+  }
 
 }

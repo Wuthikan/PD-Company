@@ -180,6 +180,7 @@ return [
         niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        TCG\Voyager\VoyagerServiceProvider::class,
     ],
 
     /*

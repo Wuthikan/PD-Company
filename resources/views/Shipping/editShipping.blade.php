@@ -18,7 +18,7 @@
                         <h3>คิวส่งคอนกรีตแผ่นพื้น</h3>
                       @endif
                     @if (empty($date))
-                      <p>วันที่ {{ $shipping->date->formatLocalized('%d %B %Y') }}
+                      <p>วันที่ {{ $shipping->date->formatLocalized('%d/%m/%Y') }}
                         @else
                           <p>วันที่ {{ $date }}  มีคิวที่ลงไว้แล้ว
 
@@ -128,7 +128,7 @@
                           <div class="form-group">
                             {{  Form::open(['route' => 'shipping.editdate']) }}
                                    {{ csrf_field() }}
-                                     {!! Form::date('date', null ,['class' => 'form-control'] ) !!}
+                                     {!! Form::datetimelocal('date', null ,['class' => 'form-control'] ) !!}
                                        <input type="hidden" name="id" value="{{ $shipping->id }}">
                                         <input type="hidden" name="type" value="{{ $shipping->type }}">
                                      <br>

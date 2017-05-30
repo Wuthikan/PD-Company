@@ -30,18 +30,13 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function autosearch()
-     {
-       $term = request('term');
-        $result = Coustomer::Where('name', 'LIKE', '%' . $term . '%')->get(['id', 'name as value']);
-        return response()->json($term);
 
-     }
     public function create($id)
     {
+        $customers = Customer::get();
         $idinvoice = $id;
-        return view('Customer.createCustomer', compact('idinvoice'));
-        
+        return view('Customer.createCustomer', compact('idinvoice','customers'));
+
 
     }
 
@@ -53,14 +48,21 @@ class CustomerController extends Controller
      */
     public function store(CustomerRequest $request)
     {
+      $searchCustomer = Customer::wherecustomer($request->name)->get();
 
+      if($request->name=="สด"||!$searchCustomer->first()){
       $customers = new Customer($request->all());
       $customers->save();
       $idcustomer   = Customer::orderBy('id', 'desc')->first();
       $id = $idcustomer->id;
       $idcustomer->code ="A".$id;
       $idcustomer->save();
-
+      session()->flash('flash_success','เพิ่มข้อมูลลูกค้าใหม่แล้ว');
+      }
+      else{
+        $id = $searchCustomer->first()->id;
+        session()->flash('flash_success','มีชื่อลูกค้านี้ในฐานข้อมูล');
+      }
       $invoices = Invoice::find($request->idinvoice);
       $invoices->idcustomer =$id;
       $invoices->payment = 1;

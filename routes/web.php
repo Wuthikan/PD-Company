@@ -11,6 +11,13 @@
 |
 */
 
+Route::get('/user/edit/{id}', [
+  'uses'       => 'UserController@editUser',
+  'as'         => 'User.edit',
+  'middleware' => ['auth'],
+  ]);
+Route::resource('Usermanagement', 'UserController');
+
 Route::get('/', function () {
     return view('home');
 });
@@ -119,6 +126,7 @@ Route::get('Product/Shows', [
     'middleware' => ['auth'],
     ]);
 
+
 Route::resource('customer', 'CustomerController');
 Route::get('customer/create/{id}', [
   'uses'       => 'CustomerController@create',
@@ -209,6 +217,13 @@ Route::get('/calendarShipping/{id}', [
 Route::get('/Inventory', function () {
   return view('Product/manu');
 });
+Route::get('/Invenry/manuExtra', function () {
+  return view('Inventory/manuExtra');
+});
+Route::get('/manuExtra/showExtra/{type}', [
+    'uses'       => 'BoxconcreteInventoryController@Showextra'
+    ]);
+
 Route::resource('ConcreteInventory', 'ConcreteInventoryController');
 Route::get('/ConcreteInventory/edit2/{id}', [
     'uses'       => 'ConcreteInventoryController@edit2'
@@ -226,3 +241,13 @@ Route::get('BoxConcreteInventory/edit2/{id}/{type}', [
     'as'         => 'boxconcrete2.inventory'
     ]);
 Route::resource('BoxConcreteInventory', 'BoxconcreteInventoryController');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

@@ -88,12 +88,12 @@
       </div>
       <div class="col-md-4 col-sm-4">
         <div class="service-box text-center">
-            <a href="">
+            <a href="{{ url('/Inventory') }}">
           <div class="icon-box">
-        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+        <i class="fa fa-databasen " aria-hidden="true"></i>
           </div>
           <div class="icon-text">
-            <h4 class="ser-text">สินค้าที่สั่งผลิต</h4>
+            <h4 class="ser-text">ฝ่ายคลัง</h4>
           </div>
           </a>
         </div>

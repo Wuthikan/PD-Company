@@ -42,6 +42,7 @@
           <li><a href="{{ url('/product') }} ">สินค้า</a></li>
         <li><a href="{{ url('/ConcreteInventory') }}">คอนกรีตผสมเสร็จ</a></li>
           <li><a href="{{ url('/BoxConcreteInventory') }}">แผ่นพื้น</a></li>
+            <li><a href="{{ url('/home') }}">ฝ่ายขาย</a></li>
         <!-- Authentication Links -->
         @if (Auth::guest())
             <li><a href="{{ route('login') }}">Login</a></li>
@@ -52,6 +53,9 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="{{ url('/user/edit/'.Auth::user()->id ) }} ">แก้ไขข้อมูลส่วนตัว</a>
+                  </li>
                     <li>
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
