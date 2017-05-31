@@ -93,7 +93,7 @@
         <i class="fa fa-databasen" aria-hidden="true"></i>
           </div>
           <div class="icon-text">
-            <h4 class="ser-text">ฝ่ายคลัง</h4>
+            <h4 class="ser-text">ฝ่ายคลั</h4>
           </div>
           </a>
         </div>
