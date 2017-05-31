@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -117,15 +117,15 @@ return [
 
     ],
 
-      //     'heroku' => [
-      //     'driver'   => 'pgsql',
-      //     'host'     => parse_url(getenv("DATABASE_URL"))["host"],
-      //     'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1),
-      //     'username' => parse_url(getenv("DATABASE_URL"))["user"],
-      //     'password' => parse_url(getenv("DATABASE_URL"))["pass"],
-      //     'charset'  => 'utf8',
-      //     'prefix'   => '',
-      //     'schema'   => 'public',
-      // ],
+          'heroku' => [
+          'driver'   => 'pgsql',
+          'host'     => parse_url(getenv("DATABASE_URL"))["ec2-23-21-186-138.compute-1.amazonaws.com"],
+          'database' => substr(parse_url(getenv("DATABASE_URL"))["d9a8k2iet11ha1"], 1),
+          'username' => parse_url(getenv("DATABASE_URL"))["qtthgubuaxssrc"],
+          'password' => parse_url(getenv("DATABASE_URL"))["9102222aa9b33102bdff2594e6c4f8f4cce5ac9da8538158f3cbacb3674d3e5e"],
+          'charset'  => 'utf8',
+          'prefix'   => '',
+          'schema'   => 'public',
+      ],
 
 ];
