@@ -37,7 +37,7 @@
     <div class="row">
       <div class="col-md-4 col-sm-4">
         <div class="service-box text-center">
-            <a href="{{ url('/Product/Shows') }}">
+              <a href="{{ route('invoice.pdf', ['id' => '2' ]) }}"  >
           <div class="icon-box">
             <i class="fa fa-truck color-green"></i>
           </div>

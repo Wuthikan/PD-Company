@@ -19,13 +19,13 @@ use PDF;
 class InvoiceController extends Controller
 {
 
-  public function __construct()
-{
-    $this->middleware('auth');
-  $this->middleware('sale',[
-    'except' => ['taxPDF','PDF']
-  ]);
-}
+//   public function __construct()
+// {
+//     $this->middleware('auth');
+//   $this->middleware('sale',[
+//     'except' => ['taxPDF','PDF']
+//   ]);
+// }
     /**
      * Display a listing of the resource.
      *
@@ -135,21 +135,9 @@ class InvoiceController extends Controller
     }
     public function PDF($id)
     {
-      $invoice = Invoice::find($id);
-      $datenow = Carbon::now();
-      $date = Carbon::now();
-      $dateplus = $date->addDays(15);
-      $others = Other::whereother($invoice->id)->get();
 
+          $pdf = PDF::loadView('invoicePDF');
 
-      if($invoice->type==1){
-          $concrete = Concrete::whereconcrete($invoice->id)->get();
-          $pdf = PDF::loadView('invoicePDF',compact ('invoice','concrete','datenow','dateplus','others'));
-      }elseif ($invoice->type==2) {
-        $concrete = box_concrette::whereboxconcrete($invoice->id)->get();
-        $Extraconcrete = Extra_concrette::whereextraconcrete($invoice->id)->get();
-          $pdf = PDF::loadView('invoicePDF',compact ('invoice','concrete','Extraconcrete','datenow','dateplus','others'));
-      }
 
         return $pdf->stream('document.pdf');
 
