@@ -37,7 +37,7 @@
     <div class="row">
       <div class="col-md-4 col-sm-4">
         <div class="service-box text-center">
-              <a href="{{ route('invoice.pdf', ['id' => '2' ]) }}"  >
+            <a href="{{ url('/Product/Shows') }}">
           <div class="icon-box">
             <i class="fa fa-truck color-green"></i>
           </div>
@@ -90,10 +90,10 @@
         <div class="service-box text-center">
             <a href="{{ url('/Inventory') }}">
           <div class="icon-box">
-        <i class="fa fa-database" aria-hidden="true"></i>
+        <i class="fa fa-databasen" aria-hidden="true"></i>
           </div>
           <div class="icon-text">
-            <h4 class="ser-text">ฝ่ายคลัง</h4>
+            <h4 class="ser-text">ฝ่ายคลั</h4>
           </div>
           </a>
         </div>
