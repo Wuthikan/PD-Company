@@ -90,7 +90,7 @@
         <div class="service-box text-center">
             <a href="{{ url('/Inventory') }}">
           <div class="icon-box">
-        <i class="fa fa-databasen " aria-hidden="true"></i>
+        <i class="fa fa-databasen" aria-hidden="true"></i>
           </div>
           <div class="icon-text">
             <h4 class="ser-text">ฝ่ายคลัง</h4>
