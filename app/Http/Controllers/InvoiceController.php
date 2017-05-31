@@ -151,7 +151,7 @@ class InvoiceController extends Controller
           $pdf = PDF::loadView('invoicePDF',compact ('invoice','concrete','Extraconcrete','datenow','dateplus','others'));
       }
 
-        return $pdf->download('document.pdf');
+        return $pdf->stream('document.pdf');
 
     }
     public function taxPDF($id)
@@ -172,7 +172,7 @@ class InvoiceController extends Controller
           $pdf = PDF::loadView('taxinvoicePDF',compact ('invoice','concrete','Extraconcrete','datenow','dateplus','others'));
       }
 
-        return $pdf->download('document.pdf');
+        return $pdf->stream('document.pdf');
 
     }
 }

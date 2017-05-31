@@ -76,6 +76,7 @@
   <div class="col-md-4 col-sm-4">
     <div class="service-box text-center">
       <a href="{{ route('taxinvoice.pdf', ['id' => $invoices->id ]) }}"  >
+
       <div class="icon-box">
         <i class="fa fa-money color-green"></i>
       </div>
@@ -101,5 +102,7 @@
     </div>
   </div>
 </section>
+  <!-- <iframe src="{{ route('taxinvoice.pdf', ['id' => $invoices->id ]) }}"
+     width="800px" height="600px"  type="application/pdf" > -->
 <!--/ Courses-->
 @endsection

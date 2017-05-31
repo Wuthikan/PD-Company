@@ -6,12 +6,12 @@
     <title>Mentor Education Bootstrap Theme</title>
     <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
-    
+
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    {!! HTML::style('Mentor/css/font-awesome.min.css') !!}
+    {!! HTML::style('Mentor/css/bootstrap.min.css') !!}
+    {!! HTML::style('Mentor/css/imagehover.min.css') !!}
+    {!! HTML::style('Mentor/css/style.css') !!}
     <!-- =======================================================
         Theme Name: Mentor
         Theme URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
@@ -47,7 +47,7 @@
     <!--Modal box-->
     <div class="modal fade" id="login" role="dialog">
       <div class="modal-dialog modal-sm">
-      
+
         <!-- Modal content no 1-->
         <div class="modal-content">
           <div class="modal-header">
@@ -61,7 +61,7 @@
               <div class="form-group">
                 <form name="" id="loginForm">
                  <div class="form-group has-feedback"> <!----- username -------------->
-                      <input class="form-control" placeholder="Username"  id="loginid" type="text" autocomplete="off" /> 
+                      <input class="form-control" placeholder="Username"  id="loginid" type="text" autocomplete="off" />
             <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;" id="span_loginid"></span><!---Alredy exists  ! -->
                       <span class="glyphicon glyphicon-user form-control-feedback"></span>
                   </div>
@@ -165,26 +165,26 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">         
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
               <div class="orga-stru">
                 <h3>65%</h3>
                 <p>Say NO!!</p>
                 <i class="fa fa-male"></i>
-              </div>  
+              </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">         
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
               <div class="orga-stru">
                 <h3>20%</h3>
                 <p>Says Yes!!</p>
                 <i class="fa fa-male"></i>
-              </div>  
+              </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">         
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
               <div class="orga-stru">
                 <h3>15%</h3>
                 <p>Can't Say!!</p>
                 <i class="fa fa-male"></i>
-              </div>  
+              </div>
             </div>
           </div>
           <div class="col-md-6">
@@ -212,7 +212,7 @@
                     <input name="" placeholder="Enter Your Email Address" type="email">
                     <input class="cta-2-form-submit-btn" value="Subscribe" type="submit">
                 </form>
-             </div>   
+             </div>
             </div>
         </div>
       </div>
@@ -275,14 +275,14 @@
               <div class="pm-staff-profile-image-wrapper text-center">
                 <div class="pm-staff-profile-image">
                   <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                </div>   
-              </div>                                
-              <div class="pm-staff-profile-details text-center">  
+                </div>
+              </div>
+              <div class="pm-staff-profile-details text-center">
                 <p class="pm-staff-profile-name">Bryan Johnson</p>
                 <p class="pm-staff-profile-title">Lead Software Engineer</p>
-                
+
                 <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-              </div>     
+              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4">
@@ -290,14 +290,14 @@
               <div class="pm-staff-profile-image-wrapper text-center">
                 <div class="pm-staff-profile-image">
                   <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                </div>   
-              </div>                                
-              <div class="pm-staff-profile-details text-center">  
+                </div>
+              </div>
+              <div class="pm-staff-profile-details text-center">
                 <p class="pm-staff-profile-name">Bryan Johnson</p>
                 <p class="pm-staff-profile-title">Lead Software Engineer</p>
-                
+
                 <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-              </div>     
+              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4">
@@ -305,14 +305,14 @@
               <div class="pm-staff-profile-image-wrapper text-center">
                 <div class="pm-staff-profile-image">
                     <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                </div>   
-              </div>                                
-              <div class="pm-staff-profile-details text-center">  
+                </div>
+              </div>
+              <div class="pm-staff-profile-details text-center">
                 <p class="pm-staff-profile-name">Bryan Johnson</p>
                 <p class="pm-staff-profile-title">Lead Software Engineer</p>
-                
+
                 <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-              </div>     
+              </div>
             </div>
           </div>
         </div>
@@ -435,12 +435,12 @@
               <!-- Plan  -->
               <div class="pricing-head">
                 <h4>Monthly Plan</h4>
-                <span class="fa fa-usd curency"></span> <span class="amount">200</span> 
+                <span class="fa fa-usd curency"></span> <span class="amount">200</span>
               </div>
-          
+
               <!-- Plean Detail -->
               <div class="price-in mart-15">
-                <a href="#" class="btn btn-bg green btn-block">PURCHACE</a> 
+                <a href="#" class="btn btn-bg green btn-block">PURCHACE</a>
               </div>
             </div>
           </div>
@@ -449,12 +449,12 @@
               <!-- Plan  -->
               <div class="pricing-head">
                 <h4>Quarterly Plan</h4>
-                <span class="fa fa-usd curency"></span> <span class="amount">800</span> 
+                <span class="fa fa-usd curency"></span> <span class="amount">800</span>
               </div>
-          
+
               <!-- Plean Detail -->
               <div class="price-in mart-15">
-                <a href="#" class="btn btn-bg yellow btn-block">PURCHACE</a> 
+                <a href="#" class="btn btn-bg yellow btn-block">PURCHACE</a>
               </div>
             </div>
           </div>
@@ -463,12 +463,12 @@
               <!-- Plan  -->
               <div class="pricing-head">
                 <h4>Year Plan</h4>
-                <span class="fa fa-usd curency"></span> <span class="amount">1200</span> 
+                <span class="fa fa-usd curency"></span> <span class="amount">1200</span>
               </div>
-          
+
               <!-- Plean Detail -->
               <div class="price-in mart-15">
-                <a href="#" class="btn btn-bg red btn-block">PURCHACE</a> 
+                <a href="#" class="btn btn-bg red btn-block">PURCHACE</a>
               </div>
             </div>
           </div>
@@ -502,20 +502,20 @@
                     <div class="validation"></div>
                 </div>
               </div>
-              
+
               <div class="col-md-6 col-sm-6 col-xs-12 right">
                 <div class="form-group">
                     <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                     <div class="validation"></div>
                 </div>
               </div>
-              
+
               <div class="col-xs-12">
                 <!-- Button -->
                 <button type="submit" id="submit" name="submit" class="form contact-form-button light-form-button oswald light">SEND EMAIL</button>
               </div>
           </form>
-          
+
         </div>
       </div>
     </section>
@@ -523,9 +523,9 @@
     <!--Footer-->
     <footer id="footer" class="footer">
       <div class="container text-center">
-    
+
       <h3>Start Your Free Trial Now!</h3>
-    
+
       <form class="mc-trial row">
         <div class="form-group col-md-3 col-md-offset-2 col-sm-4">
           <div class=" controls">
@@ -553,8 +553,8 @@
       </ul>
         ©2016 Mentor Theme. All rights reserved
         <div class="credits">
-            <!-- 
-                All the links in the footer should remain intact. 
+            <!--
+                All the links in the footer should remain intact.
                 You can delete the links only if you purchased the pro version.
                 Licensing information: https://bootstrapmade.com/license/
                 Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Mentor
@@ -564,12 +564,11 @@
       </div>
     </footer>
     <!--/ Footer-->
-    
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="contactform/contactform.js"></script>
-    
+
+    {!! HTML::script('Mentor/js/jquery.min.js') !!}
+    {!! HTML::script('Mentor/js/jquery.easing.min.js') !!}
+    {!! HTML::script('Mentor/js/bootstrap.min.js') !!}
+    {!! HTML::script('Mentor/js/custom.js') !!}
+    {!! HTML::script('Mentor/contactform/contactform.js') !!}
   </body>
 </html>

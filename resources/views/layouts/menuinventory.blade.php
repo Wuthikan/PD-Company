@@ -2,7 +2,7 @@
 <html lang="{{ config('app.locale') }}">
   <head>
       <title>PD company Inventory</title>
-      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+      <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans"> -->
       {!! HTML::style('Mentor/css/font-awesome.min.css') !!}
       {!! HTML::style('Mentor/css/bootstrap.min.css') !!}
       {!! HTML::style('Mentor/css/imagehover.min.css') !!}

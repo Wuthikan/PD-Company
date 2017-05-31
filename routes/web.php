@@ -24,6 +24,9 @@ Route::get('/', function () {
 Route::get('/manu-Invoice', function () {
     return view('Invoice/manu');
 });
+Route::get('/test', function () {
+    return view('test');
+});
 Route::get('/all-Invoice', function () {
     return view('Invoice/allInvoice');
 });

@@ -1,12 +1,14 @@
 
 <html lang="{{ config('app.locale') }}">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Language" content="th">
      <meta http-equiv="Content-Type" content="text/html; charset=TIS-620" />
     <meta http-equiv="content-Type" content="text/html; charset=window-874">
-
+<?php    header('Content-Type: application/pdf'); ?>
 
   </head>
+  
 
                 <table width="100%">
                   <tr>

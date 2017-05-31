@@ -156,7 +156,7 @@ if($invoice->type==1){
     $pdf = PDF::loadView('shippingPDF',compact ('shipping','invoice','concrete','Extraconcrete'));
 }
 
-  return $pdf->download('document.pdf');
+  return $pdf->stream('document.pdf');
 
   }
   public function calendar(){
