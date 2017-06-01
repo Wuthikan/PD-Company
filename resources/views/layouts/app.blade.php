@@ -29,7 +29,7 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ url('/Inventory') }} ">หน้าแรก</a></li>
+        <li><a href="{{ url('/home') }} ">หน้าแรก</a></li>
 
         <!-- Authentication Links -->
         @if (Auth::guest())

@@ -164,11 +164,11 @@ class InvoiceController extends Controller
 
       if($invoice->type==1){
           $concrete = Concrete::whereconcrete($invoice->id)->get();
-          $pdf = PDF::loadView('taxinvoicePDF',compact ('invoice','concrete','datenow','dateplus','others'));
+          $pdf = PDF::loadView('taxinvoicePDF',compact ('invoice','concrete','datenow','dateplus','others'), [],['default_font' => 'Garuda']);
       }elseif ($invoice->type==2) {
         $concrete = box_concrette::whereboxconcrete($invoice->id)->get();
         $Extraconcrete = Extra_concrette::whereextraconcrete($invoice->id)->get();
-          $pdf = PDF::loadView('taxinvoicePDF',compact ('invoice','concrete','Extraconcrete','datenow','dateplus','others'));
+          $pdf = PDF::loadView('taxinvoicePDF',compact ('invoice','concrete','Extraconcrete','datenow','dateplus','others'), [],['default_font' => 'Garuda']);
       }
 
         return $pdf->stream('document.pdf');

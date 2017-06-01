@@ -149,7 +149,7 @@ class ShippingController extends Controller
     $invoice = Invoice::find($idinvoice);
 if($invoice->type==1){
     $concrete = Concrete::whereconcrete($invoice->id)->get();
-    $pdf = PDF::loadView('shippingPDF',compact ('shipping','invoice','concrete'));
+    $pdf = PDF::loadView('shippingPDF',compact ('shipping','invoice','concrete'), [],['default_font' => 'Garuda']);
 }elseif ($invoice->type==2) {
   $concrete = box_concrette::whereboxconcrete($invoice->id)->get();
   $Extraconcrete = Extra_concrette::whereextraconcrete($invoice->id)->get();
