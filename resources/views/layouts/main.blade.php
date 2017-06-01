@@ -51,7 +51,7 @@
         @if (Auth::guest())
             <li><a href="{{ route('login') }}">Login</a></li>
         @else
-            <li class="ิdropdown">
+            <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                     Myprofile <i class="fa fa-sign-out" aria-hidden="true"></i>
                 </a>
