@@ -153,7 +153,7 @@ if($invoice->type==1){
 }elseif ($invoice->type==2) {
   $concrete = box_concrette::whereboxconcrete($invoice->id)->get();
   $Extraconcrete = Extra_concrette::whereextraconcrete($invoice->id)->get();
-    $pdf = PDF::loadView('shippingPDF',compact ('shipping','invoice','concrete','Extraconcrete'));
+    $pdf = PDF::loadView('shippingPDF',compact ('shipping','invoice','concrete','Extraconcrete'), [],['default_font' => 'Garuda']);
 }
 
   return $pdf->stream('document.pdf');
