@@ -141,14 +141,13 @@ class InvoiceController extends Controller
       $dateplus = $date->addDays(15);
       $others = Other::whereother($invoice->id)->get();
 
-      $pdf = PDF::setOptions(['default_font' => 'Garuda']);
       if($invoice->type==1){
           $concrete = Concrete::whereconcrete($invoice->id)->get();
-          $pdf = PDF::loadView('invoicePDF',compact ('invoice','concrete','datenow','dateplus','others'));
+          $pdf = PDF::loadView('invoicePDF',compact ('invoice','concrete','datenow','dateplus','others'), [],['default_font' => 'Garuda']);
       }elseif ($invoice->type==2) {
         $concrete = box_concrette::whereboxconcrete($invoice->id)->get();
         $Extraconcrete = Extra_concrette::whereextraconcrete($invoice->id)->get();
-          $pdf = PDF::loadView('invoicePDF',compact ('invoice','concrete','Extraconcrete','datenow','dateplus','others'));
+          $pdf = PDF::loadView('invoicePDF',compact ('invoice','concrete','Extraconcrete','datenow','dateplus','others'), [],['default_font' => 'Garuda']);
       }
 
         return $pdf->stream('document.pdf');
