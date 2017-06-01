@@ -25,5 +25,8 @@
 
 @endsection
 @section('scripts')
+{!! HTML::script('fullcalendar/lib/jquery.min.js') !!}
+{!! HTML::script('fullcalendar/lib/moment.min.js') !!}
+{!! HTML::script('fullcalendar/fullcalendar.js') !!}
 {!! $calendar->script() !!}
 @endsection

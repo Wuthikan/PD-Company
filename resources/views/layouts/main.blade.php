@@ -103,9 +103,6 @@
         {!! HTML::script('Mentor/js/custom.js') !!}
         {!! HTML::script('Mentor/contactform/contactform.js') !!}
         {!! HTML::script('sweetalert-master/dist/sweetalert.min.js') !!}
-        {!! HTML::script('fullcalendar/lib/jquery.min.js') !!}
-        {!! HTML::script('fullcalendar/lib/moment.min.js') !!}
-        {!! HTML::script('fullcalendar/fullcalendar.js') !!}
         @yield('scripts')
 
         @include('sweet::alert')
