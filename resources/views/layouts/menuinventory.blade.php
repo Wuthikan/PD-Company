@@ -47,7 +47,7 @@
           <li><a href="{{ url('/product') }} ">สินค้า</a></li>
         <li><a href="{{ url('/ConcreteInventory') }}">คอนกรีตผสมเสร็จ</a></li>
           <li><a href="{{ url('/BoxConcreteInventory') }}">แผ่นพื้น</a></li>
-            @if(Auth::user()->class=='4')
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         Manager <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -58,7 +58,7 @@
                           <li><a href="{{ url('/Usermanagement') }} ">จัดการผู้ใช้</a></li>
                     </ul>
                 </li>
-              @endif
+  
         <!-- Authentication Links -->
         @if (Auth::guest())
             <li><a href="{{ route('login') }}">Login</a></li>
