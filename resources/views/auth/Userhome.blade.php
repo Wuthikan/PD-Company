@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-xs-7 col-md-10 col-sm-9"></div>
                     <div class="col-xs-5 col-md-2 col-sm-3">  <p>
-                        <a href="{{ url("/Usermanagement/create") }}">
+                        <a href="{{ url("/register") }}">
                           <button name="button" type="button" class="btn btn-block btn-submit">
                           เพิ่มพนักงาน <i class="fa fa-plus" aria-hidden="true"></i></button>
                         </a>
@@ -34,7 +34,7 @@
             @foreach($users as $users)
             <tr>
                 <td class="text-center">  {{ $i }} </td>
-                <td class="text-right">
+                <td class="text-center">
                       <a>
                           {{ $users->name }}
                       </a>
@@ -54,7 +54,7 @@
                   </a> </td>
                 <td class="text-right">
                             <a href="#"  onclick="return delete_record();"  >
-                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                          <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
             </tr>
             <?php $i++; ?>
