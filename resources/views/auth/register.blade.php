@@ -10,12 +10,11 @@
             <div class="panel panel-success">
                 <div class="panel-heading">Add User</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    {!! Form::open(['url' => 'Usermanagement' , 'class' => 'form-horizontal']) !!}
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">ชื่อ-สกุล</label>
-
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
@@ -83,7 +82,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-bg green btn-block">
-                                    Register
+                                    เพิ่มพนักงาน
                                 </button>
                             </div>
                         </div>

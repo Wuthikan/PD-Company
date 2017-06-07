@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-xs-7 col-md-10 col-sm-9"></div>
                     <div class="col-xs-5 col-md-2 col-sm-3">  <p>
-                        <a href="{{ url("/register") }}">
+                        <a href="{{ url("/Usermanagement/create") }}">
                           <button name="button" type="button" class="btn btn-block btn-submit">
                           เพิ่มพนักงาน <i class="fa fa-plus" aria-hidden="true"></i></button>
                         </a>

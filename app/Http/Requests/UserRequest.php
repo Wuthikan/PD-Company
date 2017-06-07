@@ -24,14 +24,17 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-          'name' => 'required',
-          'email' => 'required',
+          'name' => 'required|string|max:255',
+          'class' => 'required|Integer|max:255',
+          'email' => 'required|string|email|max:255|unique:users',
+          'password' => 'required|string|min:6|confirmed',
         ];
     }
     public function messages()
   {
     return [
-      'required' => 'กรุณาข้อมูลให้ครบถ้วน' 
+      'required' => 'กรุณาข้อมูลให้ครบถ้วน',
+      'unique:users' => 'Email นี้มีอยู่ในระบบแล้ว',
     ];
   }
 }

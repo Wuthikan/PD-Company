@@ -32,7 +32,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        
+           return view('auth.register');
     }
 
     /**
@@ -41,9 +41,17 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+          $user =  User::create([
+              'name' => $data['name'],
+              'email' => $data['email'],
+              'class' => $data['class'],
+              'password' => bcrypt($data['password']),
+          ]);
+          $user->save();
+          return redirect('Usermanagement');
+
     }
 
     /**
