@@ -49,8 +49,18 @@
         <li><a href="{{ url('/manu-Invoice') }}">สั่งซื้อ</a></li>
         <li><a href="{{ url('/invoiceall') }}">รายการสั่งซื้อ</a></li>
         <li><a href="{{ url('/calendarShipping') }}">ขนส่ง</a></li>
-          <li><a href="{{ url('/Inventory') }} ">ฝ่ายคลัง</a></li>
-
+          @if(Auth::user()->class=='4')
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                      Manager <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  </a>
+                  <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/home') }} ">ฝ่ายขาย</a></li>
+                        <li><a href="{{ url('/Inventory') }} ">ฝ่ายคลัง</a></li>
+                        <li><a href="{{ url('/Usermanagement') }} ">จัดการผู้ใช้</a></li>
+                  </ul>
+              </li>
+            @endif
         <!-- Authentication Links -->
         @if (Auth::guest())
             <li><a href="{{ route('login') }}">Login</a></li>

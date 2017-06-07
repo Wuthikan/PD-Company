@@ -1,35 +1,25 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
-  <head>
+<head>
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>PD company Inventory</title>
-        <meta charset="utf-8">
+    <title>PD</title>
+      <meta charset="utf-8">
       <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
       <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
-      <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans"> -->
-      {!! HTML::style('Mentor/css/font-awesome.min.css') !!}
-      {!! HTML::style('Mentor/css/bootstrap.min.css') !!}
-      {!! HTML::style('Mentor/css/imagehover.min.css') !!}
-      {!! HTML::style('Mentor/css/style.css') !!}
-      {!! HTML::style('sweetalert-master/dist/sweetalert.css') !!}
-      {!! HTML::style('fullcalendar/fullcalendar.css') !!}
-    <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-  </head>
+    <!-- Styles -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans"> -->
+    {!! HTML::style('Mentor/css/font-awesome.min.css') !!}
+    {!! HTML::style('Mentor/css/bootstrap.min.css') !!}
+    {!! HTML::style('Mentor/css/imagehover.min.css') !!}
+    {!! HTML::style('Mentor/css/style.css') !!}
+    {!! HTML::style('sweetalert-master/dist/sweetalert.css') !!}
+    {!! HTML::style('fullcalendar/fullcalendar.css') !!}
+  <link href="https://fonts.googleapis.com/css?family=Mitr" rel="stylesheet">
+</head>
 <body>
-  @if(session()->has('flash_success'))
-  <?php Alert::success(session()->get('flash_success'));
-  ?>
-  @endif
-  @if($errors->any())
 
-        @foreach($errors->all() as $error)
-        <?php
-        Alert::info($error)->persistent("Close");
-        ?>
-        @endforeach
-  @endif
   <!--Navigation bar-->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -43,27 +33,23 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ url('/Inventory') }} ">หน้าแรก</a></li>
-          <li><a href="{{ url('/product') }} ">สินค้า</a></li>
-        <li><a href="{{ url('/ConcreteInventory') }}">คอนกรีตผสมเสร็จ</a></li>
-          <li><a href="{{ url('/BoxConcreteInventory') }}">แผ่นพื้น</a></li>
-            @if(Auth::user()->class=='4')
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        Manager <i class="fa fa-sign-out" aria-hidden="true"></i>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                          <li><a href="{{ url('/home') }} ">ฝ่ายขาย</a></li>
-                          <li><a href="{{ url('/Inventory') }} ">ฝ่ายคลัง</a></li>
-                          <li><a href="{{ url('/Usermanagement') }} ">จัดการผู้ใช้</a></li>
-                    </ul>
-                </li>
-              @endif
+      @if(Auth::user()->class=='4')
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                  Manager <i class="fa fa-sign-out" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ url('/home') }} ">ฝ่ายขาย</a></li>
+                    <li><a href="{{ url('/Inventory') }} ">ฝ่ายคลัง</a></li>
+                    <li><a href="{{ url('/Usermanagement') }} ">จัดการผู้ใช้</a></li>
+              </ul>
+          </li>
+        @endif
         <!-- Authentication Links -->
         @if (Auth::guest())
             <li><a href="{{ route('login') }}">Login</a></li>
         @else
-            <li class="ิdropdown">
+            <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                     Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
                 </a>
@@ -93,7 +79,8 @@
   </nav>
   <!--/ Navigation bar-->
 
-    @yield('content')
+
+        @yield('content')
 
         <footer id="footer" class="footer">
           <div class="container text-center">
@@ -120,5 +107,5 @@
         @yield('scripts')
 
         @include('sweet::alert')
-</body>
-</html>
+    </body>
+    </html>
