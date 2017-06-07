@@ -51,7 +51,7 @@
             @elseif(Auth::user()->class == 4 )
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        Manager <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        Manager <i class="fa fa-caret-down" aria-hidden="true"></i>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                           <li><a href="{{ url('/home') }} ">ฝ่ายขาย</a></li>
