@@ -44,10 +44,10 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $user =  User::create([
-              'name' => $data['name'],
-              'email' => $data['email'],
-              'class' => $data['class'],
-              'password' => bcrypt($data['password']),
+              'name' => $request['name'],
+              'email' => $request['email'],
+              'class' => $request['class'],
+              'password' => bcrypt($request['password']),
           ]);
           Alert::success('เพิ่มผู้ใช้ระบบสำเร็จ!');
           return redirect('Usermanagement');
