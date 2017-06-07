@@ -78,7 +78,42 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('position') ? ' has-error' : '' }}">
+                            <label for="position" class="col-md-4 control-label">ตำแหน่ง</label>
 
+                            <div class="col-md-6">
+                                  {!! Form::text('position', null, ['class' => 'form-control']) !!}
+                                @if ($errors->has('position'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('position') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('tel') ? ' has-error' : '' }}">
+                            <label for="tel" class="col-md-4 control-label">เบอร์โทรศัพท์</label>
+
+                            <div class="col-md-6">
+                                  {!! Form::text('tel', null, ['class' => 'form-control']) !!}
+                                @if ($errors->has('tel'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('tel') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="address" class="col-md-4 control-label">ที่อยู่</label>
+
+                            <div class="col-md-6">
+                                  {!! Form::text('address', null, ['class' => 'form-control']) !!}
+                                @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-bg green btn-block">

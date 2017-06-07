@@ -54,6 +54,9 @@ class UserController extends Controller
               'email' => $request['email'],
               'class' => $request['class'],
               'password' => bcrypt($request['password']),
+              'position' => $request['position'],
+              'tel' => $request['tel'],
+              'address' => $request['address'],
           ]);
           Alert::success('เพิ่มผู้ใช้ระบบสำเร็จ!');
           return redirect('Usermanagement');
