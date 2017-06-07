@@ -25,6 +25,7 @@
                   <th class="col-md-4 text-center"> ชื่อ-สกุล </th>
                   <th class="col-md-1 text-right"> เบอร์โทรศัพท์ </th>
                       <th class="col-md-2 text-right"> ตำแหน่ง </th>
+                        <th class="col-md-2 text-right"> สิทธิการเข้าถึง </th>
                       <th class="col-md-1 text-right"> แก้ไข </th>
                       <th class="col-md-1 text-right"> ลบ </th>
             </tr>
@@ -33,16 +34,21 @@
             @foreach($users as $users)
             <tr>
                 <td class="text-center">  {{ $i }} </td>
-                <td>  <a >
+                <td class="text-right">
+                      <a>
                           {{ $users->name }}
                       </a>
-
                 </td>
                 <td class="text-right">
                           {{ $users->tel }}
                 </td>
-
-                <td class="text-right"> {{ $users->position }} แผ่น</td>
+                <td class="text-right"> {{ $users->position }}</td>
+                  <td class="text-right">
+                    @if($users->class==1)  ระบบขาย
+                    @elseif($users->class==2) ระบบคลัง
+                      @elseif($users->class==4) ทุกระบบ
+                      @endif
+                  </td>
                 <td class="text-right">    <a  href="{{ url("Usermanagement/{$users->id}/edit") }}">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   </a> </td>

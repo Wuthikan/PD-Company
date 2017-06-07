@@ -70,7 +70,6 @@
                             <select name="class" id="class" class="form-control">
                               <option value="1">ระบบขายสินค้า</option>
                               <option value="2">ระบบคลังสินค้า</option>
-                              <option value="3">ระบบขนส่ง</option>
                               <option value="4">ทุกระบบ</option>
                               </select>
                                 @if ($errors->has('class'))
