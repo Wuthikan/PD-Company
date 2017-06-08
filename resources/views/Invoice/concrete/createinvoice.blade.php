@@ -167,7 +167,7 @@
 											</div>
 											<div class="col-md-4">
 													<select name="class" id="class" class="form-control">
-														<option value="1">เปอร์เซน</option>
+														<option value="1">%</option>
 														<option value="2">บาท</option>
 													</select>
 											 </div>
