@@ -29,8 +29,10 @@ class AddSomeFieldShipping extends Migration
     public function down()
     {
         Schema::table('shipping', function (Blueprint $table) {
-          $table->dropColumn('distance');
-          $table->dropColumn('licenseplate');
+          $table->dropColumn('smallcar');
+          $table->dropColumn('bigcar');
+          $table->dropColumn('crane');
+          $table->dropColumn('amount');
         });
     }
 }
