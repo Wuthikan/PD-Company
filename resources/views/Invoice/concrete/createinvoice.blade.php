@@ -158,13 +158,27 @@
 									<div class="login-box-body">
 										<div class="form-group">
 
-										<form action="{{ route('invoice.editDiscount', ['id'=>$invoices->id]) }}">
+										<form action="{{ route('invoice.editDiscount', ['id'=>$invoices->id]) }}" class="form-horizontal">
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
-													<input class="form-control" name="discount" id="discount" type="text" autocomplete="off" />
-															<br>
+									<div class="form-group">
+										 <label for="inputEmail3" class="col-md-2 control-label">จำนวน</label>
+										 <div class="col-md-8">
+														<input class="form-control" name="discount" id="discount" type="text" autocomplete="off" />
+											</div>
+											<div class="col-md-2">
+													<select name="class" id="class" class="form-control">
+														<option value="1">เปอร์เซน</option>
+														<option value="2">บาท</option>
+													</select>
+											 </div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-2">
 													<button type="submit" class="btn btn-bg green btn-block"  >
 													 ตกลง
 												 </button>
+											</div>
+										</div>
 										</form>
 										</div>
 									</div>

@@ -164,13 +164,11 @@ class InvoiceConcreteController extends Controller
 
     public function confirm($id)
     {
-
-
       $invoices = Invoice::findOrFail($id);
     if ($invoices->idcustomer==null) {
           return redirect('customer/create/'.$id);
 
-    }
+          }
     else {
       $invoices->payment = 1;
       $invoices->save();
