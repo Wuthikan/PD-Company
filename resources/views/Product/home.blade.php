@@ -57,13 +57,13 @@
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   </a> </td>
                 <td class="text-right">
-                            <a href="#"  onclick="return delete_record();"  >
+                            <a href="#"  onclick="return delete_record[]();"  >
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
             </tr>
             <?php $i++; ?>
             <script>
-            function delete_record(){
+            function delete_record[](){
             swal({
               title: 'คุณต้องการลบสินค้าหรือไม่?',
               text: "{{ $product->name }}",
