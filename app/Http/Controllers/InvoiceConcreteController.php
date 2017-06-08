@@ -151,13 +151,9 @@ class InvoiceConcreteController extends Controller
 			]);
       $invoice = Invoice::findOrFail($id);
       if($request->class == '1') {
-        $request->percent = $request->discount ;
-        $discount = $request->percent*$request->total/100;
-        $request->discount = $discount;
-        $array = ['percent' =>  $request->discount,
-            'discount' => $request->discount*$request->total/100
-        ];
-          $invoice->update($array->all());
+          $invoice->percent = $request->discount;
+          $invoice->discount = $request->discount*$request->total/100;
+            $invoice->save();
       }else{
       $invoice->update($request->all());
       }
