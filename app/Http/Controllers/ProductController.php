@@ -97,7 +97,7 @@ class ProductController extends Controller
     {
       $products = Product::findOrFail($id);
         $products->update($request->all());
-    Alert::success('แก้ไขข้อมูลแล้ว!');
+        Alert::success('แก้ไขข้อมูลแล้ว!');
       return redirect('product');
     }
 

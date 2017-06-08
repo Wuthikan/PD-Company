@@ -82,8 +82,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
+
     public function editUser($id)
     {
           $user = User::find($id);
@@ -103,10 +104,12 @@ class UserController extends Controller
       $user = User::findOrFail($id);
         $user->update($request->all());
         Alert::success('แก้ไขข้อมูลผู้ใช้!');
-
-        if(Auth::user()->class == 4 || Auth::user()->class == 1) {
+        if(Auth::user()->class == 1) {
         return redirect('home');
-      }elseif(Auth::user()->class == 2) {
+      }elseif(Auth::user()->class == 4){
+        return redirect('Usermanagement');
+      }
+      elseif(Auth::user()->class == 2) {
           return redirect('Inventory');
     }
   }

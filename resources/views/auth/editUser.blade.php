@@ -65,6 +65,7 @@
                                 @endif
                             </div>
                         </div>
+                        @if(Auth::user()->class == 4)
                         <div class="form-group{{ $errors->has('position') ? ' has-error' : '' }}">
                             <label for="position" class="col-md-4 control-label">ตำแหน่ง</label>
 
@@ -77,6 +78,24 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('class') ? ' has-error' : '' }}">
+                            <label for="class" class="col-md-4 control-label">สิทธิการใช้งาน</label>
+
+                            <div class="col-md-6">
+                            <select name="class" id="class" class="form-control">
+                              <option value="1" @if(Auth::user()->class == 1) checked@endif>ระบบขายสินค้า</option>
+                              <option value="2" @if(Auth::user()->class == 2) checked@endif>ระบบคลังสินค้า</option>
+                              <option value="4" @if(Auth::user()->class == 4) checked@endif>ทุกระบบ</option>
+                              </select>
+                                @if ($errors->has('class'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('class') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        @endif
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-bg green btn-block">
