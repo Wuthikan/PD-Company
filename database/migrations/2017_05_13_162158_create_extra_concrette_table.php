@@ -22,6 +22,7 @@ class CreateExtraConcretteTable extends Migration
                             ->onDelete('cascade');
             $table->text('name');
             $table->double('height');
+            $table->double('thick');
             $table->double('price');
             $table->double('amount');
             $table->double('shipping')->nullable();

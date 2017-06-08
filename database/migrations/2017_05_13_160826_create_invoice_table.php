@@ -30,6 +30,9 @@ class CreateInvoiceTable extends Migration
             $table->integer('type');
             $table->integer('payment');
             $table->integer('shipping');
+            $table->double('percent')->nullable();
+            $table->text('note')->nullable();
+            $table->integer('signature')->nullable();
 
             $table->timestamps();
         });

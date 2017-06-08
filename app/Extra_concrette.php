@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Extra_concrette extends Model
 {
   protected $table = "extra_concrette";
-  protected $fillable = ['idinvoice' ,'name','width','amount','height','price','shipping'];
+  protected $fillable = ['idinvoice' ,'name','width','amount','height','price','shipping','thick'];
 
   public function scopeWhereextraconcrete($query,$id)
   {

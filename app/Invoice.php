@@ -8,7 +8,9 @@ use Carbon\Carbon;
 class Invoice extends Model
 {
   protected $table = "invoice";
-  protected $fillable = ['code' ,'idcustomer' ,'idemployee','price','discount','type','payment','shipping'];
+  protected $fillable = ['code' ,'idcustomer' ,'idemployee','price','discount','type','payment','shipping',
+  'signature','note','percent'
+];
   protected $dates = ['created_at','updated_at'];
 
   public function users(){
