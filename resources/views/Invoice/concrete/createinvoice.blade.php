@@ -165,9 +165,9 @@
 										 <div class="col-md-6">
 														<input class="form-control" name="discount" id="discount" type="text" autocomplete="off" />
 											</div>
-											<div class="col-md-4">
+											<div class="col-md-5">
 													<select name="class" id="class" class="form-control">
-														<option value="1">%</option>
+														<option value="1">เปอร์เซ็น</option>
 														<option value="2">บาท</option>
 													</select>
 											 </div>
