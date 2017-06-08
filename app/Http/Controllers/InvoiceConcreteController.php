@@ -150,13 +150,17 @@ class InvoiceConcreteController extends Controller
 			'discount' => 'required|numeric'
 			]);
       $invoice = Invoice::findOrFail($id);
-      if($request->class == 1) {
+      if($request->class == '1') {
         $request->percent = $request->discount ;
         $discount = $request->percent*$request->total/100;
         $request->discount = $discount;
-      }
+        $array = ['percent' =>  $request->discount,
+            'discount' => $request->discount*$request->total/100
+        ];
+          $invoice->update($array->all());
+      }else{
       $invoice->update($request->all());
-
+      }
    session()->flash('flash_success','เพิ่มส่วนลดสำเร็จ!');
     if($invoice->type == 1){
         return redirect('invoiceConcrete/'.$invoice->id);
