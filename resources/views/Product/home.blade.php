@@ -22,7 +22,8 @@
         <table class="table  table-hover table-striped ">
             <tr>
                 <th class="col-md-1 text-center">เลขที่</th>
-                  <th class="col-md-4 text-center"> รายการ </th>
+                  <th class="col-md-3 text-center"> รายการ </th>
+                    <th class="col-md-1 text-right"> หนา </th>
                   <th class="col-md-1 text-right"> ยาว </th>
 
                       <th class="col-md-2 text-right"> คงเหลือ </th>
@@ -35,7 +36,7 @@
                 <td> คอนกรีตผสม  </td>
                 <td class="text-right"> - </td>
                   <td class="text-right"> - </td>
-
+                  <td class="text-right"> - </td>
                 <td class="text-right"> - </td>
                 <td class="text-right"> -  </td>
             </tr>
@@ -47,6 +48,9 @@
                           {{ $product->name }}
                       </a>
 
+                </td>
+                <td class="text-right">
+                          {{ $product->thick }}
                 </td>
                 <td class="text-right">
                           {{ $product->height }}
