@@ -147,8 +147,10 @@
 										<td colspan="2">
 											<b>รวมเป็นเงิน </b>
 										</td>
-										<td colspan="3">
+										<td colspan="2" class=" text-right">
 											<b><?=number_format($sumtotal, 2, '.', '');?></b>
+										</td>
+										<td>
 										</td>
 
 										<td>
@@ -165,9 +167,11 @@
 												@if($invoices->percent!="") ( {{ $invoices->percent }} % ) @endif
 											</b>
 										</td>
-										<td colspan="3">
+										<td colspan="2" class=" text-right">
 											<b>
 												{{ number_format($invoices->discount, 2, '.', '') }}</b>
+										</td>
+										<td>
 										</td>
 										<td>
 										</td>
@@ -178,8 +182,10 @@
 										<td colspan="2" >
 											<b>จำนวณนเงินรวมทั้งสิ้น</b>
 										</td>
-										<td colspan="3">
+										<td colspan="2" class=" text-right">
 												<b><?=number_format($sumtotal-$invoices->discount, 2, '.', '');?></b>
+										</td>
+										<td>
 										</td>
 										<td>
 										</td>
