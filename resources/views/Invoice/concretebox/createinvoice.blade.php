@@ -128,6 +128,7 @@
 										</td>
 										<td class=" text-right">   </td>
 										<td class=" text-right">  </td>
+										<td class=" text-right">  </td>
 	                  <td class=" text-right"> {{ $others->price }}   </td>
 										<td class=" text-right" >
 												<td class=" text-right">  </td>
@@ -147,7 +148,7 @@
 									<tr>
 										<td></td>
 										<td></td>
-										<td></td>
+
 										<td colspan="2">
 											<b>รวมเป็นเงิน </b>
 										</td>
@@ -157,13 +158,14 @@
 											<td></td>
 										<td>
 										</td>
+										<td></td>
 
 
 									</tr>
 									<tr>
 										<td></td>
 										<td></td>
-										<td></td>
+
 										<td   colspan="2">
 											<b>หักส่วนลด
 												<a href="#" data-target="#editdiscount" data-toggle="modal">เพิ่มส่วนลด <i class="fa fa-plus" aria-hidden="true"></i></a>
@@ -175,13 +177,14 @@
 												{{ number_format($invoices->discount, 2, '.', '') }}</b>
 										</td>
 											<td></td>
+												<td></td>
 										<td>
 										</td>
 									</tr>
 									<tr>
 										<td></td>
 										<td></td>
-										<td></td>
+
 										<td colspan="2" >
 											<b>จำนวณนเงินรวมทั้งสิ้น</b>
 										</td>
@@ -189,6 +192,7 @@
 												<b><?=number_format($sumtotal-$invoices->discount, 2, '.', '');?></b>
 										</td>
 											<td></td>
+												<td></td>
 										<td>
 										</td>
 									</tr>
