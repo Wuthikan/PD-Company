@@ -57,7 +57,6 @@
                           <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
             </tr>
-            <?php $i++; ?>
             <script>
             function delete_record<?=$i?>(){
             swal({
@@ -81,6 +80,7 @@
             });
             }
             </script>
+              <?php $i++; ?>
               @endforeach
 
         </table>
