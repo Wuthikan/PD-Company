@@ -149,8 +149,12 @@ class InvoiceConcreteController extends Controller
       $this->validate($request,[
 			'discount' => 'required|numeric'
 			]);
-
       $invoice = Invoice::findOrFail($id);
+      if($request->class == 1) {
+        $request->percent = $request->discount ;
+        $discount = $request->percent*$request->total/100;
+        $request->discount = $discount;
+      }
       $invoice->update($request->all());
 
    session()->flash('flash_success','เพิ่มส่วนลดสำเร็จ!');

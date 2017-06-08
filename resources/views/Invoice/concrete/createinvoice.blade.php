@@ -110,9 +110,14 @@
 									<tr>
 										<td></td>
 										<td></td>
-										<td colspan="2" >
+										<td  >
 											<b>หักส่วนลด
 												<a href="#" data-target="#editdiscount" data-toggle="modal">เพิ่มส่วนลด <i class="fa fa-plus" aria-hidden="true"></i></a>
+											</b>
+										</td>
+										<td  >
+											<b>
+												{{ $invoices->percent }}%
 											</b>
 										</td>
 										<td>
@@ -160,9 +165,10 @@
 
 										<form action="{{ route('invoice.editDiscount', ['id'=>$invoices->id]) }}" class="form-horizontal">
 											<input type="hidden" name="_token" value="{{ csrf_token() }}">
+											<input type="hidden" name="total" value="{{ sumtotal }}">
 												<div class="form-group">
-													 <label for="inputEmail3" class="col-md-12 col-sm-12  col-xs-12">จำนวน</label>
-													 <div class="col-md-12 col-sm-12  col-xs-12">
+													 <label for="inputEmail3" class="col-md-2 col-sm-2  col-xs-2">จำนวน</label>
+													 <div class="col-md-10 col-sm-10  col-xs-10">
 																	<input class="form-control" name="discount" id="discount" type="text" autocomplete="off" />
 														</div>
 												</div>
