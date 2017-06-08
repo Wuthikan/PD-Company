@@ -117,7 +117,7 @@
 										</td>
 										<td  >
 											<b>
-												 %
+												{{ $invoices->percent }} %
 											</b>
 										</td>
 										<td>
@@ -165,7 +165,7 @@
 
 										<form action="{{ route('invoice.editDiscount', ['id'=>$invoices->id]) }}" class="form-horizontal">
 											<input type="hidden" name="_token" value="{{ csrf_token() }}">
-											<input type="hidden" name="total" value="{{ sumtotal }}">
+											<input type="hidden" name="total" value="{{ $sumtotal }}">
 												<div class="form-group">
 													 <label for="inputEmail3" class="col-md-2 col-sm-2  col-xs-2">จำนวน</label>
 													 <div class="col-md-10 col-sm-10  col-xs-10">
