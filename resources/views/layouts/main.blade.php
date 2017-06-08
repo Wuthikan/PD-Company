@@ -61,7 +61,7 @@
                         <li><a href="{{ url('/Usermanagement') }} ">จัดการผู้ใช้</a></li>
                   </ul>
               </li>
-            @endif
+        @endif
         <!-- Authentication Links -->
         @if (Auth::guest())
             <li><a href="{{ route('login') }}">Login</a></li>
