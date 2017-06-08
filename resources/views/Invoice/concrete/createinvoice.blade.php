@@ -117,7 +117,7 @@
 										</td>
 										<td  >
 											<b>
-												{{ $invoices->percent }}%
+												 %
 											</b>
 										</td>
 										<td>
