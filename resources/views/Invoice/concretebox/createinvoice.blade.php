@@ -123,7 +123,7 @@
 								@foreach($other as $others)
 	              <tr>
 									 	<td class=" text-center">  {{ $i }} </td>
-										<td class=" text-center">
+										<td class=" text-center"> ค่าใช้จ่ายเพิ่มเติม
 											 			{{ $others->detail }}
 										</td>
 										<td class=" text-right">   </td>
@@ -149,10 +149,10 @@
 										<td></td>
 										<td></td>
 
-										<td colspan="2">
+										<td colspan="3">
 											<b>รวมเป็นเงิน </b>
 										</td>
-										<td></td>
+
 										<td  class=" text-right">
 											<b><?=number_format($sumtotal, 2, '.', '');?></b>
 										</td>
@@ -167,13 +167,13 @@
 										<td></td>
 										<td></td>
 
-										<td   colspan="2">
+										<td   colspan="3">
 											<b>หักส่วนลด
 												<a href="#" data-target="#editdiscount" data-toggle="modal">เพิ่มส่วนลด <i class="fa fa-plus" aria-hidden="true"></i></a>
 												@if($invoices->percent!="") ( {{ $invoices->percent }} % ) @endif
 											</b>
 										</td>
-										<td></td>
+
 										<td class=" text-right">
 											<b>
 												{{ number_format($invoices->discount, 2, '.', '') }}</b>
@@ -187,10 +187,10 @@
 										<td></td>
 										<td></td>
 
-										<td colspan="2" >
+										<td colspan="3" >
 											<b>จำนวณนเงินรวมทั้งสิ้น</b>
 										</td>
-										<td></td>
+
 										<td class=" text-right">
 												<b><?=number_format($sumtotal-$invoices->discount, 2, '.', '');?></b>
 										</td>
