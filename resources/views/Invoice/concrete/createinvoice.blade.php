@@ -110,17 +110,13 @@
 									<tr>
 										<td></td>
 										<td></td>
-										<td  >
+										<td   colspan="2">
 											<b>หักส่วนลด
 												<a href="#" data-target="#editdiscount" data-toggle="modal">เพิ่มส่วนลด <i class="fa fa-plus" aria-hidden="true"></i></a>
-											</b>
-										</td>
-										<td  >
-											<b>
 												{{ $invoices->percent }} %
 											</b>
 										</td>
-										<td>
+										<td  colspan="2">
 											<b>{{ number_format($invoices->discount , 2, '.', '') }} </b>
 										</td>
 										<td>
