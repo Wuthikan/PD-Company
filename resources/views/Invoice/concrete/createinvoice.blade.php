@@ -159,27 +159,29 @@
 										<div class="form-group">
 
 										<form action="{{ route('invoice.editDiscount', ['id'=>$invoices->id]) }}" class="form-horizontal">
-									<input type="hidden" name="_token" value="{{ csrf_token() }}">
-									<div class="form-group">
-										 <label for="inputEmail3" class="col-md-12 col-sm-12  col-xs-12">จำนวน</label>
-										 <div class="col-md-12 col-sm-12  col-xs-12">
-														<input class="form-control" name="discount" id="discount" type="text" autocomplete="off" />
-											</div>
-											<div class="col-md-12 col-sm-12 col-xs-12 ">
-													<select name="class" id="class" class="form-control">
-														<option value="1">เปอร์เซ็น</option>
-														<option value="2">บาท</option>
-													</select>
-											 </div>
-										</div>
-										<div class="form-group">
-											<div class="col-md-12">
-													<button type="submit" class="btn btn-bg green btn-block"  >
-													 ตกลง
-												 </button>
-											</div>
-										</div>
-										</form>
+											<input type="hidden" name="_token" value="{{ csrf_token() }}">
+												<div class="form-group">
+													 <label for="inputEmail3" class="col-md-12 col-sm-12  col-xs-12">จำนวน</label>
+													 <div class="col-md-12 col-sm-12  col-xs-12">
+																	<input class="form-control" name="discount" id="discount" type="text" autocomplete="off" />
+														</div>
+												</div>
+												<div class="form-group">
+														<div class="col-md-12 col-sm-12 col-xs-12 ">
+																<select name="class" id="class" class="form-control">
+																	<option value="1">เปอร์เซ็น</option>
+																	<option value="2">บาท</option>
+																</select>
+														 </div>
+												</div>
+												<div class="form-group">
+													<div class="col-md-12">
+															<button type="submit" class="btn btn-bg green btn-block"  >
+															 ตกลง
+														 </button>
+													</div>
+												</div>
+											</form>
 										</div>
 									</div>
 								</div>
