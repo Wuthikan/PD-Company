@@ -65,7 +65,7 @@
                                 @endif
                             </div>
                         </div>
-
+                        @if(Auth::user()->class == 4)
                         <div class="form-group{{ $errors->has('position') ? ' has-error' : '' }}">
                             <label for="position" class="col-md-4 control-label">ตำแหน่ง</label>
 
@@ -95,7 +95,7 @@
                             </div>
                         </div>
 
-
+                        @endif
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-bg green btn-block">
