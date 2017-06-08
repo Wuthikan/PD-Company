@@ -6,11 +6,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="header-section text-center">
-						<h2>รายการสั่งซื้อคอนกรีตแผ่นพิ้น</h2>
+						<h2>รายการสั่งซื้อคอนกรีตแผ่นพื้นสำเร็จรูป</h2>
 							<p>เลขที่ใบเสนอราคา   QT{{ $invoices->code }}</p>
 							@if(isset($invoices->idcustomer))
 								 ชื่อลูกค้า {{ $customer->name }}
-
 							@endif
 						<hr class="bottom-line">
 				<hr>
@@ -161,8 +160,8 @@
 									</tr>
 									<tr>
 										<td></td>
-										<td></td>
-										<td   colspan="2">
+
+										<td   colspan="3">
 											<b>หักส่วนลด
 												<a href="#" data-target="#editdiscount" data-toggle="modal">เพิ่มส่วนลด <i class="fa fa-plus" aria-hidden="true"></i></a>
 												@if($invoices->percent!="") ( {{ $invoices->percent }} % ) @endif
@@ -179,8 +178,8 @@
 									</tr>
 									<tr>
 										<td></td>
-										<td></td>
-										<td colspan="2" >
+
+										<td colspan="3" >
 											<b>จำนวณนเงินรวมทั้งสิ้น</b>
 										</td>
 										<td colspan="2">
