@@ -15,7 +15,7 @@
           <div class="form-group">
               {!! Form::label('title', 'ชื่อสินค้า:', ['class' => 'col-sm-5 col-md-4 col-xs-12 control-label'])  !!}
            <div class="col-sm-7   col-md-8 col-xs-12">
-               {!! Form::text('name', null, ['class' => 'form-control']) !!}
+               {!! Form::text('name', 'แผ่นพื้นสำเร็จรูป', ['class' => 'form-control']) !!}
            </div>
            </div>
            <div class="form-group">
@@ -30,6 +30,12 @@
                  {!! Form::text('height', null, ['class' => 'form-control']) !!}
              </div>
              </div>
+             <div class="form-group">
+                 {!! Form::label('title', 'หนา', ['class' => 'col-sm-5 col-md-4 col-xs-12 control-label'])  !!}
+              <div class="col-sm-7  col-md-8 col-xs-12">
+                  {!! Form::text('thick', null, ['class' => 'form-control']) !!}
+              </div>
+              </div>
              <div class="form-group">
                      {!! Form::label('title', 'จำนวณสินค้าในคลัง:', ['class' => 'col-sm-5 col-md-4 col-xs-12 control-label'])  !!}
                   <div class="col-sm-7  col-md-8 col-xs-12">
