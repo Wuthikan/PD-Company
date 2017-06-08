@@ -24,6 +24,7 @@
                 <th>เลขที่</th>
                   <th> รายการ </th>
                   <th> ความยาว </th>
+                  <th> ความหนา </th>
                       <th> คงเหลือ </th>
                       <th></th>
             </tr>
@@ -36,6 +37,9 @@
                 </td>
                 <td>
                           {{ $product->height }}
+                </td>
+                <td>
+                          {{ $product->thick }}
                 </td>
                 <td> {{ $product->amount }} </td>
                 <td><a href="{{ route('boxconcrete.select', ['id' => $idinvoice ,'idproduct' => $product->id])}}"> Buy </a></td>
