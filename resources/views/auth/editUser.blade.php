@@ -83,9 +83,9 @@
 
                             <div class="col-md-6">
                             <select name="class" id="class" class="form-control">
-                              <option value="1" @if(Auth::user()->class == 1) checked@endif>ระบบขายสินค้า</option>
-                              <option value="2" @if(Auth::user()->class == 2) checked@endif>ระบบคลังสินค้า</option>
-                              <option value="4" @if(Auth::user()->class == 4) checked@endif>ทุกระบบ</option>
+                              <option value="1" @if(Auth::user()->class == 1) checked @endif>ระบบขายสินค้า</option>
+                              <option value="2" @if(Auth::user()->class == 2) checked @endif>ระบบคลังสินค้า</option>
+                              <option value="4" @if(Auth::user()->class == 4) checked @endif>ทุกระบบ</option>
                               </select>
                                 @if ($errors->has('class'))
                                     <span class="help-block">
