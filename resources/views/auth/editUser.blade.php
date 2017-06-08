@@ -65,7 +65,7 @@
                                 @endif
                             </div>
                         </div>
-                        @if(Auth::user()->class == 4)
+                        <!-- @if(Auth::user()->class == 4) -->
                         <div class="form-group{{ $errors->has('position') ? ' has-error' : '' }}">
                             <label for="position" class="col-md-4 control-label">ตำแหน่ง</label>
 
@@ -83,9 +83,9 @@
 
                             <div class="col-md-6">
                             <select name="class" id="class" class="form-control">
-                              <option value="1" @if(Auth::user()->class == 1) checked @endif>ระบบขายสินค้า</option>
-                              <option value="2" @if(Auth::user()->class == 2) checked @endif>ระบบคลังสินค้า</option>
-                              <option value="4" @if(Auth::user()->class == 4) checked @endif>ทุกระบบ</option>
+                              <option value="1" @if(Auth::user()->class == 1) Checked @endif>ระบบขายสินค้า</option>
+                              <option value="2" @if(Auth::user()->class == 2) Checked @endif>ระบบคลังสินค้า</option>
+                              <option value="4" @if(Auth::user()->class == 4) Checked @endif>ทุกระบบ</option>
                               </select>
                                 @if ($errors->has('class'))
                                     <span class="help-block">
@@ -95,7 +95,7 @@
                             </div>
                         </div>
 
-                        @endif
+                        <!-- @endif -->
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-bg green btn-block">
