@@ -53,13 +53,13 @@
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   </a> </td>
                 <td class="text-right">
-                            <a href="#"  onclick="return delete_record<?$i?>();"  >
+                            <a href="#"  onclick="return delete_record<?=$i?>();"  >
                           <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
             </tr>
             <?php $i++; ?>
             <script>
-            function delete_record<?$i?>(){
+            function delete_record<?=$i?>(){
             swal({
               title: 'คุณต้องการลบหรือไม่?',
               text: "{{ $users->id }}",
