@@ -83,9 +83,9 @@
 
                             <div class="col-md-6">
                             <select name="class" id="class" class="form-control">
-                              <option value="1" @if(Auth::user()->class == 1) Checked @endif>ระบบขายสินค้า</option>
-                              <option value="2" @if(Auth::user()->class == 2) Checked @endif>ระบบคลังสินค้า</option>
-                              <option value="4" @if(Auth::user()->class == 4) Checked @endif>ทุกระบบ</option>
+                              <option value="1" @if(Auth::user()->class == 1) selected @endif>ระบบขายสินค้า</option>
+                              <option value="2" @if(Auth::user()->class == 2) selected @endif>ระบบคลังสินค้า</option>
+                              <option value="4" @if(Auth::user()->class == 4) selected @endif>ทุกระบบ</option>
                               </select>
                                 @if ($errors->has('class'))
                                     <span class="help-block">
@@ -95,7 +95,7 @@
                             </div>
                         </div>
 
-                      
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-bg green btn-block">
