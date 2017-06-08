@@ -35,7 +35,8 @@
 					<table class="table  table-hover table-striped ">
 						<tr>
 								<th class="col-md-1 text-center">เลขที่</th>
-									<th class="col-md-4 text-center"> รายการ </th>
+									<th class="col-md-3 text-center"> รายการ </th>
+											<th class="col-md-1 text-right"> จำนวน </th>
 											<th class="col-md-1 text-right"> ตรม. </th>
 											<th class="col-md-1 text-right"> หน่วยละ </th>
 											<th class="col-md-2 text-right"> ราคารวมภาษี </th>
@@ -50,8 +51,9 @@
 									<td class=" text-center">
 										 		{{ $concretes->products->name }}
 												0.35x{{ $concretes->products->height }}x{{ $concretes->products->percent }}
-												จำนวณ{{ $concretes->amount }}แผ่น
+
 									</td>
+									<td class=" text-right" >{{ $concretes->amount }}แผ่น</td>
 									<?php $sum = 0.35*$concretes->products->height*$concretes->amount;
 										$a = number_format($sum, 3, '.', '');  	?>
 									<td class=" text-right" >  {{ number_format($sum, 3, '.', '') }}</td>
@@ -89,8 +91,9 @@
 										<td class=" text-center">
 													{{ $Extraconcretes->name }}
 													0.35x{{ $Extraconcretes->height }}x{{ $Extraconcretes->percent }}
-													จำนวณ{{ $Extraconcretes->amount }}แผ่น
+
 										</td>
+										<td  class=" text-right">{{ $Extraconcretes->amount }}แผ่น</td>
 										<?php $sum = 0.35*$Extraconcretes->height*$Extraconcretes->amount;
 											$a = number_format($sum, 3, '.', '');  	?>
 										<td  class=" text-right">  {{ number_format($sum, 3, '.', '') }}</td>
