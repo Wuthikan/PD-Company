@@ -161,11 +161,11 @@
 										<form action="{{ route('invoice.editDiscount', ['id'=>$invoices->id]) }}" class="form-horizontal">
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<div class="form-group">
-										 <label for="inputEmail3" class="col-md-2 col-sm-2 control-label">จำนวน</label>
-										 <div class="col-md-6 col-sm-6">
+										 <label for="inputEmail3" class="col-md-2 col-sm-2  col-xs-12">จำนวน</label>
+										 <div class="col-md-5 col-sm-5  col-xs-6">
 														<input class="form-control" name="discount" id="discount" type="text" autocomplete="off" />
 											</div>
-											<div class="col-md-4 col-sm-4 ">
+											<div class="col-md-5 col-sm-5 col-xs-6 ">
 													<select name="class" id="class" class="form-control">
 														<option value="1">เปอร์เซ็น</option>
 														<option value="2">บาท</option>
