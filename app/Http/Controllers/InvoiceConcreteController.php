@@ -153,9 +153,11 @@ class InvoiceConcreteController extends Controller
       if($request->class == '1') {
           $invoice->percent = $request->discount;
           $invoice->discount = $request->discount*$request->total/100;
-            $invoice->save();
+          $invoice->save();
       }else{
-      $invoice->update($request->all());
+        $invoice->percent = '';
+        $invoice->discount = $request->discount;
+        $invoice->save();
       }
    session()->flash('flash_success','เพิ่มส่วนลดสำเร็จ!');
     if($invoice->type == 1){

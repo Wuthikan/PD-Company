@@ -113,7 +113,7 @@
 										<td   colspan="2">
 											<b>หักส่วนลด
 												<a href="#" data-target="#editdiscount" data-toggle="modal">เพิ่มส่วนลด <i class="fa fa-plus" aria-hidden="true"></i></a>
-												{{ $invoices->percent }} %
+												@if($invoices->percent!="") ( {{ $invoices->percent }} % ) @endif 
 											</b>
 										</td>
 										<td  colspan="2">
