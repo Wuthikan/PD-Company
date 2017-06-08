@@ -162,10 +162,10 @@
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<div class="form-group">
 										 <label for="inputEmail3" class="col-md-2 control-label">จำนวน</label>
-										 <div class="col-md-6">
+										 <div class="col-md-4">
 														<input class="form-control" name="discount" id="discount" type="text" autocomplete="off" />
 											</div>
-											<div class="col-md-4">
+											<div class="col-md-5">
 													<select name="class" id="class" class="form-control">
 														<option value="1">เปอร์เซน</option>
 														<option value="2">บาท</option>
