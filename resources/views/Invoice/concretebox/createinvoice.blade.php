@@ -49,7 +49,7 @@
 								 	<td class=" text-center" >  {{ $i }} </td>
 									<td class=" text-center">
 										 		{{ $concretes->products->name }}
-												0.35x{{ $concretes->products->height }}
+												0.35x{{ $concretes->products->height }}x{{ $concretes->products->percent }}
 												จำนวณ{{ $concretes->amount }}แผ่น
 									</td>
 									<?php $sum = 0.35*$concretes->products->height*$concretes->amount;
@@ -88,7 +88,7 @@
 										<td class=" text-center">  {{ $i }} </td>
 										<td class=" text-center">
 													{{ $Extraconcretes->name }}
-													0.35x{{ $Extraconcretes->height }}
+													0.35x{{ $Extraconcretes->height }}x{{ $Extraconcretes->percent }}
 													จำนวณ{{ $Extraconcretes->amount }}แผ่น
 										</td>
 										<?php $sum = 0.35*$Extraconcretes->height*$Extraconcretes->amount;
@@ -144,6 +144,7 @@
 									<tr>
 										<td></td>
 										<td></td>
+										<td></td>
 										<td colspan="2">
 											<b>รวมเป็นเงิน </b>
 										</td>
@@ -153,12 +154,10 @@
 										<td>
 										</td>
 
-										<td>
-										</td>
-
 
 									</tr>
 									<tr>
+										<td></td>
 										<td></td>
 										<td></td>
 										<td   colspan="2">
@@ -173,10 +172,9 @@
 										</td>
 										<td>
 										</td>
-										<td>
-										</td>
 									</tr>
 									<tr>
+										<td></td>
 										<td></td>
 										<td></td>
 										<td colspan="2" >
@@ -184,8 +182,6 @@
 										</td>
 										<td colspan="2" class=" text-right">
 												<b><?=number_format($sumtotal-$invoices->discount, 2, '.', '');?></b>
-										</td>
-										<td>
 										</td>
 										<td>
 										</td>
