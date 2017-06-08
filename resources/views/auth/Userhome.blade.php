@@ -49,7 +49,7 @@
                       @elseif($users->class==4) ทุกระบบ
                       @endif
                   </td>
-                <td class="text-right">    <a  href="{{ url('/user/edit/{$users->id}' ) }}">
+                <td class="text-right">    <a  href="{{ url('/user/edit/'.<?=$users->id?> ) }}">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   </a> </td>
                 <td class="text-right">
