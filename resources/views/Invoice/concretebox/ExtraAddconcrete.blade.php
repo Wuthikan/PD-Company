@@ -28,7 +28,7 @@
                       <div class="form-group">
                         <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ชื่อสินค้า*</label>
                         <div class="col-sm-7 col-md-7">
-                          <input type="text" class="form-control"   name="name" id="name" onkeyup='plus()' >
+                          <input type="text" class="form-control"  name="name" id="name" onkeyup='plus()' value="แผ่นพื้นสำเร็จรูป" >
                           </div>
                           <div class="validation"></div>
                         </div>
@@ -36,6 +36,13 @@
                           <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ความยาว(เมตร)*</label>
                             <div class="col-sm-7 col-md-7 ">
                               <input type="text" class="form-control"   name="height" id="height" onkeyup='plus()' >
+                            </div>
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ความหนา(เมตร)*</label>
+                            <div class="col-sm-7 col-md-7 ">
+                              <input type="text" class="form-control"   name="thick" id="thick" onkeyup='plus()' >
                             </div>
                             <div class="validation"></div>
                         </div>

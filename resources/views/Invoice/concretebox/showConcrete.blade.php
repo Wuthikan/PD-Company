@@ -23,6 +23,7 @@
             <tr>
                 <th>เลขที่</th>
                   <th> รายการ </th>
+                  <th> ความกว้าง </th>
                   <th> ความยาว </th>
                   <th> ความหนา </th>
                       <th> คงเหลือ </th>
@@ -34,6 +35,9 @@
                 <td>  {{ $i }} </td>
                 <td>
                           {{ $product->name }}
+                </td>
+                <td>
+                  0.35
                 </td>
                 <td>
                           {{ $product->height }}
