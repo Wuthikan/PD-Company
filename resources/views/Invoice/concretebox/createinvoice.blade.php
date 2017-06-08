@@ -130,8 +130,8 @@
 										<td class=" text-right">  </td>
 										<td class=" text-right">  </td>
 	                  <td class=" text-right"> {{ $others->price }}   </td>
-										<td class=" text-right" >
-												<td class=" text-right">  </td>
+										<td class=" text-right" ></td>
+												<td class=" text-right">
 											<a href="{{ url("other/{$others->id}/edit?idinvoice={$invoices->id}") }}"><i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
 										<td class=" text-right">
 											<a href="{{ route('other.delete', ['id' => $others->id,'idinvoice' => $invoices->id]) }}"  >
@@ -152,6 +152,7 @@
 										<td colspan="2">
 											<b>รวมเป็นเงิน </b>
 										</td>
+										<td></td>
 										<td  class=" text-right">
 											<b><?=number_format($sumtotal, 2, '.', '');?></b>
 										</td>
@@ -172,6 +173,7 @@
 												@if($invoices->percent!="") ( {{ $invoices->percent }} % ) @endif
 											</b>
 										</td>
+										<td></td>
 										<td class=" text-right">
 											<b>
 												{{ number_format($invoices->discount, 2, '.', '') }}</b>
@@ -188,6 +190,7 @@
 										<td colspan="2" >
 											<b>จำนวณนเงินรวมทั้งสิ้น</b>
 										</td>
+										<td></td>
 										<td class=" text-right">
 												<b><?=number_format($sumtotal-$invoices->discount, 2, '.', '');?></b>
 										</td>
