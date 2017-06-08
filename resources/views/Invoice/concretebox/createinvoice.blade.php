@@ -36,7 +36,7 @@
 						<tr>
 								<th class="col-md-1 text-center">เลขที่</th>
 									<th class="col-md-4 text-center"> รายการ </th>
-											<th class="col-md-1 text-right"> ตารางเมตร </th>
+											<th class="col-md-1 text-right"> ตรม. </th>
 											<th class="col-md-1 text-right"> หน่วยละ </th>
 											<th class="col-md-2 text-right"> ราคารวมภาษี </th>
 											<th class="col-md-1 text-right"> สถานะ </th>
