@@ -155,7 +155,7 @@ class InvoiceConcreteController extends Controller
           $invoice->discount = $request->discount*$request->total/100;
           $invoice->save();
       }else{
-        $invoice->percent = '';
+        $invoice->percent = null;
         $invoice->discount = $request->discount;
         $invoice->save();
       }
