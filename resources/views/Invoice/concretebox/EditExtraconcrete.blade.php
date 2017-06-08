@@ -39,6 +39,13 @@
                             </div>
                             <div class="validation"></div>
                         </div>
+                        <div class="form-group">
+                          <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">ความหนา(เมตร)</label>
+                            <div class="col-sm-7 col-md-7 ">
+                              {!! Form::text('thick', null, ['class' => 'form-control']) !!}
+                            </div>
+                            <div class="validation"></div>
+                        </div>
                           <div class="form-group">
                             <label for="inputEmail3" class="col-sm-5 col-md-5 control-label">จำนวณแผ่น</label>
                               <div class="col-sm-7 col-md-7 ">
