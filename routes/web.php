@@ -17,6 +17,10 @@ Route::get('/user/edit/{id}', [
   'middleware' => ['auth'],
   ]);
 Route::resource('Usermanagement', 'UserController');
+Route::get('Usermanagement/delete/{id}', [
+  'uses'       => 'UserController@destroy',
+  'middleware' => ['auth'],
+  ]);
 
 Route::get('/', function () {
     return view('home');

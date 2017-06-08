@@ -41,7 +41,7 @@
         @else
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    Logout <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    Myprofile <i class="fa fa-sign-out" aria-hidden="true"></i>
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
