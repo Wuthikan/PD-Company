@@ -62,7 +62,7 @@
             function delete_record(){
             swal({
               title: 'คุณต้องการลบหรือไม่?',
-              text: "{{ $users->name }}",
+              text: "{{ $users->id }}",
               type: "warning",
               showCancelButton: true,
               confirmButtonColor: "#DD6B55",
