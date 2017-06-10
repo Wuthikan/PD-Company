@@ -21,7 +21,6 @@
                       <p>วันที่ {{ $shipping->date->formatLocalized('%d/%m/%Y') }}
                         @else
                           <p>วันที่ {{ $date }}  มีคิวที่ลงไว้แล้ว
-
                              {{ $result }} คิว
                       @endif
                       	<a href="#" data-target="#editdate" data-toggle="modal" >

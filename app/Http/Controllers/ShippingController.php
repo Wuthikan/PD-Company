@@ -119,7 +119,7 @@ class ShippingController extends Controller
    ]);
    $date = strtotime($request->date);
    $result = DB::table('shipping')->whereDate('date', $date)->where('type',$request->type)->count();
-
+   $date  = $request->date;
 
    $shipping = Shipping::find($request->id);
    if(empty($shipping))
