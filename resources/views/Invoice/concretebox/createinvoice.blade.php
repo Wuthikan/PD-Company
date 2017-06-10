@@ -181,7 +181,7 @@
 									<tr>
 										<td></td>
 										<td></td>
-										<td colspan="" >
+										<td colspan="3" >
 											<b>จำนวณนเงินรวมทั้งสิ้น</b>
 										</td>
 										<td class=" text-right">
