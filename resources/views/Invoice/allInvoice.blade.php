@@ -21,6 +21,7 @@
                   <th class="text-center"> รหัสใบสั่งซื้อ </th>
                     <th class="text-center"> ประเภท </th>
                       <th class="text-center"> ชื่อลูกค้า </th>
+                      <th class="text-center"> สถานะใบเสร็จ </th>
                       <th class="text-center">แก้ไข</th>
                       <th class="text-center">ลบ</th>
             </tr>
@@ -55,6 +56,13 @@
                   @else
                     -
                   @endif
+                 </td>
+                 <td class="text-center">
+                   @if($invoicesEx->signature=='1')
+                    อนุมัติแล้ว
+                   @else
+                    รอการอนุมัติ
+                   @endif
                  </td>
                  <td class="text-center">
                    @if($invoicesEx->type=='1')

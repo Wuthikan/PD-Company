@@ -119,7 +119,6 @@
 								<?php $i++; ?>
 									@endforeach
 
-
 								@foreach($other as $others)
 	              <tr>
 									 	<td class=" text-center">  {{ $i }} </td>
@@ -187,7 +186,7 @@
 										<td></td>
 										<td></td>
 
-										<td colspan="3" >
+										<td colspan="" >
 											<b>จำนวณนเงินรวมทั้งสิ้น</b>
 										</td>
 
