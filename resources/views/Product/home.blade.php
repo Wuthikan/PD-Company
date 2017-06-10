@@ -23,7 +23,6 @@
             <tr>
                 <th class="col-md-1 text-center">เลขที่</th>
                   <th class="col-md-3 text-center"> รายการ </th>
-                    <th class="col-md-1 text-right"> หนา </th>
                   <th class="col-md-1 text-right"> ยาว </th>
 
                       <th class="col-md-2 text-right"> คงเหลือ </th>
@@ -37,7 +36,6 @@
                 <td class="text-right"> - </td>
                   <td class="text-right"> - </td>
                   <td class="text-right"> - </td>
-                <td class="text-right"> - </td>
                 <td class="text-right"> -  </td>
             </tr>
             <?php $i++; ?>
@@ -48,9 +46,6 @@
                           {{ $product->name }}
                       </a>
 
-                </td>
-                <td class="text-right">
-                          {{ $product->thick }}
                 </td>
                 <td class="text-right">
                           {{ $product->height }}

@@ -31,12 +31,6 @@
              </div>
              </div>
              <div class="form-group">
-                 {!! Form::label('title', 'หนา', ['class' => 'col-sm-5 col-md-4 col-xs-12 control-label'])  !!}
-              <div class="col-sm-7  col-md-8 col-xs-12">
-                  {!! Form::text('thick', null, ['class' => 'form-control']) !!}
-              </div>
-              </div>
-             <div class="form-group">
                      {!! Form::label('title', 'จำนวณสินค้าในคลัง:', ['class' => 'col-sm-5 col-md-4 col-xs-12 control-label'])  !!}
                   <div class="col-sm-7  col-md-8 col-xs-12">
                       {!! Form::text('amount', null, ['class' => 'form-control']) !!}

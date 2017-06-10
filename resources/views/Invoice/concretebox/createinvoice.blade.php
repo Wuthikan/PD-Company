@@ -50,7 +50,7 @@
 								 	<td class=" text-center" >  {{ $i }} </td>
 									<td class=" text-center">
 										 		{{ $concretes->products->name }}
-												0.35x{{ $concretes->products->height }}x{{ $concretes->products->thick }}
+												0.35x{{ $concretes->products->height }}
 
 									</td>
 									<td class=" text-right" >{{ $concretes->amount }}แผ่น</td>
@@ -90,7 +90,7 @@
 										<td class=" text-center">  {{ $i }} </td>
 										<td class=" text-center">
 													{{ $Extraconcretes->name }}
-													0.35x{{ $Extraconcretes->height }}x{{ $Extraconcretes->thick }}
+													0.35x{{ $Extraconcretes->height }}
 
 										</td>
 										<td  class=" text-right">{{ $Extraconcretes->amount }}แผ่น</td>
