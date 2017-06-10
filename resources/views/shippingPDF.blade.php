@@ -56,7 +56,7 @@
                       <tr>
                         <td align="center"><font size=3>
                           @if($invoice->type==1)
-                          
+
                           @else
                           {{  $concrete->products->code }}
                             @endif
