@@ -39,7 +39,7 @@
                   @else
                      <a href="{{ url('invoiceBoxConcrete/'. $invoicesEx->id) }}">
                   @endif
-                          {{ $invoicesEx->code }}
+                          QT{{ $invoicesEx->code }}
                     </a>
                  </td>
                  <td class="text-center">
@@ -75,7 +75,7 @@
             function delete_record(){
               swal({
             title: "คุณต้องการลบหรือไม่?",
-            text: 'ใบเสนอราคา <?=$invoicesEx->code?>',
+            text: 'ใบเสนอราคา QT<?=$invoicesEx->code?>',
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
@@ -128,7 +128,7 @@
 
                    <a href="{{ url('invoiceall/'. $invoices->id) }}">
 
-                        {{ $invoices->code }}
+                        QT{{ $invoices->code }}
                   </a>
                </td>
                  <td class="text-center">
