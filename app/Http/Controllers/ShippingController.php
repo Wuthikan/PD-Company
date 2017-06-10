@@ -130,8 +130,19 @@ class ShippingController extends Controller
     $this->validate($request,[
    'date' => 'required',
    ]);
+   $datetime = strtotime($request->date);
    $shipping = Shipping::findOrFail($id);
-   $shipping->update($request->all());
+   $shipping->type = $request->type;
+   $shipping->date = $datetime;
+
+   $shipping->idinvoice = $request->idinvoice;
+   $shipping->amount = $request->amount;
+   $shipping->bigcar = $request->bigcar;
+   $shipping->smallcar = $request->smallcar;
+   if ($shipping->type=='2') {
+   $shipping->crane = $request->crane;
+   }
+   $shipping->save();
 
       return redirect('shipping/myshipping/'.$request->idinvoice);
   }
