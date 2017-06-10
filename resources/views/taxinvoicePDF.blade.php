@@ -117,7 +117,7 @@
                             คอนกรีตผสมเสร็จ
                             @else
                             {{  $concrete->products->name }}
-                            0.35x{{  $concrete->height }}
+                            0.35x{{  $concrete->products->height }}
                             {{  $concrete->amount }}แผ่น
                             @endif
                           </font>
@@ -127,7 +127,7 @@
                             @if($invoice->type==1)
                               {{  $concrete->amount }} คิว
                             @else
-                            <?php $sum = 0.35*$concrete->height*$concrete->amount;  	?>
+                            <?php $sum = 0.35*$concrete->products->height*$concrete->amount;  	?>
                             {{ number_format($sum, 3, '.', '') }} ตร.ม
                             @endif
                           </font>
