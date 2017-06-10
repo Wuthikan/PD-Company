@@ -156,11 +156,8 @@
 											<b><?=number_format($sumtotal, 2, '.', '');?></b>
 										</td>
 											<td></td>
-										<td>
-										</td>
 										<td></td>
-
-
+										<td></td>
 									</tr>
 									<tr>
 										<td></td>
@@ -179,24 +176,20 @@
 										</td>
 											<td></td>
 												<td></td>
-										<td>
-										</td>
+												<td></td>
 									</tr>
 									<tr>
 										<td></td>
 										<td></td>
-
 										<td colspan="" >
 											<b>จำนวณนเงินรวมทั้งสิ้น</b>
 										</td>
-
 										<td class=" text-right">
 												<b><?=number_format($sumtotal-$invoices->discount, 2, '.', '');?></b>
 										</td>
-											<td></td>
+											  <td></td>
 												<td></td>
-										<td>
-										</td>
+												<td></td>
 									</tr>
 
 														@else
