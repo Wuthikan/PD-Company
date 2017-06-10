@@ -112,7 +112,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                      <?php $total=0; $i=1;?>
+                      <?php $total=0; $i=1; $lastprice='0'; ?>
                         @if (isset($concrete))
                       @foreach($concrete as $concrete)
                       <tr >
@@ -160,7 +160,7 @@
                           </font>
                           </td>
         							</tr>
-                        <?php $total=$total+$concrete->amount; $i++;?>
+                        <?php $lastprice=$total+$concrete->amount; $i++;?>
         								@endforeach
                         @endif
                         @if (isset($Extraconcrete))
@@ -193,7 +193,7 @@
                                   </font>
                                   </td>
                 							</tr>
-                              <?php $total=$total+$Extraconcrete->amount; $i++; ?>
+                              <?php $lastprice=$total+$Extraconcrete->amount; $i++; ?>
                 								@endforeach
                         @endif
 
@@ -224,7 +224,7 @@
                                    </font>
                                   </td>
                               </tr>
-                              <?php $total=$total+$other->price; $i++; ?>
+                              <?php $lastprice=$total+$other->price; $i++; ?>
                                 @endforeach
 
                         @endif
@@ -245,7 +245,7 @@
          </td>
           <td align="right" width=15%>
             <font size=3>
-              {{ number_format($total, 2, '.', '') }}
+              {{ number_format($lastprice, 2, '.', '') }}
           </font>
             </td>
         </tr>
@@ -279,7 +279,7 @@
                  </td>
                   <td align="right">
                     <font size=3>
-                      {{ number_format($total-$invoice->discount, 2, '.', '') }}
+                      {{ number_format($lastprice-$invoice->discount, 2, '.', '') }}
                   </font>
                     </td>
                 </tr>
@@ -298,7 +298,7 @@
                         <font size=3>
 
                           <?php
-                              $vax =($total-$invoice->discount)*0.07;
+                              $vax =($lastprice-$invoice->discount)*0.07;
                               ?>
                             {{ number_format($vax, 2, '.', '') }}
                         </td>
@@ -306,7 +306,7 @@
 
                     <tr>
                       <td colspan="2" align="left"><font size=3>(
-                          <?php $read =  number_format(($total-$invoice->discount)-$vax, 2, '.', '');
+                          <?php $read =  number_format(($lastprice-$invoice->discount)-$vax, 2, '.', '');
                             echo  Convert($read);
                           ?> )
                       </font></td>
@@ -321,7 +321,7 @@
                           <td align="right">
                             <font size=3>
 
-                                  {{ number_format(($total-$invoice->discount)-$vax, 2, '.', '') }}
+                                  {{ number_format(($lastprice-$invoice->discount)-$vax, 2, '.', '') }}
                             </td>
                         </tr>
                     </tbody>
