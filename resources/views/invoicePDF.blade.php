@@ -160,7 +160,7 @@
                           </font>
                           </td>
         							</tr>
-                        <?php $lastprice=$total+$concrete->amount; $i++;?>
+                        <?php $lastprice=$total+$lastprice; $i++;?>
         								@endforeach
                         @endif
                         @if (isset($Extraconcrete))
@@ -193,7 +193,7 @@
                                   </font>
                                   </td>
                 							</tr>
-                              <?php $lastprice=$total+$Extraconcrete->amount; $i++; ?>
+                              <?php $lastprice=$total+$lastprice; $i++; ?>
                 								@endforeach
                         @endif
 
@@ -224,7 +224,7 @@
                                    </font>
                                   </td>
                               </tr>
-                              <?php $lastprice=$total+$other->price; $i++; ?>
+                              <?php $lastprice=$totals+$lastprice; $i++; ?>
                                 @endforeach
 
                         @endif
