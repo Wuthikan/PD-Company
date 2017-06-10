@@ -20,8 +20,8 @@
                     @if (empty($date))
                       <p>วันที่ {{ $shipping->date->formatLocalized('%d/%m/%Y เวลา%R%p') }}
                         @else
-
-                          <p>วันที่  {{ $date->formatLocalized('%d/%m/%Y เวลา%R%p') }} มีคิวที่ลงไว้แล้ว
+                        <?php $datetime = strtotime($date); ?>
+                          <p>วันที่  {{ $datetime->formatLocalized('%d/%m/%Y เวลา%R%p') }} มีคิวที่ลงไว้แล้ว
                              {{ $result }} คิว
                       @endif
                       	<a href="#" data-target="#editdate" data-toggle="modal" >
