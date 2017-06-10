@@ -146,7 +146,7 @@
                 @endif
                </td>
                <td class="text-center">
-                 @if($invoicesEx->signature=='1')
+                 @if($invoices->signature=='1')
                   อนุมัติแล้ว
                  @else
                   รอการอนุมัติ
