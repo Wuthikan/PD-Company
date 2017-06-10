@@ -117,9 +117,9 @@ class ShippingController extends Controller
     $this->validate($request,[
    'date' => 'required',
    ]);
-   $date = strtotime($request->date);
-   $result = DB::table('shipping')->whereDate('date', $date)->where('type',$request->type)->count();
    $date  = $request->date;
+   $result = DB::table('shipping')->whereDate('date', $date)->where('type',$request->type)->count();
+
 
    $shipping = Shipping::find($request->id);
    if(empty($shipping))
