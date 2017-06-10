@@ -18,7 +18,7 @@
                         <h3>คิวส่งคอนกรีตแผ่นพื้น</h3>
                       @endif
                     @if (empty($date))
-                      <p>วันที่ {{ $shipping->date->formatLocalized('%d/%m/%Y') }}
+                      <p>วันที่ {{ $shipping->date->formatLocalized('%d/%m/%Y %H') }}
                         @else
                           <p>วันที่ {{ $date }}  มีคิวที่ลงไว้แล้ว
                              {{ $result }} คิว
