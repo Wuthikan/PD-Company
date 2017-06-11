@@ -42,6 +42,11 @@ class InvoiceController extends Controller
           // dd($invoicesEx);
            return view('Invoice.allInvoice', compact('invoices','invoicesEx'));
     }
+    public function menager()
+    {
+        $invoices = Invoice::wherestate(1)->orderBy('id', 'desc')->get();
+        return view('Invoice.invoiceFormaneger', compact('invoices'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -174,4 +179,5 @@ class InvoiceController extends Controller
         return $pdf->stream('document.pdf');
 
     }
+
 }

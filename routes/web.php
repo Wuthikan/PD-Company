@@ -46,6 +46,11 @@ Route::get('invoice/edit/{id}', [
   'as'         => 'invoice.edit',
   'middleware' => ['auth'],
   ]);
+Route::get('invoice/menager/', [
+  'uses'       => 'InvoiceController@menager',
+  'as'         => 'invoice.menager',
+  'middleware' => ['auth'],
+  ]);
 Route::get('Invoice/pdf/{id}', [
     'uses'       => 'InvoiceController@PDF',
     'as'         => 'invoice.pdf'

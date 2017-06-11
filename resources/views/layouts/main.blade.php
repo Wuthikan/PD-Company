@@ -47,7 +47,19 @@
         <li><a href="{{ url('/home') }} ">หน้าแรก</a></li>
         <li><a href="{{ url('/Product/Shows') }}">สินค้า</a></li>
         <li><a href="{{ url('/manu-Invoice') }}">สั่งซื้อ</a></li>
+        @if (Auth::guest())
         <li><a href="{{ url('/invoiceall') }}">รายการสั่งซื้อ</a></li>
+        @elseif(Auth::user()->class == 4 )
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                รายการสั่งซื้อ <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                  <li><a href="{{ url('/invoiceall') }} ">รายการสั่งซื้อของฉัน</a></li>
+                  <li><a href="{{ route('invoice.menager') }} ">รายการสั่งซื้อทั้งหมด</a></li>
+            </ul>
+        </li>
+        @endif
         <li><a href="{{ url('/calendarShipping') }}">ขนส่ง</a></li>
         @if (Auth::guest())
         @elseif(Auth::user()->class == 4 )
