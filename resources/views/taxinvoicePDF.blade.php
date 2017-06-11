@@ -341,7 +341,6 @@
       <td width="10%" ></td>
       <td align="left" width="40%" ><font size=3>ผู้รับมอบอำนาจ <img src="{{ url('img/4.jpg') }}" class="img-responsive"></font></td>
     </tr>
-
 </table>
 <hr>
 <script><?php
