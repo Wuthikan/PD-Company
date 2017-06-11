@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row">
       <div class="header-section text-center">
-    
+        <h2>ใบเสนอราคา QT{{ $invoices->code }}</h2>
         <hr class="bottom-line">
       </div>
     </div>
