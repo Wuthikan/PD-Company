@@ -5,6 +5,10 @@
 <section id ="feature" class="section-padding">
     <div class="container">
       <div class="row">
+        <div class="header-section text-center">
+          <h2>รายการใบสั่งซื้อ</h2>
+          <hr class="bottom-line">
+        </div>
 
 @if (!$invoices->isEmpty())
         <div class="header-section text-left">
@@ -16,13 +20,9 @@
               <th class="text-center"> วันที่</th>
                 <th class="text-center"> รหัสใบสั่งซื้อ </th>
                   <th class="text-center"> ประเภท </th>
-
                     <th class="text-center"> ชื่อลูกค้า </th>
                     <th class="text-center"> สถานะใบเสร็จ </th>
                       <th class="text-center"></td>
-
-
-
           </tr>
 
           <?php $i = 1; ?>
@@ -62,7 +62,8 @@
                  @endif
                </td>
                <td class="text-center">
-                <a href="{{ url('invoiceall/'. $invoices->id) }}">
+
+                    <a href="{{ url('invoiceall/'. $invoices->id) }}">
                 <i class="fa fa-file-text-o" aria-hidden="true"></i> </a>
                </td>
           </tr>
