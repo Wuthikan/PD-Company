@@ -146,10 +146,10 @@
                 @endif
                </td>
                <td class="text-center">
-                 @if($invoices->signature=='1')
-                  อนุมัติแล้ว
-                 @else
+                 @if($invoices->signature==null)
                   รอการอนุมัติ
+                 @else
+                  อนุมัติแล้ว
                  @endif
                </td>
                <td class="text-center">
