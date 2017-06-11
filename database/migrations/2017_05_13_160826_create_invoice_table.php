@@ -33,7 +33,9 @@ class CreateInvoiceTable extends Migration
             $table->double('percent')->nullable();
             $table->text('note')->nullable();
             $table->integer('signature')->nullable();
-
+            $table->foreign('signature')
+                            ->references('id')
+                            ->on('users');
             $table->timestamps();
         });
     }

@@ -153,7 +153,6 @@
                  @endif
                </td>
                <td class="text-center">
-
                     <a href="{{ url('invoiceall/'. $invoices->id) }}">
                 <i class="fa fa-file-text-o" aria-hidden="true"></i> </a>
                </td>
