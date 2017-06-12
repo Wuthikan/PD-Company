@@ -21,6 +21,11 @@ Route::get('/user/signature/{id}', [
   'as'         => 'User.signature',
   'middleware' => ['auth'],
   ]);
+Route::post('/user/signature/add', [
+  'uses'       => 'UserController@updatepicture',
+  'as'         => 'signature.add',
+  'middleware' => ['auth'],
+  ]);
 Route::resource('Usermanagement', 'UserController');
 Route::get('Usermanagement/delete/{id}', [
   'uses'       => 'UserController@destroy',

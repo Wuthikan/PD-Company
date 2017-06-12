@@ -8,7 +8,9 @@ use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Request;
+
+// use Request;
+use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Alert;
 
@@ -142,6 +144,19 @@ class UserController extends Controller
     }
     public function updatepicture(Request $request)
     {
-        echo $request->id;
+      $this->validate($request,[
+        'pic_signature' => 'required',
+          ]);
+        $user = User::find($request->id);
+      if($request->hasfile('pic_signature')){
+          $image_name = $request->id.'.jpg' ;
+          $public_path = 'img/user/' ;
+          $destination = base_path() . "/public/" . $public_path;
+          $request->file('pic_signature')->move($destination,$image_name);
+          $user->pic_signature = $public_path . $image_name;
+      }
+      $user->save();
+      Alert::success('บันทึกลายเซ็นแล้ว!');
+      return redirect('/user/signature/'.$request->id);
     }
 }
