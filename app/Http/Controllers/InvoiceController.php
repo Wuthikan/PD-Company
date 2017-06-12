@@ -186,9 +186,15 @@ class InvoiceController extends Controller
     }
     public function signatureCheck($id){
       $invoice = Invoice::find($id);
+      if($invoice->signature==null){
       $invoice->signature = Auth::user()->id;
-      $invoice->save();
       session()->flash('flash_success','เซ็นใบเสนอราคาแล้ว!');
+    }else{
+      $invoice->signature = null;
+      session()->flash('flash_success','ยกเลิกการเซ็นใบเสนอราคาแล้ว!');
+    }
+      $invoice->save();
+
         return back();
     }
 

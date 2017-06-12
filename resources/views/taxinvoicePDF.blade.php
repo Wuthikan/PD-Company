@@ -343,7 +343,7 @@
         @if($invoice->signature == null)
         ....................................................
         @else
-        
+
         <img height="55" width="200" src="{{ $userManager->pic_signature }}" class="img-responsive">
         @endif
 
