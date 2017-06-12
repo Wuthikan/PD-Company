@@ -34,13 +34,19 @@
         <p><b>สถานะการส่งสินค้า:</b>
           @if($invoices->shipping==0)
              ยังไม่ได้เลือกวันส่งสินค้า
-        @elseif($invoices->shipping==1)
-          เลือกวันส่งสินค้าแล้ว
-        @elseif($invoices->shipping==2)
-          ส่งสินค้าแล้ว
-        @endif
-
+          @elseif($invoices->shipping==1)
+            เลือกวันส่งสินค้าแล้ว
+          @elseif($invoices->shipping==2)
+            ส่งสินค้าแล้ว
+          @endif
       </p>
+      <p><b>สถานะใบเสร็จ:</b>
+        @if($invoices->signature==null)
+         รอการอนุมัติ
+        @else
+         อนุมัติแล้ว
+        @endif
+    </p>
       </div>
     </div>
 
