@@ -341,12 +341,12 @@
     <tr>
       <td align="center" width="40%" ><font size=3></font></td>
       <td width="20%" ></td>
-      <td align="center" width="40%" ><font size=3>..............................................</font></td>
+      <td align="center" width="40%" ><font size=3>{{ $invoice->users->name }}</font></td>
     </tr>
     <tr>
       <td align="center" width="40%" ><font size=3></font></td>
       <td width="20%" ></td>
-      <td align="center" width="40%" ><font size=3>{{ $invoice->users->name }}</font></td>
+      <td align="center" width="40%" ><font size=3></font></td>
     </tr>
 </table>
           <br>
