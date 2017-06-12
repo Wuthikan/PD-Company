@@ -113,9 +113,10 @@
                 <a href="{{ route('invoice.signatureCheck', ['id' => $invoices->id])}}">
         					<button name="button" type="button" class="btn btn-green btn-block btn-flat">
                     @if($invoices->signager==null)
-        					ยืนยันรายการ
+        					    ยืนยันรายการ
                     @else
-                  ยกเลิกการยืนยันรายการ
+                      ยกเลิกการยืนยันรายการ
+                    @endif
                   <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
         				</a>
 
