@@ -97,14 +97,26 @@
 
     <div class="row">
         	<div class="col-xs-12 col-md-3 col-sm-4">
-        <p>
-          <a href="{{ route('invoice.edit', ['id' => $invoices->id])}}">
-  					<button name="button" type="button" class="btn btn-green btn-block btn-flat">
-  					แก้ไขใบเสนอราคา <i class="fa fa-pencil" aria-hidden="true"></i></button>
-  				</a>
-        </p>
-
-      </div>
+              <p>
+                <a href="{{ route('invoice.edit', ['id' => $invoices->id])}}">
+        					<button name="button" type="button" class="btn btn-green btn-block btn-flat">
+        					แก้ไขใบเสนอราคา <i class="fa fa-pencil" aria-hidden="true"></i></button>
+        				</a>
+              </p>
+          </div>
+          @if (Auth::guest())
+          @elseif(Auth::user()->class == 4 )
+          <div class="col-xs-12 col-md-6 col-sm-4">
+          </div>
+          <div class="col-xs-12 col-md-3 col-sm-4">
+              <p>
+                <a href="{{ route('invoice.edit', ['id' => $invoices->id])}}">
+        					<button name="button" type="button" class="btn btn-green btn-block btn-flat">
+        					ยืนยันรายการ <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+        				</a>
+              </p>
+          </div>
+        @endif
     </div>
   </div>
 </section>
