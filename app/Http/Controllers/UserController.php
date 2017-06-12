@@ -134,4 +134,8 @@ class UserController extends Controller
       Alert::success('เราได้ลบผู้ใช้แล้ว!');
       return redirect('Usermanagement');
     }
+    public function showsignature($id)
+    {
+       return view('auth.signature');
+    }
 }

@@ -16,6 +16,11 @@ Route::get('/user/edit/{id}', [
   'as'         => 'User.edit',
   'middleware' => ['auth'],
   ]);
+Route::get('/user/signature/{id}', [
+  'uses'       => 'UserController@showsignature',
+  'as'         => 'User.signature',
+  'middleware' => ['auth'],
+  ]);
 Route::resource('Usermanagement', 'UserController');
 Route::get('Usermanagement/delete/{id}', [
   'uses'       => 'UserController@destroy',

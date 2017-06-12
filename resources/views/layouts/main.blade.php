@@ -89,7 +89,7 @@
                   @if (Auth::guest())
                   @elseif(Auth::user()->class == 4 )
                   <li>
-                    <a href="{{ url('/user/edit/'.Auth::user()->id ) }} ">เพิ่มลายเซ็น</a>
+                    <a href="{{ url('/user/signature/'.Auth::user()->id ) }} ">ลายเซ็น</a>
                   </li>
                   @endif
                     <li>
