@@ -86,6 +86,12 @@
                   <li>
                     <a href="{{ url('/user/edit/'.Auth::user()->id ) }} ">แก้ไขข้อมูลส่วนตัว</a>
                   </li>
+                  @if (Auth::guest())
+                  @elseif(Auth::user()->class == 4 )
+                  <li>
+                    <a href="{{ url('/user/edit/'.Auth::user()->id ) }} ">เพิ่มลายเซ็น</a>
+                  </li>
+                  @endif
                     <li>
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
