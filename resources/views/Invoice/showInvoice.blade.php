@@ -119,8 +119,6 @@
                     @endif
                   <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
         				</a>
-
-
               </p>
           </div>
         @endif
