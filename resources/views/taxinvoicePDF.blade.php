@@ -342,9 +342,9 @@
       <td align="left" width="45%" rowspan="2" valign="bottom" ><font size=3>ผู้รับมอบอำนาจ
         <!-- @if($invoice->signature == null)
         ..............................
-        @else -->
+        @else
         <img height="55" width="200" src="{{ url({{ $invoice->users->pic_signature }}) }}" class="img-responsive">
-        <!-- @endif -->
+        @endif -->
       </font></td>
     </tr>
 </table>
