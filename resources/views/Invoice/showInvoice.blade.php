@@ -112,8 +112,7 @@
               <p>
                 <a href="{{ route('invoice.signatureCheck', ['id' => $invoices->id])}}">
         					<button name="button" type="button" class="btn btn-green btn-block btn-flat">
-                    {{$invoices->signager}}
-                    @if($invoices->signager==null)
+                    @if($invoices->signature==null)
         					    ยืนยันรายการ
                     @else
                       ยกเลิกการยืนยันรายการ
