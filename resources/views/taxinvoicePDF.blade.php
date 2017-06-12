@@ -337,9 +337,9 @@
       <br><br><br><br><br><br>
     </td></tr>
     <tr>
-      <td align="left" width="50%" ><font size=3>ผู้รับสินค้า..............................วันที่......./......./.......</font></td>
+      <td align="left" width="50%" rowspan="2" ><font size=3>ผู้รับสินค้า..............................วันที่......./......./.......</font></td>
       <td width="10%" ></td>
-      <td align="left" width="40%" ><font size=3>ผู้รับมอบอำนาจ <img height="42" width="42" src="{{ url('img/1.jpg') }}" class="img-responsive"></font></td>
+      <td align="left" width="40%" rowspan="2"  ><font size=3>ผู้รับมอบอำนาจ <img height="42" width="200" src="{{ url('img/1.jpg') }}" class="img-responsive"></font></td>
     </tr>
 </table>
 <hr>
