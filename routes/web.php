@@ -69,7 +69,11 @@ Route::get('Invoice/taxinvoice/PDF/{id}', [
     'uses'       => 'InvoiceController@taxPDF',
     'as'         => 'taxinvoice.pdf'
     ]);
-
+Route::get('/invoice/signatureCheck/{id}', [
+  'uses'       => 'InvoiceController@signatureCheck',
+  'as'         => 'invoice.signatureCheck',
+  'middleware' => ['auth'],
+  ]);
 
 
 Route::resource('concrete', 'ConcreteController');

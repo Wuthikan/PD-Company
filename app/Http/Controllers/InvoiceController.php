@@ -15,6 +15,7 @@ use App\box_concrette;
 use App\Extra_concrette;
 use Illuminate\Database\Eloquent\Model;
 use PDF;
+use Alert;
 
 class InvoiceController extends Controller
 {
@@ -165,19 +166,31 @@ class InvoiceController extends Controller
       $date = Carbon::now();
       $dateplus = $date->addDays(15);
       $others = Other::whereother($invoice->id)->get();
-
+      if($invoice->signature==null){
+          $userManager = null;
+      }else{
+        $userManager = User::find($invoice->signature);;
+      }
 
       if($invoice->type==1){
           $concrete = Concrete::whereconcrete($invoice->id)->get();
-          $pdf = PDF::loadView('taxinvoicePDF',compact ('invoice','concrete','datenow','dateplus','others'), [],['default_font' => 'Garuda']);
+          $pdf = PDF::loadView('taxinvoicePDF',compact ('invoice','concrete','datenow','dateplus','others','userManager'), [],['default_font' => 'Garuda']);
       }elseif ($invoice->type==2) {
         $concrete = box_concrette::whereboxconcrete($invoice->id)->get();
         $Extraconcrete = Extra_concrette::whereextraconcrete($invoice->id)->get();
-          $pdf = PDF::loadView('taxinvoicePDF',compact ('invoice','concrete','Extraconcrete','datenow','dateplus','others'), [],['default_font' => 'Garuda']);
+          $pdf = PDF::loadView('taxinvoicePDF',compact ('invoice','concrete','Extraconcrete','datenow','dateplus','others','userManager'), [],['default_font' => 'Garuda']);
       }
 
         return $pdf->stream('document.pdf');
 
     }
+    public function signatureCheck($id){
+      $invoice = Invoice::find($id);
+      $invoice->signature = Auth::user()->id;
+      $invoice->save();
+      session()->flash('flash_success','เซ็นใบเสนอราคาแล้ว!');
+        return back();
+    }
+
 
 }

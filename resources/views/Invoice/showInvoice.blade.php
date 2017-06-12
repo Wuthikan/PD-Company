@@ -110,7 +110,7 @@
           </div>
           <div class="col-xs-12 col-md-3 col-sm-4">
               <p>
-                <a href="{{ route('invoice.edit', ['id' => $invoices->id])}}">
+                <a href="{{ route('invoice.signatureCheck', ['id' => $invoices->id])}}">
         					<button name="button" type="button" class="btn btn-green btn-block btn-flat">
         					ยืนยันรายการ <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
         				</a>
