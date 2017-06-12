@@ -136,6 +136,12 @@ class UserController extends Controller
     }
     public function showsignature($id)
     {
-       return view('auth.signature');
+      $user = User::find($id);
+
+      return view('auth.signature', compact('user'));
+    }
+    public function updatepicture($id)
+    {
+
     }
 }
