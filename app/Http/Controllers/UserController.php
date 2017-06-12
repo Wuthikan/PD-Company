@@ -140,8 +140,8 @@ class UserController extends Controller
 
       return view('auth.signature', compact('user'));
     }
-    public function updatepicture($id)
+    public function updatepicture(Request $request)
     {
-
+        echo $request->id;
     }
 }

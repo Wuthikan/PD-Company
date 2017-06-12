@@ -27,11 +27,11 @@
                                         <div class="col-sm-6 col-md-6 col-xs-12">
                                           {!! Form::file('image',null) !!}
                                         </div>
+                                        <br>
                                         <div class="col-sm-3 col-md-3 col-xs-12">
-                                            {!! Form::submit('บันทึกลายเซน',['class'=>'btn btn-bg green btn-block']) !!}
+                                            {!! Form::submit('บันทึกลายเซ็น',['class'=>'btn btn-bg green btn-block']) !!}
                                         </div>
                                      </div>
-
                                   {!! Form::close() !!}
                                 </div>
                               </div>
