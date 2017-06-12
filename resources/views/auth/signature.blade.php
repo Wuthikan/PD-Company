@@ -21,25 +21,22 @@
                                      'action' => ['ShippingController@updatepicture', $user->id ] , 'class' => 'form-horizontal' ,'files' => true
                                      ]) !!}
                                      <div class="form-group">
-                                       <label for="inputPassword3" class="col-sm-4 col-md-4 col-xs-12 control-label">
+                                       <label for="inputPassword3" class="col-sm-2 col-md-4 col-xs-12 control-label">
                                          เพิ่มรูปภาพ
-                                      </label>
+                                       </label>
                                         <div class="col-sm-8 col-md-8 col-xs-12">
                                           {!! Form::file('image',null) !!}
                                         </div>
+                                        <div class="col-sm-2 col-md-2 col-xs-12">
+                                            {!! Form::submit('บันทึกรูปภาพลายเซ็น',['class'=>'btn btn-bg green btn-block']) !!}
+                                        </div>
                                      </div>
-                                     <div class="col-md-4 col-md-offset-8 col-sm-8 col-sm-offset-4 col-xs-9 col-xs-offset-3">
-                                         {!! Form::submit('บันทึกรูปภาพลายเซ็น',['class'=>'btn btn-bg green btn-block']) !!}
-                                     </div>
+
                                   {!! Form::close() !!}
                                 </div>
                               </div>
                           </div>
-                  <div class="col-md-1">
-                    <a href="#" onclick="goBack()">
-                      <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
-                    </a>
-                  </div>
+
                 </div>
     </div>
     <script>
