@@ -21,7 +21,7 @@
                                      'action' => ['ShippingController@updatepicture', $user->id ] , 'class' => 'form-horizontal' ,'files' => true
                                      ]) !!}
                                      <div class="form-group">
-                                       <label for="inputPassword3" class="col-sm-2 col-md-4 col-xs-12 control-label">
+                                       <label for="inputPassword3" class="col-sm-2 col-md-2 col-xs-12 control-label">
                                          เพิ่มรูปภาพ
                                        </label>
                                         <div class="col-sm-8 col-md-8 col-xs-12">
