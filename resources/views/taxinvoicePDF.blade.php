@@ -340,10 +340,10 @@
       <td align="left" width="50%" rowspan="2" valign="bottom"  ><font size=3>ผู้รับสินค้า..............................วันที่......./......./.......</font></td>
       <td width="5%" ></td>
       <td align="left" width="45%" rowspan="2" valign="bottom" ><font size=3>ผู้รับมอบอำนาจ
-        @if($invoice->signature== null)
+        @if($invoice->signature == null)
         ..............................
         @else
-        <img height="55" width="200" src="{{ url({{ $invoice->users->pic_signature }}) }}" class="img-responsive">
+        <!-- <img height="55" width="200" src="{{ url({{ $invoice->users->pic_signature }}) }}" class="img-responsive"> -->
         @endif
       </font></td>
     </tr>
