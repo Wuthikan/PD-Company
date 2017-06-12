@@ -17,10 +17,9 @@
                           <div class="container">
                               <div class="row">
                                 <div class="col-md-7 col-md-offset-2 col-sm-9 col-sm-offset-1 col-xs-12 ">
-                                  {!! Form::model($user, ['method' => 'PATCH',
+                                  {!! Form::model( ['method' => 'PATCH',
                                      'action' => ['ShippingController@updatepicture', $user->id ] ,'files' => true , 'class' => 'form-horizontal'
-                                     ]) !!}
-                                  <input type="hidden" name="id" value="{{ $user->id }}">
+                                     ]) !!}                      
                                   {{!! Form::label('image','เพิ่มรูปภาพ') !!}}
                                   {{!! Form::file('image',null) !!}}
                                   {!! Form::close() !!}
