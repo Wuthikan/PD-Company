@@ -339,7 +339,7 @@
     <tr>
       <td align="left" width="50%" rowspan="2" ><font size=3>ผู้รับสินค้า..............................วันที่......./......./.......</font></td>
       <td width="5%" ></td>
-      <td align="left" width="45%" rowspan="2"  ><font size=3>ผู้รับมอบอำนาจ <img height="80" width="200" src="{{ url('img/1.jpg') }}" class="img-responsive"></font></td>
+      <td align="left" width="45%" rowspan="2"  ><font size=3>ผู้รับมอบอำนาจ <img height="55" width="200" src="{{ url('img/user/sig.jpg') }}" class="img-responsive"></font></td>
     </tr>
 </table>
 <hr>
