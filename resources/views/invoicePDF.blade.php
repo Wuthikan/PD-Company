@@ -3,103 +3,209 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Language" content="th">
-     <meta http-equiv="Content-Type" content="text/html; charset=TIS-620" />
+    <meta http-equiv="Content-Type" content="text/html; charset=TIS-620" />
     <meta http-equiv="content-Type" content="text/html; charset=window-874">
-<?php    header('Content-Type: application/pdf'); ?>
-
+      <?php    header('Content-Type: application/pdf'); ?>
   </head>
-
-
                 <table width="100%">
                   <tr>
-                    <td align="left"><font size=3><strong>ห้างหุ้นส่วนจำกัด พี ดี คอนกรีต</strong></font></td>
+                    <td align="left">
+                      <font size=3>
+                        <strong>
+                          ห้างหุ้นส่วนจำกัด พี ดี คอนกรีต
+                        </strong>
+                      </font>
+                    </td>
                   </tr>
                   <tr>
-                    <td align="left"><font size=3>523/1 หมู่ 15 ต.บ่อแอ่ว อ.เมืองลำปาง จ.ลำปาง 52100</font></td>
+                    <td align="left">
+                      <font size=3>
+                        523/1 หมู่ 15 ต.บ่อแอ่ว อ.เมืองลำปาง จ.ลำปาง 52100
+                      </font>
+                    </td>
                   </tr>
                   <tr>
-                    <td align="left"><font size=3>Tel/Fax: 0 5482 4264, 0 5482 4266</font></td>
-                    <td align="right"><font size=5><strong>ใบเสนอราคา</strong></font></td>
+                    <td align="left">
+                      <font size=3>
+                        Tel/Fax: 0 5482 4264, 0 5482 4266
+                      </font>
+                    </td>
+                    <td align="right">
+                      <font size=5>
+                        <strong>
+                          ใบเสนอราคา
+                        </strong>
+                      </font>
+                    </td>
                   </tr>
                 </table>
               <br>
-<table width="100%"  align="center">
-    <tr>
-        <td align="left" width="7%" ><font size=3>ถึง </font></td>
-      <td align="left"><font size=3>
-      @if (!$invoice->customers->name==null) {{ $invoice->customers->name }}
-      @endif
-    </font></td>
-      <td align="right"><font size=3>เลขที่ใบเสนอราคา</font></td>
-        <td  width="5%" ><font size=3> </font></td>
-      <td align="left"  width="20%"><font size=3>QT{{ $invoice->code }}</font></td>
-    </tr>
-    @if (!$invoice->customers->company==null)
-    <tr>
-        <td align="left" width="7%" ><font size=3>บริษัท </font></td>
-      <td align="left"><font size=3> {{ $invoice->customers->company }}</font></td>
-    </tr>
-    @endif
-    <tr>
-        <td align="left" width="7%" ><font size=3>ที่อยู่ </font></td>
-      <td align="left"><font size=3>
-        @if (!$invoice->customers->address==null)
-        {{ $invoice->customers->address }}
-        @endif
-      </font></td>
-    </tr>
-    <tr>
-        <td align="left" width="7%" ><font size=3></font></td>
-      <td align="left"><font size=3>
-        @if (!$invoice->customers->city==null)
-        อ.{{ $invoice->customers->city}}
-        @endif
-          @if (!$invoice->customers->province==null)
-        จ.{{ $invoice->customers->province}}
-        @endif
-      </font></td>
-      <td align="right"><font size=3>วันที่</font></td>
-        <td  width="5%" ><font size=3> </font></td>
-      <td align="left"  width="20%"><font size=3>
-        {{ $datenow->formatLocalized('%d/%m/%Y') }}
-      </font></td>
-    </tr>
-    <tr>
-        <td align="left" width="7%" ><font size=3></font></td>
-      <td align="left"><font size=3>
-          @if (!$invoice->customers->zipcode==null)
-        {{ $invoice->customers->zipcode}}
-        @endif
-      </font></td>
-    </tr>
-    <tr>
-        <td align="left" width="7%" ><font size=3>โทร.</font></td>
-      <td align="left"><font size=3>
-        @if (!$invoice->customers->tel==null)
-        {{ $invoice->customers->tel}}
-        @endif
-        @if (!$invoice->customers->fax==null)
-        fax.{{ $invoice->customers->fax}}
-        @endif
-      </font></td>
-      <td align="right"><font size=3>ยืนราคา  15 วัน</font></td>
-        <td  width="5%" ><font size=3> </font></td>
-      <td align="left"  width="20%"><font size=3>ถึงวันที่ {{ $dateplus->formatLocalized('%d/%m/%Y' )}}</font></td>
-    </tr>
-    <tr>
-        <td align="left" width="7%" ><font size=3>อ้างอิง</font></td>
-      <td align="left"><font size=3>
-        @if (!$invoice->customers->reference==null)
-         {{ $invoice->customers->reference}}
-         @endif
-       </font></td>
-      <td align="right"><font size=3>เงื่อนไขชำระเงิน</font></td>
-        <td  width="5%" ><font size=3> </font></td>
-      <td align="left"  width="20%"><font size=3>15 วัน หลังส่งมอบ</font></td>
-    </tr>
-</table>
-<p><font size=3>บริษัท มีความยินดีที่จะเสนอราคาสินค้า ดังต่อไปนี้ :</font></p>
-<hr>
+          <table width="100%"  align="center">
+            <tr>
+              <td align="left" width="7%" >
+                <font size=3>
+                  ถึง
+                </font>
+              </td>
+              <td align="left">
+                <font size=3>
+                  @if (!$invoice->customers->name==null) {{ $invoice->customers->name }}
+                  @endif
+                </font>
+              </td>
+              <td align="right">
+                <font size=3>
+                  เลขที่ใบเสนอราคา
+                </font>
+              </td>
+              <td  width="5%" >
+                <font size=3>
+                </font>
+              </td>
+              <td align="left"  width="20%">
+                <font size=3>
+                  QT{{ $invoice->code }}
+                </font>
+              </td>
+            </tr>
+              @if (!$invoice->customers->company==null)
+              <tr>
+                <td align="left" width="7%" >
+                  <font size=3>
+                    บริษัท
+                  </font>
+                </td>
+                <td align="left">
+                  <font size=3>
+                    {{ $invoice->customers->company }}
+                  </font>
+                </td>
+              </tr>
+              @endif
+              <tr>
+                <td align="left" width="7%" >
+                  <font size=3>
+                    ที่อยู่
+                  </font>
+                </td>
+                <td align="left">
+                  <font size=3>
+                    @if (!$invoice->customers->address==null)
+                    {{ $invoice->customers->address }}
+                    @endif
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td align="left" width="7%" >
+                  <font size=3>
+                  </font>
+                </td>
+                <td align="left">
+                  <font size=3>
+                    @if (!$invoice->customers->city==null)
+                    อ.{{ $invoice->customers->city}}
+                    @endif
+                    @if (!$invoice->customers->province==null)
+                    จ.{{ $invoice->customers->province}}
+                    @endif
+                  </font>
+                </td>
+                <td align="right">
+                  <font size=3>
+                    วันที่
+                  </font>
+                </td>
+                <td  width="5%" >
+                  <font size=3>
+                  </font>
+                </td>
+                <td align="left"  width="20%">
+                  <font size=3>
+                    {{ $datenow->formatLocalized('%d/%m/%Y') }}
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td align="left" width="7%" >
+                  <font size=3>
+                  </font>
+                </td>
+                <td align="left">
+                  <font size=3>
+                    @if (!$invoice->customers->zipcode==null)
+                    {{ $invoice->customers->zipcode}}
+                    @endif
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td align="left" width="7%" >
+                  <font size=3>
+                    โทร.
+                  </font>
+                </td>
+                <td align="left">
+                  <font size=3>
+                    @if (!$invoice->customers->tel==null)
+                    {{ $invoice->customers->tel}}
+                    @endif
+                    @if (!$invoice->customers->fax==null)
+                    fax.{{ $invoice->customers->fax}}
+                    @endif
+                  </font>
+                </td>
+                <td align="right">
+                  <font size=3>
+                    ยืนราคา  15 วัน
+                  </font>
+                </td>
+                <td  width="5%" >
+                  <font size=3>
+                  </font>
+                </td>
+                <td align="left"  width="20%">
+                  <font size=3>
+                    ถึงวันที่ {{ $dateplus->formatLocalized('%d/%m/%Y' )}}
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td align="left" width="7%" >
+                  onload=""
+                  <font size=3>
+                    อ้างอิง
+                  </font>
+                </td>
+                <td align="left">
+                  <font size=3>
+                    @if (!$invoice->customers->reference==null)
+                    {{ $invoice->customers->reference}}
+                    @endif
+                  </font>
+                </td>
+                <td align="right">
+                  <font size=3>
+                    เงื่อนไขชำระเงิน
+                  </font>
+                </td>
+                <td  width="5%" >
+                  <font size=3>
+                  </font>
+                </td>
+                <td align="left"  width="20%">
+                  <font size=3>
+                    15 วัน หลังส่งมอบ
+                  </font>
+                </td>
+              </tr>
+            </table>
+            <p>
+              <font size=3>
+                บริษัท มีความยินดีที่จะเสนอราคาสินค้า ดังต่อไปนี้ :
+              </font>
+            </p>
+            <hr>
                 <table width="100%" frame="void"  border="0" hight="100%" cellpadding="6">
                     <thead>
                         <tr>
